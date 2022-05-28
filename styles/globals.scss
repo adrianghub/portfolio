@@ -11,6 +11,7 @@
 // #3D3D3D - onyx
 
 $primary_color: #f6f5de;
+$secondary_color: #db2777;
 $primary_font: "Montserrat", sans-serif;
 
 * {
@@ -63,7 +64,7 @@ a {
 }
 
 .post-card-wrapper:hover h1 {
-  color: #db2777;
+  color: $secondary_color;
   transition: 0.2s;
 }
 
@@ -96,4 +97,18 @@ a {
 
 .search-input {
   font-size: 1.2em;
+}
+
+.related-post a {
+  background-image: linear-gradient($secondary_color, $secondary_color);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 0% 3px;
+  transition: background-size 0.3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-size: 100% 3px;
+    color: inherit;
+  }
 }

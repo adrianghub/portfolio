@@ -14,7 +14,7 @@ const Header = () => {
         <div className="hidden sm:block py-4">
           <Link href="/">
             <span className="cursor-pointer font-bold sm:text-2xl lg:text-5xl">
-              Software Developer | Blog
+              Software Paradigm | Blog
             </span>
           </Link>
         </div>

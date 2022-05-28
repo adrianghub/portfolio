@@ -61,9 +61,10 @@ const IndexPage: NextPage<IndexProps> = ({ posts }) => {
           <Posts posts={data?.postsConnection?.edges!} />
           <div className="lg:col-span-4 col-span-1">
             <div className="lg:sticky relative top-8">
+              <AboutWidget />
+
               <PostWidget />
               <Categories />
-              <AboutWidget />
             </div>
           </div>
         </div>

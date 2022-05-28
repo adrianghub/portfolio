@@ -40,7 +40,7 @@ export const getRecentPosts = async () => {
     query GeRecentDetails() {
       posts(
       orderBy: createdAt_ASC
-      last: 3
+      last: 2
     ) {
       title
       createdAt
@@ -61,7 +61,7 @@ export const getSimilarPosts = async () => {
           slug_not: $slug
           AND: { categories_some: { slug_in: $categories } }
         }
-        last: 3
+        last: 2
       ) {
         title
         createdAt

@@ -30,7 +30,7 @@ const PostWidget = ({ categories, slug }: Partial<PostWidgetProps>) => {
       </h3>
       {relatedPosts &&
         relatedPosts.map((post) => (
-          <div key={post.title} className="flex items-center w-full mb-4">
+          <div key={post.title} className="flex items-center w-full mb-4 related-post">
             <div className="flex-grow">
               <p className="text-gray-500 font-xs">
                 {moment(post.createdAt).format("MMMM DD, YYYY")}

@@ -1,6 +1,6 @@
 import Link from "next/link";
 import moment from "moment";
-import { PostDTO } from "pages";
+import { PostDTO } from "interfaces";
 
 interface PostCardProps {
   post: PostDTO;
