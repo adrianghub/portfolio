@@ -6,21 +6,9 @@ import { Params } from "next/dist/server/router";
 import { useSearchContext } from "hooks/useSearchContext";
 import request from "graphql-request";
 import useSWR from "swr";
+import PostWidget from "components/PostWidget";
+import { NodeDTO } from "interfaces";
 
-interface AuthorDTO {
-  name: string;
-  avatar: { url: string };
-}
-export interface PostDTO {
-  id: string;
-  title: string;
-  slug: string;
-  author: AuthorDTO;
-  createdAt: string;
-}
-interface NodeDTO {
-  node: PostDTO;
-}
 interface IndexProps {
   posts: { postsConnection: { edges: NodeDTO[] } };
 }
@@ -73,8 +61,9 @@ const IndexPage: NextPage<IndexProps> = ({ posts }) => {
           <Posts posts={data?.postsConnection?.edges!} />
           <div className="lg:col-span-4 col-span-1">
             <div className="lg:sticky relative top-8">
-              <AboutWidget />
+              <PostWidget />
               <Categories />
+              <AboutWidget />
             </div>
           </div>
         </div>
