@@ -5,6 +5,8 @@ export { default as AboutWidget } from "./AboutWidget";
 export { default as PostWidget } from "./PostWidget";
 export { default as Categories } from "./Categories";
 export { default as Sidebar } from "./Sidebar";
+export { default as PostAuthor } from "./PostAuthor";
+export { default as PostDate } from "./PostDate";
 export { default as PostDetail } from "./PostDetail";
 export { default as Comments } from "./Comments";
 export { default as CommentsForm } from "./CommentsForm";

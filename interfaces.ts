@@ -1,3 +1,5 @@
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
+
 export interface NodeDTO {
   node: PostDTO;
 }
@@ -8,6 +10,7 @@ export interface PostDTO {
   slug: string;
   author: AuthorDTO;
   createdAt: string;
+  content: string | MDXRemoteSerializeResult<Record<string, unknown>>;
   categories: PostCategories[];
 }
 
