@@ -4,7 +4,7 @@ const graphcmsAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || "";
 
 export const getPosts = async () => {
   const query = gql`
-    query GePostDetails {
+    query GePosts {
       postsConnection {
         edges {
           node {
@@ -35,12 +35,42 @@ export const getPosts = async () => {
   return result.postsConnection.edges;
 };
 
+export const getPostDetails = async (slug: string) => {
+  const query = gql`
+    query GePostDetails($slug: String!) {
+      post(where: { slug: $slug }) {
+        id
+        author {
+          bio
+          name
+          id
+          avatar {
+            url
+          }
+          createdAt
+        }
+        slug
+        title
+        categories {
+          name
+          slug
+          id
+        }
+        content
+      }
+    }
+  `;
+
+  const result = await request(graphcmsAPI, query, { slug });
+  return result.post;
+};
+
 export const getRecentPosts = async () => {
   const query = gql`
-    query GeRecentDetails() {
+    query GeRecentPosts() {
       posts(
       orderBy: createdAt_ASC
-      last: 2
+      last: 3
     ) {
       title
       createdAt
@@ -53,7 +83,10 @@ export const getRecentPosts = async () => {
   return result.posts;
 };
 
-export const getSimilarPosts = async () => {
+export const getSimilarPosts = async (
+  slug: string,
+  categoriesSlugs: string[]
+) => {
   const query = gql`
     query GetSimilarPosts($slug: String!, $categories: [String!]) {
       posts(
@@ -61,7 +94,7 @@ export const getSimilarPosts = async () => {
           slug_not: $slug
           AND: { categories_some: { slug_in: $categories } }
         }
-        last: 2
+        last: 3
       ) {
         title
         createdAt
@@ -70,7 +103,7 @@ export const getSimilarPosts = async () => {
     }
   `;
 
-  const result = await request(graphcmsAPI, query);
+  const result = await request(graphcmsAPI, query, { slug, categoriesSlugs });
   return result.posts;
 };
 

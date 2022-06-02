@@ -1,13 +1,13 @@
 import Head from "next/head";
-import { AboutWidget, Categories, Posts } from "components";
+import { Posts } from "components";
 import type { GetStaticProps, NextPage } from "next";
 import { getPosts } from "services";
 import { Params } from "next/dist/server/router";
 import { useSearchContext } from "hooks/useSearchContext";
 import request from "graphql-request";
 import useSWR from "swr";
-import PostWidget from "components/PostWidget";
 import { NodeDTO } from "interfaces";
+import Sidebar from "components/Sidebar";
 
 interface IndexProps {
   posts: { postsConnection: { edges: NodeDTO[] } };
@@ -59,13 +59,8 @@ const IndexPage: NextPage<IndexProps> = ({ posts }) => {
         </Head>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           <Posts posts={data?.postsConnection?.edges!} />
-          <div className="lg:col-span-4 col-span-1">
-            <div className="lg:sticky relative top-8">
-              <AboutWidget />
-
-              <PostWidget />
-              <Categories />
-            </div>
+          <div className="col-span-1 lg:col-span-4 relative lg:sticky top-0 h-screen">
+            <Sidebar />
           </div>
         </div>
       </div>
@@ -76,7 +71,7 @@ const IndexPage: NextPage<IndexProps> = ({ posts }) => {
 export default IndexPage;
 
 export const getStaticProps: GetStaticProps<IndexProps, Params> = async () => {
-  const posts = await getPosts();
+  const posts = (await getPosts()) || [];
 
   return {
     props: {
