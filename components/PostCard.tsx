@@ -24,6 +24,13 @@ const PostCard = ({ post }: PostCardProps) => (
             />
             <PostDate createdAt={post.createdAt} />
           </div>
+          <div className="text-left md:text-right mt-4 md:mt-0">
+            {post.categories.map((category) => (
+              <p className="inline align-middle text-gray-700 ml-2 text-sm md:text-lg">
+                {category.name}
+              </p>
+            ))}
+          </div>
         </div>
       </div>
     </div>

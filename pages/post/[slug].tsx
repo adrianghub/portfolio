@@ -1,10 +1,10 @@
 import { GetStaticProps, GetStaticPaths, NextPage } from "next/types";
 import { Params } from "next/dist/server/router";
 import { serialize } from "next-mdx-remote/serialize";
+import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { PostDetail, CommentsForm, Comments, Sidebar } from "components";
 import { NodeDTO, PostDTO } from "interfaces";
 import { getPostDetails, getPosts } from "services";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 
 interface PostDetailsProps {
   post: PostDTO;
@@ -27,7 +27,7 @@ const PostDetails: NextPage<PostDetailsProps> = ({ post }) => (
         <CommentsForm />
         <Comments />
       </div>
-      <div className="col-span-1 lg:col-span-4 relative lg:sticky top-0 h-screen">
+      <div className="col-span-1 lg:col-span-4 relative lg:sticky top-2 h-screen">
         <Sidebar
           slug={post.slug}
           categoriesSlugs={post.categories.map((category) => category.slug)}

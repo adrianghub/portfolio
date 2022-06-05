@@ -1,7 +1,8 @@
+import { useRouter } from "next/router";
 import { createContext, ReactNode, useState } from "react";
 
 interface SearchContextProps {
-  searchValue: string;
+  searchValue: string[] | string;
   setSearchValue: (evt: any) => void;
 }
 
@@ -14,7 +15,9 @@ export const SearchContext = createContext<SearchContextProps | undefined>(
 );
 
 export const SearchProvider = ({ children }: SearchProviderProps) => {
-  const [searchValue, setSearchValue] = useState("");
+  const router = useRouter();
+
+  const [searchValue, setSearchValue] = useState(router.query.q || "");
 
   return (
     <SearchContext.Provider value={{ searchValue, setSearchValue }}>

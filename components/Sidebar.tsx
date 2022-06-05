@@ -7,7 +7,7 @@ interface SidebarProps {
   categoriesSlugs: string[];
 }
 
-const Sidebar = ({ slug, categoriesSlugs }: SidebarProps) => (
+const Sidebar = ({ slug, categoriesSlugs }: Partial<SidebarProps>) => (
   <div className="shadow-lg rounded-lg px-8 pt-8 pb-4">
     <AboutWidget />
     <PostWidget slug={slug} categoriesSlugs={categoriesSlugs} />

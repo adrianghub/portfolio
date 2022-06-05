@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { SearchContext } from "../lib/SearchContext";
+import { SearchContext } from "lib/SearchContext";
 
 export const useSearchContext = () => {
   const context = useContext(SearchContext);
   if (context === undefined) {
-    throw new Error("useCount must be used within a CountProvider");
+    throw new Error("useSearchContext must be used within a SearchProvider");
   }
 
   return context;

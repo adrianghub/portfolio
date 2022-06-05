@@ -10,8 +10,12 @@ export interface PostsProps {
 
 const Posts = ({ posts }: PostsProps) => (
   <div className="lg:col-span-8 col-span-1">
-    {posts &&
-      posts.map(({ node: post }) => <PostCard key={post.id} post={post} />)}
+    {posts.map(({ node: post }) => (
+      <>
+        <PostCard key={post.id} post={post} />
+        <PostCard key={post.id} post={post} />
+      </>
+    ))}
   </div>
 );
 

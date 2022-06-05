@@ -5,7 +5,7 @@ const graphcmsAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || "";
 export const getPosts = async () => {
   const query = gql`
     query GePosts {
-      postsConnection {
+      postsConnection(orderBy: createdAt_DESC) {
         edges {
           node {
             id
@@ -16,8 +16,8 @@ export const getPosts = async () => {
               avatar {
                 url
               }
-              createdAt
             }
+            createdAt
             slug
             title
             categories {
@@ -47,8 +47,8 @@ export const getPostDetails = async (slug: string) => {
           avatar {
             url
           }
-          createdAt
         }
+        createdAt
         slug
         title
         categories {
@@ -69,8 +69,8 @@ export const getRecentPosts = async () => {
   const query = gql`
     query GeRecentPosts() {
       posts(
-      orderBy: createdAt_ASC
-      last: 3
+      orderBy: createdAt_DESC
+      first: 2
     ) {
       title
       createdAt
@@ -94,7 +94,8 @@ export const getSimilarPosts = async (
           slug_not: $slug
           AND: { categories_some: { slug_in: $categories } }
         }
-        last: 3
+        orderBy: createdAt_DESC
+        first: 2
       ) {
         title
         createdAt
@@ -103,7 +104,11 @@ export const getSimilarPosts = async (
     }
   `;
 
-  const result = await request(graphcmsAPI, query, { slug, categoriesSlugs });
+  const result = await request(graphcmsAPI, query, {
+    slug,
+    categories: categoriesSlugs,
+  });
+
   return result.posts;
 };
 
