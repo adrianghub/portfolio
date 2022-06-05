@@ -1,8 +1,8 @@
-import { createContext, ReactNode } from "react";
-import request from "graphql-request";
-import useSWR from "swr";
-import { NodeDTO } from "interfaces";
-import { useSearchContext } from "hooks/useSearchContext";
+import { createContext, ReactNode } from 'react';
+import request from 'graphql-request';
+import useSWR from 'swr';
+import { NodeDTO } from 'interfaces';
+import { useSearchContext } from 'hooks/useSearchContext';
 
 interface PostsContextProps {
   posts: NodeDTO[] | undefined;
@@ -21,7 +21,7 @@ export const PostsProvider = ({ children }: PostsProviderProps) => {
 
   const { data } = useSWR(
     [
-      process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || "",
+      process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || '',
       `query PostQuery($searchValue: String) {
         postsConnection(orderBy: createdAt_DESC, where: {title_contains: $searchValue}) {
           edges {
@@ -48,7 +48,7 @@ export const PostsProvider = ({ children }: PostsProviderProps) => {
         }
       }
     `,
-      searchValue,
+      searchValue
     ],
     (endpoint, query) => request(endpoint, query, { searchValue }),
     { revalidateOnFocus: true }

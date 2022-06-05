@@ -1,8 +1,8 @@
-import { PostDTO } from "interfaces";
-import moment from "moment";
-import Link from "next/link";
-import { useState, useEffect } from "react";
-import { getRecentPosts, getSimilarPosts } from "services";
+import { PostDTO } from 'interfaces';
+import moment from 'moment';
+import Link from 'next/link';
+import { useState, useEffect } from 'react';
+import { getRecentPosts, getSimilarPosts } from 'services';
 
 interface PostWidgetProps {
   categoriesSlugs: string[];
@@ -26,7 +26,7 @@ const PostWidget = ({ categoriesSlugs, slug }: Partial<PostWidgetProps>) => {
   return (
     <div className="py-8">
       <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
-        {slug ? "Related Posts" : "Recent Posts"}
+        {slug ? 'Related Posts' : 'Recent Posts'}
       </h3>
       {relatedPosts &&
         relatedPosts.map((post) => (
@@ -36,7 +36,7 @@ const PostWidget = ({ categoriesSlugs, slug }: Partial<PostWidgetProps>) => {
           >
             <div className="flex-grow">
               <p className="text-gray-500 font-xs">
-                {moment(post.createdAt).format("MMMM DD, YYYY")}
+                {moment(post.createdAt).format('MMMM DD, YYYY')}
               </p>
               <Link className="text-md" href={`/post/${post.slug}`}>
                 {post.title}

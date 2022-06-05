@@ -1,17 +1,14 @@
-import Head from "next/head";
-import { Posts } from "components";
-import type { GetStaticProps, NextPage } from "next";
-import Sidebar from "components/Sidebar";
-import { NodeDTO } from "interfaces";
-import { Params } from "next/dist/server/router";
-import { getPosts } from "services";
+import Head from 'next/head';
+import { Posts } from 'components';
+import type { GetStaticProps, NextPage } from 'next';
+import Sidebar from 'components/Sidebar';
+import { NodeDTO } from 'interfaces';
+import { Params } from 'next/dist/server/router';
+import { getPosts } from 'services';
 
 interface IndexProps {
   posts: NodeDTO[];
 }
-
-
-
 
 const IndexPage: NextPage<IndexProps> = ({ posts }) => (
   <div className="container mx-auto px-10 mb-8">
@@ -34,7 +31,7 @@ export const getStaticProps: GetStaticProps<IndexProps, Params> = async () => {
 
   return {
     props: {
-      posts,
-    },
+      posts
+    }
   };
 };

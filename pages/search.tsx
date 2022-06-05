@@ -1,10 +1,10 @@
-import Head from "next/head";
-import { Posts } from "components";
-import type { NextPage } from "next";
-import Sidebar from "components/Sidebar";
-import { usePostsContext } from "hooks/usePostsContext";
-import { useSearchContext } from "hooks/useSearchContext";
-import SearchBar from "components/SearchBar";
+import Head from 'next/head';
+import { Posts } from 'components';
+import type { NextPage } from 'next';
+import Sidebar from 'components/Sidebar';
+import { usePostsContext } from 'hooks/usePostsContext';
+import { useSearchContext } from 'hooks/useSearchContext';
+import SearchBar from 'components/SearchBar';
 
 const IndexPage: NextPage = () => {
   const { posts } = usePostsContext();
@@ -22,7 +22,7 @@ const IndexPage: NextPage = () => {
             Results for query : <b>{searchValue}</b>
           </>
         ) : (
-          "All Posts"
+          'All Posts'
         )}
       </h2>
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">

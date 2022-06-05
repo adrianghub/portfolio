@@ -1,6 +1,6 @@
-import AboutWidget from "./AboutWidget";
-import Categories from "./Categories";
-import PostWidget from "./PostWidget";
+import AboutWidget from './AboutWidget';
+import Categories from './Categories';
+import PostWidget from './PostWidget';
 
 interface SidebarProps {
   slug: string;

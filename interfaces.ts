@@ -1,4 +1,4 @@
-import { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 export interface NodeDTO {
   node: PostDTO;

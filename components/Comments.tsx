@@ -1,6 +1,3 @@
-
-const Comments = () => (
-  <div>Comments</div>  
-);
+const Comments = () => <div>Comments</div>;
 
 export default Comments;

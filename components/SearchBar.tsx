@@ -1,9 +1,9 @@
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
-import { AiOutlineClose } from "react-icons/ai";
-import { BsSearch } from "react-icons/bs";
-import { usePostsContext } from "hooks/usePostsContext";
-import { useSearchContext } from "hooks/useSearchContext";
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
+import { AiOutlineClose } from 'react-icons/ai';
+import { BsSearch } from 'react-icons/bs';
+import { usePostsContext } from 'hooks/usePostsContext';
+import { useSearchContext } from 'hooks/useSearchContext';
 
 const SearchBar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -18,27 +18,27 @@ const SearchBar = () => {
   };
 
   useEffect(() => {
-    if (router.pathname === "/") {
-      setSearchValue("");
+    if (router.pathname === '/') {
+      setSearchValue('');
       setShowSearchBar(false);
     }
 
-    if (router.pathname === "/search") {
+    if (router.pathname === '/search') {
       setShowSearchBar(true);
     }
   }, [router.pathname]);
 
-  const isSearchPath = router.pathname === "/search";
+  const isSearchPath = router.pathname === '/search';
 
   return (
     <div
       className={`flex ${
         isSearchPath && showSearchBar
-          ? "w-full"
+          ? 'w-full'
           : showSearchBar
-          ? "w-full md:w-1/2 lg:w-1/3"
-          : ""
-      } ${isSearchPath ? "mb-8" : ""}`}
+          ? 'w-full md:w-1/2 lg:w-1/3'
+          : ''
+      } ${isSearchPath ? 'mb-8' : ''}`}
     >
       <button
         disabled={isSearchPath}
@@ -46,7 +46,7 @@ const SearchBar = () => {
       >
         <BsSearch
           className={`search-icon mt-4 md:mt-0 ${
-            showSearchBar ? "mr-4" : "mr-0"
+            showSearchBar ? 'mr-4' : 'mr-0'
           }`}
         />
       </button>
@@ -60,7 +60,7 @@ const SearchBar = () => {
           />
           {searchValue && (
             <>
-              <button onClick={() => setSearchValue("")}>
+              <button onClick={() => setSearchValue('')}>
                 <AiOutlineClose className="close-icon" />
               </button>
               {!isSearchPath && (

@@ -1,10 +1,10 @@
-import { GetStaticProps, GetStaticPaths, NextPage } from "next/types";
-import { Params } from "next/dist/server/router";
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { PostDetail, CommentsForm, Comments, Sidebar } from "components";
-import { NodeDTO, PostDTO } from "interfaces";
-import { getPostDetails, getPosts } from "services";
+import { GetStaticProps, GetStaticPaths, NextPage } from 'next/types';
+import { Params } from 'next/dist/server/router';
+import { serialize } from 'next-mdx-remote/serialize';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { PostDetail, CommentsForm, Comments, Sidebar } from 'components';
+import { NodeDTO, PostDTO } from 'interfaces';
+import { getPostDetails, getPosts } from 'services';
 
 interface PostDetailsProps {
   post: PostDTO;
@@ -40,7 +40,7 @@ const PostDetails: NextPage<PostDetailsProps> = ({ post }) => (
 export default PostDetails;
 
 export const getStaticProps: GetStaticProps<PostDetailsProps, Params> = async ({
-  params,
+  params
 }) => {
   const post: PostDTO = await getPostDetails(params?.slug);
 
@@ -51,9 +51,9 @@ export const getStaticProps: GetStaticProps<PostDetailsProps, Params> = async ({
     props: {
       post: {
         ...post,
-        content: markdown,
-      },
-    },
+        content: markdown
+      }
+    }
   };
 };
 
@@ -62,6 +62,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   return {
     paths: posts.map(({ node: { slug } }: NodeDTO) => ({ params: { slug } })),
-    fallback: false,
+    fallback: false
   };
 };

@@ -1,5 +1,5 @@
-import { PostDTO } from "interfaces";
-import PostCard from "./PostCard";
+import { PostDTO } from 'interfaces';
+import PostCard from './PostCard';
 
 interface NodeDTO {
   node: PostDTO;

@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-import { getCategories } from "services";
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
+import { getCategories } from 'services';
 
 const Categories = () => {
   const [categories, setCategories] = useState<
     { name: string; slug: string }[] | undefined
   >();
-  const [selectedCategory, setSelectedCategory] = useState<string>("");
+  const [selectedCategory, setSelectedCategory] = useState<string>('');
   const router = useRouter();
 
   useEffect(() => {
@@ -14,12 +14,12 @@ const Categories = () => {
   }, []);
 
   useEffect(() => {
-    if (selectedCategory && selectedCategory !== "All") {
+    if (selectedCategory && selectedCategory !== 'All') {
       router.push(`/category/${selectedCategory}`);
     }
 
-    if (selectedCategory === "All") {
-      router.push("/");
+    if (selectedCategory === 'All') {
+      router.push('/');
     }
   }, [selectedCategory]);
 
@@ -31,7 +31,7 @@ const Categories = () => {
       <select
         className="form-select form-select-lg appearance-none w-full px-4 py-2 border border-solid rounded focus:outline-none"
         onChange={(e) => setSelectedCategory(e.target.value)}
-        defaultValue={"All"}
+        defaultValue={'All'}
       >
         <option disabled>All</option>
         {categories?.map((category) => (

@@ -1,6 +1,6 @@
-import { request, gql } from "graphql-request";
+import { request, gql } from 'graphql-request';
 
-const graphcmsAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || "";
+const graphcmsAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || '';
 
 export const getPosts = async () => {
   const query = gql`
@@ -106,7 +106,7 @@ export const getSimilarPosts = async (
 
   const result = await request(graphcmsAPI, query, {
     slug,
-    categories: categoriesSlugs,
+    categories: categoriesSlugs
   });
 
   return result.posts;

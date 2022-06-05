@@ -1,6 +1,6 @@
-import Link from "next/link";
-import { useRouter } from "next/router";
-import SearchBar from "./SearchBar";
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import SearchBar from './SearchBar';
 
 const Header = () => {
   const router = useRouter();
@@ -15,7 +15,7 @@ const Header = () => {
             </span>
           </Link>
         </div>
-        {router.pathname !== "/search" && <SearchBar />}
+        {router.pathname !== '/search' && <SearchBar />}
       </div>
     </div>
   );

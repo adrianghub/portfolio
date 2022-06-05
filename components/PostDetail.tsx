@@ -1,6 +1,6 @@
-import { PostDTO } from "interfaces";
-import PostDate from "./PostDate";
-import PostAuthor from "./PostAuthor";
+import { PostDTO } from 'interfaces';
+import PostDate from './PostDate';
+import PostAuthor from './PostAuthor';
 
 interface PostDetailProps {
   post: PostDTO;

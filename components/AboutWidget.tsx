@@ -2,8 +2,8 @@ import {
   RiGithubFill,
   RiLinkedinBoxLine,
   RiInstagramLine,
-  RiTwitterLine,
-} from "react-icons/ri";
+  RiTwitterLine
+} from 'react-icons/ri';
 
 const AboutWidget = () => (
   <div className="pt-4 pb-8">
@@ -11,7 +11,7 @@ const AboutWidget = () => (
       About Me
     </h3>
     <p className="text-md pb-8">
-      I do some web stuff primarly using JS. Currently{" "}
+      I do some web stuff primarly using JS. Currently
       <a href="https://boldare.com" target="_blank" rel="norefferer">
         @Boldare
       </a>
