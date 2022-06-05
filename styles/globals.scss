@@ -10,7 +10,7 @@
 // #ff595e - red salsa
 // #3D3D3D - onyx
 
-$primary_color: #f6f5de;
+$primary_color: #ede4da;
 $secondary_color: #db2777;
 $primary_font: "Montserrat", sans-serif;
 
@@ -42,9 +42,29 @@ body {
   color: $primary_color;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+b,
 a {
-  color: inherit;
+  color: #6f4c5b;
+}
+
+a {
   text-decoration: none;
+  background-image: linear-gradient($secondary_color, $secondary_color);
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  background-size: 0% 3px;
+  transition: background-size 0.3s ease-in-out;
+
+  &:hover,
+  &:focus {
+    background-size: 100% 3px;
+  }
 }
 
 .text-shadow {
@@ -97,18 +117,4 @@ a {
 
 .search-input {
   font-size: 1.2em;
-}
-
-.related-post a {
-  background-image: linear-gradient($secondary_color, $secondary_color);
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  background-size: 0% 3px;
-  transition: background-size 0.3s ease-in-out;
-
-  &:hover,
-  &:focus {
-    background-size: 100% 3px;
-    color: inherit;
-  }
 }
