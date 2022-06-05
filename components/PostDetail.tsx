@@ -1,4 +1,3 @@
-import { MDXRemote } from "next-mdx-remote";
 import { PostDTO } from "interfaces";
 import PostDate from "./PostDate";
 import PostAuthor from "./PostAuthor";
