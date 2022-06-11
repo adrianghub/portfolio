@@ -4,6 +4,8 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
 import { usePostsContext } from 'hooks/usePostsContext';
 import { useSearchContext } from 'hooks/useSearchContext';
+import Input from './Input';
+import Button from './Button';
 
 const SearchBar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -13,7 +15,7 @@ const SearchBar = () => {
 
   const redirectToQueryResults = () => {
     if (searchValue) {
-      router.push(`/search?q=${searchValue}`);
+      void router.push(`/search?q=${searchValue}`);
     }
   };
 
@@ -52,11 +54,12 @@ const SearchBar = () => {
       </button>
       {showSearchBar && (
         <div className={`w-full relative`}>
-          <input
-            className="w-full mt-4 md:mt-0 px-4 py-3 search-input outline-none focus:border-2"
+          <Input
+            name="search"
+            additionalClasses="mt-4 md:mt-0 px-4 py-3 search-input"
             placeholder="Type search query..."
             value={searchValue}
-            onChange={(evt) => setSearchValue(evt.target.value)}
+            onChangeInput={(evt) => setSearchValue(evt.target.value)}
           />
           {searchValue && (
             <>
@@ -68,10 +71,10 @@ const SearchBar = () => {
                   {posts?.slice(0, 2).map((post) => (
                     <li key={post.node.id}>{post.node.id}</li>
                   ))}
-                  {posts?.length !== 0 && (
-                    <button onClick={redirectToQueryResults}>
+                  {posts && posts.length !== 0 && (
+                    <Button onClick={redirectToQueryResults}>
                       Show all results
-                    </button>
+                    </Button>
                   )}
                 </>
               )}

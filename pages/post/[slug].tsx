@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { GetStaticProps, GetStaticPaths, NextPage } from 'next/types';
 import { Params } from 'next/dist/server/router';
 import { serialize } from 'next-mdx-remote/serialize';
@@ -24,7 +26,7 @@ const PostDetails: NextPage<PostDetailsProps> = ({ post }) => (
             />
           </div>
         </div>
-        <CommentsForm />
+        <CommentsForm slug={post.slug} />
         <Comments />
       </div>
       <div className="col-span-1 lg:col-span-4 relative lg:sticky top-2 h-screen">
@@ -58,7 +60,7 @@ export const getStaticProps: GetStaticProps<PostDetailsProps, Params> = async ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getPosts();
+  const posts: NodeDTO[] = await getPosts();
 
   return {
     paths: posts.map(({ node: { slug } }: NodeDTO) => ({ params: { slug } })),

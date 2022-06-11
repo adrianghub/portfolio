@@ -11,7 +11,7 @@ export interface PostDTO {
   author: AuthorDTO;
   createdAt: string;
   content: string | MDXRemoteSerializeResult<Record<string, unknown>>;
-  categories: PostCategories[];
+  categories: PostCategory[];
 }
 
 interface AuthorDTO {
@@ -19,7 +19,7 @@ interface AuthorDTO {
   avatar: { url: string };
 }
 
-interface PostCategories {
+export interface PostCategory {
   name: string;
   slug: string;
 }

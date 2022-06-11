@@ -8,8 +8,8 @@ import {
 } from 'react';
 
 interface SearchContextProps {
-  searchValue: string[] | string;
-  setSearchValue: Dispatch<SetStateAction<string | string[]>>;
+  searchValue: string;
+  setSearchValue: Dispatch<SetStateAction<string>>;
 }
 
 interface SearchProviderProps {
@@ -23,7 +23,7 @@ export const SearchContext = createContext<SearchContextProps | undefined>(
 export const SearchProvider = ({ children }: SearchProviderProps) => {
   const router = useRouter();
 
-  const [searchValue, setSearchValue] = useState(router.query.q || '');
+  const [searchValue, setSearchValue] = useState(router.query.q as string || '');
 
   return (
     <SearchContext.Provider value={{ searchValue, setSearchValue }}>

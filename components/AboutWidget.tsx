@@ -11,7 +11,7 @@ const AboutWidget = () => (
       About Me
     </h3>
     <p className="text-md pb-8">
-      I do some web stuff primarly using JS. Currently
+      <span className="mr-1">I do some web stuff primarly using JS. Currently</span>
       <a href="https://boldare.com" target="_blank" rel="norefferer">
         @Boldare
       </a>

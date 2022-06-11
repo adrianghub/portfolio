@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { getCategories } from 'services';
+import { PostCategory } from 'interfaces';
 
 const Categories = () => {
   const [categories, setCategories] = useState<
@@ -10,16 +11,16 @@ const Categories = () => {
   const router = useRouter();
 
   useEffect(() => {
-    getCategories().then((cat) => setCategories(cat));
+    void getCategories().then((cat: PostCategory[]) => setCategories(cat));
   }, []);
 
   useEffect(() => {
     if (selectedCategory && selectedCategory !== 'All') {
-      router.push(`/category/${selectedCategory}`);
+      void router.push(`/category/${selectedCategory}`);
     }
 
     if (selectedCategory === 'All') {
-      router.push('/');
+      void router.push('/');
     }
   }, [selectedCategory]);
 
@@ -29,7 +30,7 @@ const Categories = () => {
         Categories
       </h3>
       <select
-        className="form-select form-select-lg appearance-none w-full px-4 py-2 border border-solid rounded focus:outline-none"
+        className="form-select form-select-lg appearance-none w-full px-4 py-3 focus:outline-none mt-4 md:mt-0 search-input rounded-lg bg-gray-100 text-gray-700"
         onChange={(e) => setSelectedCategory(e.target.value)}
         defaultValue={'All'}
       >
