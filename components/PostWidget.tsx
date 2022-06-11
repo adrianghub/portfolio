@@ -14,13 +14,13 @@ const PostWidget = ({ categoriesSlugs, slug }: Partial<PostWidgetProps>) => {
 
   useEffect(() => {
     if (slug && categoriesSlugs) {
-      getSimilarPosts(slug, categoriesSlugs).then((result) =>
+      void getSimilarPosts(slug, categoriesSlugs).then((result: PostDTO[]) =>
         setRelatedPosts(result)
       );
       return;
     }
 
-    getRecentPosts().then((result) => setRelatedPosts(result));
+    void getRecentPosts().then((result: PostDTO[]) => setRelatedPosts(result));
   }, [slug]);
 
   return (

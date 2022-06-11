@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { createContext, ReactNode } from 'react';
 import request from 'graphql-request';
 import useSWR from 'swr';
