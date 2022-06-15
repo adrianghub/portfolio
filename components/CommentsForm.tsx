@@ -1,4 +1,5 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { submitComment } from 'services';
 import Button from './Button';
 import Input from './Input';
 
@@ -8,23 +9,58 @@ interface CommentsFormProps {
 
 const CommentsForm = ({ slug }: CommentsFormProps) => {
   const [error, setError] = useState(false);
-  const [localStorage, setLocalStorage] = useState<string | null>();
-  const [showSuccessMessage, setShowSuccessMessage] = useState<string | null>();
+  const [showSuccessMessage, setShowSuccessMessage] = useState<
+    boolean | null
+  >();
   const commentElRef = useRef<HTMLTextAreaElement | null>(null);
   const nameElRef = useRef<HTMLInputElement | null>(null);
   const emailElRef = useRef<HTMLInputElement | null>(null);
-  const storeDataElRef = useRef();
+  const storeDataElRef = useRef<HTMLInputElement | null>(null);
 
-  const handleSubmitComment = () => {
+  useEffect(() => {
+    let name: string | null | undefined = nameElRef?.current?.value;
+    let email: string | null | undefined = emailElRef?.current?.value;
+
+    if (name && email) {
+      name = window.localStorage.getItem('name');
+      email = window.localStorage.getItem('email');
+    }
+  }, []);
+
+  const handleSubmitComment = async () => {
     setError(false);
 
     const comment = commentElRef?.current?.value;
-    const name = commentElRef?.current?.value;
-    const email = commentElRef?.current?.value;
+    const name = nameElRef?.current?.value;
+    const email = emailElRef?.current?.value;
+    const storeData = storeDataElRef?.current?.checked;
 
     if (!comment || !name || !email) {
-      ///...
+      setError(true);
+      return;
     }
+
+    const commentObj = {
+      name,
+      email,
+      comment,
+      slug
+    };
+
+    if (storeData) {
+      localStorage.setItem('name', name);
+      localStorage.setItem('email', email);
+    } else {
+      localStorage.removeItem('name');
+      localStorage.removeItem('email');
+    }
+
+    await submitComment(commentObj).then(() => {
+      setShowSuccessMessage(true);
+      setTimeout(() => {
+        setShowSuccessMessage(false);
+      }, 3000);
+    });
   };
 
   return (
@@ -55,11 +91,28 @@ const CommentsForm = ({ slug }: CommentsFormProps) => {
           name="email"
         />
       </div>
+      <div className="grid grid-cols-1 gap-4 mb-4">
+        <div>
+          <Input
+            inputRef={storeDataElRef}
+            id="storeData"
+            name="storeData"
+            type="checkbox"
+            value="true"
+          />
+          <label
+            className="text-gray-500 cursor-pointer ml-2"
+            htmlFor="storeData"
+          >
+            Save my email and name for the next time I comment
+          </label>
+        </div>
+      </div>
       {error && (
         <p className="text-xs text-red-400">All fields are required.</p>
       )}
       <div className="mt-8">
-        <Button type="button" onClick={handleSubmitComment}>
+        <Button type="button" onClick={() => void handleSubmitComment()}>
           Send
         </Button>
         {showSuccessMessage && (

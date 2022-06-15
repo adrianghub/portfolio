@@ -27,7 +27,7 @@ const PostDetails: NextPage<PostDetailsProps> = ({ post }) => (
           </div>
         </div>
         <CommentsForm slug={post.slug} />
-        <Comments />
+        <Comments slug={post.slug} />
       </div>
       <div className="col-span-1 lg:col-span-4 relative lg:sticky top-2 h-screen">
         <Sidebar

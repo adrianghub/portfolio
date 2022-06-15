@@ -23,3 +23,11 @@ export interface PostCategory {
   name: string;
   slug: string;
 }
+
+export interface CommentObjData {
+  name: string;
+  email: string;
+  comment: string;
+  slug: string;
+  createdAt?: string;
+}
