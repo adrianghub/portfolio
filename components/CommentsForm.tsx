@@ -1,13 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
 import { submitComment } from 'services';
-import Button from './Button';
-import Input from './Input';
+import { Button } from './Button';
+import { Input } from './Input';
 
 interface CommentsFormProps {
   slug: string;
 }
 
-const CommentsForm = ({ slug }: CommentsFormProps) => {
+export const CommentsForm = ({ slug }: CommentsFormProps) => {
   const [error, setError] = useState(false);
   const [showSuccessMessage, setShowSuccessMessage] = useState<
     boolean | null
@@ -124,5 +124,3 @@ const CommentsForm = ({ slug }: CommentsFormProps) => {
     </div>
   );
 };
-
-export default CommentsForm;

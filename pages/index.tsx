@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import Head from 'next/head';
 import { Posts } from 'components';
-import type { GetStaticProps, NextPage } from 'next';
-import Sidebar from 'components/Sidebar';
+import type { GetStaticProps } from 'next';
+import { Sidebar } from 'components';
 import { NodeDTO } from 'interfaces';
 import { Params } from 'next/dist/server/router';
 import { getPosts } from 'services';
@@ -11,7 +11,7 @@ interface IndexProps {
   posts: NodeDTO[];
 }
 
-const IndexPage: NextPage<IndexProps> = ({ posts }) => (
+const IndexPage = ({ posts }: IndexProps) => (
   <div className="container mx-auto px-10 mb-8">
     <Head>
       <title>Adrian Zinko | Blog</title>

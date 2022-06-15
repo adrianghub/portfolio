@@ -14,7 +14,7 @@ interface InputProps {
   onChangeTextarea?: (evt: React.ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-const Input = ({
+export const Input = ({
   id,
   inputRef,
   textareaRef,
@@ -68,5 +68,3 @@ const Input = ({
     />
   );
 };
-
-export default Input;

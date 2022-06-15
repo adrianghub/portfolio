@@ -9,7 +9,7 @@ interface PostWidgetProps {
   slug: string;
 }
 
-const PostWidget = ({ categoriesSlugs, slug }: Partial<PostWidgetProps>) => {
+export const PostWidget = ({ categoriesSlugs, slug }: Partial<PostWidgetProps>) => {
   const [relatedPosts, setRelatedPosts] = useState<PostDTO[]>();
 
   useEffect(() => {
@@ -47,5 +47,3 @@ const PostWidget = ({ categoriesSlugs, slug }: Partial<PostWidgetProps>) => {
     </div>
   );
 };
-
-export default PostWidget;

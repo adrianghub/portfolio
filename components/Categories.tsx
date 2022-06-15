@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import { getCategories } from 'services';
 import { PostCategory } from 'interfaces';
 
-const Categories = () => {
+export const Categories = () => {
   const [categories, setCategories] = useState<
     { name: string; slug: string }[] | undefined
   >();
@@ -44,5 +44,3 @@ const Categories = () => {
     </div>
   );
 };
-
-export default Categories;

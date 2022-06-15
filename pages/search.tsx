@@ -1,12 +1,11 @@
 import Head from 'next/head';
 import { Posts } from 'components';
-import type { NextPage } from 'next';
-import Sidebar from 'components/Sidebar';
+import { Sidebar } from 'components';
 import { usePostsContext } from 'hooks/usePostsContext';
 import { useSearchContext } from 'hooks/useSearchContext';
-import SearchBar from 'components/SearchBar';
+import { SearchBar } from 'components/SearchBar';
 
-const IndexPage: NextPage = () => {
+const SearchPage = () => {
   const { posts } = usePostsContext();
   const { searchValue } = useSearchContext();
 
@@ -35,4 +34,4 @@ const IndexPage: NextPage = () => {
   );
 };
 
-export default IndexPage;
+export default SearchPage;

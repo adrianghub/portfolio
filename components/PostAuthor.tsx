@@ -5,7 +5,7 @@ interface PostAuthorProps {
   avatarUrl: string;
 }
 
-const PostAuthor = ({ name, avatarUrl }: PostAuthorProps) => (
+export const PostAuthor = ({ name, avatarUrl }: PostAuthorProps) => (
   <>
     <Image
       unoptimized
@@ -20,5 +20,3 @@ const PostAuthor = ({ name, avatarUrl }: PostAuthorProps) => (
     </p>
   </>
 );
-
-export default PostAuthor;

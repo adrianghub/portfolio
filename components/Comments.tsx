@@ -9,7 +9,7 @@ interface CommentsProps {
   slug: string;
 }
 
-const Comments = ({ slug }: CommentsProps) => {
+export const Comments = ({ slug }: CommentsProps) => {
   const [comments, setComments] = useState<CommentObjData[]>();
 
   useEffect(() => {
@@ -44,5 +44,3 @@ const Comments = ({ slug }: CommentsProps) => {
     </>
   );
 };
-
-export default Comments;

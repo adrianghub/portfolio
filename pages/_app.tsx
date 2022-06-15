@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app';
 import '../styles/globals.scss';
-import Layout from 'components/Layout';
+import { Layout } from 'components';
 import { PostsProvider } from 'lib/PostsContext';
 import { SearchProvider } from 'lib/SearchContext';
 

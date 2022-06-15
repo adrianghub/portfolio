@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import SearchBar from './SearchBar';
+import { SearchBar } from './SearchBar';
 
-const Header = () => {
+export const Header = () => {
   const router = useRouter();
 
   return (
@@ -20,5 +20,3 @@ const Header = () => {
     </div>
   );
 };
-
-export default Header;

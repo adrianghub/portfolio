@@ -4,10 +4,10 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
 import { usePostsContext } from 'hooks/usePostsContext';
 import { useSearchContext } from 'hooks/useSearchContext';
-import Input from './Input';
-import Button from './Button';
+import { Input } from './Input';
+import { Button } from './Button';
 
-const SearchBar = () => {
+export const SearchBar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
   const { searchValue, setSearchValue } = useSearchContext();
   const { posts } = usePostsContext();
@@ -85,5 +85,3 @@ const SearchBar = () => {
     </div>
   );
 };
-
-export default SearchBar;

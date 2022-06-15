@@ -6,7 +6,7 @@ interface PostCardProps {
   post: PostDTO;
 }
 
-const PostCard = ({ post }: PostCardProps) => (
+export const PostCard = ({ post }: PostCardProps) => (
   <Link href={`/post/${post.slug}`}>
     <div className="shadow-lg rounded-lg lg:p-8 mb-8 p-4 cursor-pointer post-card-wrapper">
       <div className="post-card-wrapper-inner">
@@ -39,5 +39,3 @@ const PostCard = ({ post }: PostCardProps) => (
     </div>
   </Link>
 );
-
-export default PostCard;
