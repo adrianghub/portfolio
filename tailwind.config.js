@@ -20,7 +20,7 @@ module.exports = {
             900: '#2d1f25'
           }
         }
-      }
+      },
     }
   },
   variants: {

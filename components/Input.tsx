@@ -12,6 +12,7 @@ interface InputProps {
   value?: string | string[];
   onChangeInput?: (evt: React.ChangeEvent<HTMLInputElement>) => void;
   onChangeTextarea?: (evt: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  spotlight?: boolean;
 }
 
 export const Input = ({
@@ -25,10 +26,11 @@ export const Input = ({
   textarea,
   value,
   onChangeInput,
-  onChangeTextarea
+  onChangeTextarea,
+  spotlight
 }: InputProps) => {
   const sharedClasses =
-    'w-full rounded-lg focus:outline-none focus:ring focus:ring-gray-300 bg-gray-100 text-gray-700';
+    `${spotlight ? 'w-[80vw]' : 'w-full'} rounded-lg focus:outline-none focus:ring focus:ring-gray-300 bg-gray-100 text-gray-700`;
 
   if (type === 'checkbox') {
     return (

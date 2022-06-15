@@ -69,6 +69,39 @@ export const getPostDetails = async (slug: string) => {
   return result.post;
 };
 
+export const getCategoryPosts = async (categorySlug: string) => {
+  const query = gql`
+    query GetCategoryPosts($slug: String!) {
+      postsConnection(where: { categories_some: { slug: $slug } }) {
+        edges {
+          node {
+            id
+            author {
+              bio
+              name
+              id
+              avatar {
+                url
+              }
+            }
+            createdAt
+            slug
+            title
+            categories {
+              name
+              slug
+              id
+            }
+          }
+        }
+      }
+    }
+  `;
+
+  const result = await request(graphcmsAPI, query, { slug: categorySlug });
+  return result.postsConnection.edges;
+};
+
 export const getRecentPosts = async () => {
   const query = gql`
     query GeRecentPosts() {

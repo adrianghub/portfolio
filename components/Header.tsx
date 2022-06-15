@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { SearchBar } from './SearchBar';
+import { Categories } from './Categories';
 
 export const Header = () => {
   const router = useRouter();
@@ -17,6 +18,7 @@ export const Header = () => {
         </div>
         {router.pathname !== '/search' && <SearchBar />}
       </div>
+      <Categories />
     </div>
   );
 };

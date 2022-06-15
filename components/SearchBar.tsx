@@ -19,6 +19,30 @@ export const SearchBar = () => {
     }
   };
 
+  const handleCloseSpotlight = (e: React.MouseEvent<HTMLDivElement>) => {
+    if ((e.target as HTMLElement).id) setShowSearchBar(false);
+  };
+
+  const handleSearchIconClick = () => {
+    setShowSearchBar((prevState) => !prevState);
+  };
+
+  useEffect(() => {
+    const keyDownHandler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        e.preventDefault();
+
+        setShowSearchBar(false);
+      }
+    };
+
+    document.addEventListener('keydown', keyDownHandler);
+
+    return () => {
+      document.removeEventListener('keydown', keyDownHandler);
+    };
+  }, []);
+
   useEffect(() => {
     if (router.pathname === '/') {
       setSearchValue('');
@@ -32,56 +56,91 @@ export const SearchBar = () => {
 
   const isSearchPath = router.pathname === '/search';
 
-  return (
+  const renderSpotlightSearch = () => (
     <div
-      className={`flex ${
-        isSearchPath && showSearchBar
-          ? 'w-full'
-          : showSearchBar
-          ? 'w-full md:w-1/2 lg:w-1/3'
-          : ''
-      } ${isSearchPath ? 'mb-8' : ''}`}
+      id="spotlight"
+      onClick={handleCloseSpotlight}
+      className="fixed z-50 inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex flex-col items-center"
     >
-      <button
-        disabled={isSearchPath}
-        onClick={() => setShowSearchBar((prevState) => !prevState)}
-      >
-        <BsSearch
-          className={`search-icon mt-4 md:mt-0 ${
-            showSearchBar ? 'mr-4' : 'mr-0'
-          }`}
+      <div className="relative">
+        <Input
+          name="search"
+          additionalClasses="mt-10 px-4 py-3 search-input"
+          placeholder="Type search query..."
+          value={searchValue}
+          onChangeInput={(evt) => setSearchValue(evt.target.value)}
+          spotlight
         />
-      </button>
-      {showSearchBar && (
-        <div className={`w-full relative`}>
-          <Input
-            name="search"
-            additionalClasses="mt-4 md:mt-0 px-4 py-3 search-input"
-            placeholder="Type search query..."
-            value={searchValue}
-            onChangeInput={(evt) => setSearchValue(evt.target.value)}
-          />
-          {searchValue && (
+        {searchValue && (
+          <>
+            <button onClick={() => setSearchValue('')}>
+              <AiOutlineClose className="close-icon close-icon--spotlight" />
+            </button>
+            {!isSearchPath && (
+              <>
+                {posts?.slice(0, 2).map((post) => (
+                  <li key={post.node.id}>{post.node.id}</li>
+                ))}
+                {posts && posts.length !== 0 && (
+                  <Button onClick={redirectToQueryResults}>
+                    Show all results
+                  </Button>
+                )}
+              </>
+            )}
+          </>
+        )}
+      </div>
+    </div>
+  );
+
+  const renderFullSearch = () => (
+    <div className={`w-full relative`}>
+      <Input
+        name="search"
+        additionalClasses="mt-4 md:mt-0 px-4 py-3 search-input"
+        placeholder="Type search query..."
+        value={searchValue}
+        onChangeInput={(evt) => setSearchValue(evt.target.value)}
+      />
+      {searchValue && (
+        <>
+          <button onClick={() => setSearchValue('')}>
+            <AiOutlineClose className="close-icon" />
+          </button>
+          {!isSearchPath && (
             <>
-              <button onClick={() => setSearchValue('')}>
-                <AiOutlineClose className="close-icon" />
-              </button>
-              {!isSearchPath && (
-                <>
-                  {posts?.slice(0, 2).map((post) => (
-                    <li key={post.node.id}>{post.node.id}</li>
-                  ))}
-                  {posts && posts.length !== 0 && (
-                    <Button onClick={redirectToQueryResults}>
-                      Show all results
-                    </Button>
-                  )}
-                </>
+              {posts?.slice(0, 2).map((post) => (
+                <li key={post.node.id}>{post.node.id}</li>
+              ))}
+              {posts && posts.length !== 0 && (
+                <Button onClick={redirectToQueryResults}>
+                  Show all results
+                </Button>
               )}
             </>
           )}
-        </div>
+        </>
       )}
+    </div>
+  );
+
+  return (
+    <div className={`flex ${isSearchPath ? 'w-full mb-8' : ''}`}>
+      <button
+        disabled={isSearchPath}
+        onClick={handleSearchIconClick}
+        type="button"
+        data-modal-toggle="searchSpotlight"
+        className="outline-none"
+      >
+        <BsSearch className="search-icon mt-4 md:mt-0 mr-4" />
+      </button>
+      {showSearchBar && !isSearchPath
+        ? renderSpotlightSearch()
+        : showSearchBar
+        ? renderFullSearch()
+        : null}
     </div>
   );
 };
