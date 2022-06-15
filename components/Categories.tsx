@@ -23,8 +23,6 @@ export const Categories = () => {
     });
   }, []);
 
-  console.log(activeCategory);
-
   return (
     <div className="pt-4 pb-8 flex flex-wrap justify-center text-center">
       {categories?.map((category, idx) => (
