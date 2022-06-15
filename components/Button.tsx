@@ -7,6 +7,7 @@ interface ButtonProps {
   children?: ReactNode;
   additionalClasses?: string;
   onClick?: () => void;
+  disabled?: boolean;
 }
 
 export const Button = ({
@@ -14,6 +15,7 @@ export const Button = ({
   additionalClasses,
   children,
   onClick,
+  disabled,
   ...otherProps
 }: ButtonProps) => {
   const sharedClasses =
@@ -25,6 +27,7 @@ export const Button = ({
       className={`${sharedClasses} ${additionalClasses || ''}`}
       onClick={onClick}
       {...otherProps}
+      disabled={disabled}
     >
       {children}
     </button>

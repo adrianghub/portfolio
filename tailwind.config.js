@@ -19,8 +19,11 @@ module.exports = {
             800: '#2d1f25',
             900: '#2d1f25'
           }
+        },
+        whitechocolate: {
+          300: '#EDE4DA'
         }
-      },
+      }
     }
   },
   variants: {

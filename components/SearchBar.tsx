@@ -6,6 +6,7 @@ import { usePostsContext } from 'hooks/usePostsContext';
 import { useSearchContext } from 'hooks/useSearchContext';
 import { Input } from './Input';
 import { Button } from './Button';
+import { PostCard } from './PostCard';
 
 export const SearchBar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);
@@ -60,16 +61,15 @@ export const SearchBar = () => {
     <div
       id="spotlight"
       onClick={handleCloseSpotlight}
-      className="fixed z-50 inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex flex-col items-center"
+      className="fixed z-50 inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex flex-col items-center mx-auto"
     >
-      <div className="relative">
+      <div className="relative container px-10 mb-8">
         <Input
           name="search"
           additionalClasses="mt-10 px-4 py-3 search-input"
           placeholder="Type search query..."
           value={searchValue}
           onChangeInput={(evt) => setSearchValue(evt.target.value)}
-          spotlight
         />
         {searchValue && (
           <>
@@ -78,12 +78,21 @@ export const SearchBar = () => {
             </button>
             {!isSearchPath && (
               <>
-                {posts?.slice(0, 2).map((post) => (
-                  <li key={post.node.id}>{post.node.id}</li>
-                ))}
-                {posts && posts.length !== 0 && (
-                  <Button onClick={redirectToQueryResults}>
-                    Show all results
+                <div>
+                  {posts?.slice(0, 2).map(({ node: post }) => (
+                    <PostCard key={post.id} post={post} spotlight />
+                  ))}
+                </div>
+                {posts && posts.length !== 0 ? (
+                  <Button
+                    onClick={redirectToQueryResults}
+                    additionalClasses="flex mx-auto"
+                  >
+                    Show all results ({posts.length})
+                  </Button>
+                ) : (
+                  <Button disabled additionalClasses="flex mt-4 mx-auto">
+                    No results found
                   </Button>
                 )}
               </>
@@ -104,23 +113,9 @@ export const SearchBar = () => {
         onChangeInput={(evt) => setSearchValue(evt.target.value)}
       />
       {searchValue && (
-        <>
-          <button onClick={() => setSearchValue('')}>
-            <AiOutlineClose className="close-icon" />
-          </button>
-          {!isSearchPath && (
-            <>
-              {posts?.slice(0, 2).map((post) => (
-                <li key={post.node.id}>{post.node.id}</li>
-              ))}
-              {posts && posts.length !== 0 && (
-                <Button onClick={redirectToQueryResults}>
-                  Show all results
-                </Button>
-              )}
-            </>
-          )}
-        </>
+        <button onClick={() => setSearchValue('')}>
+          <AiOutlineClose className="close-icon" />
+        </button>
       )}
     </div>
   );

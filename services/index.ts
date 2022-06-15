@@ -72,7 +72,10 @@ export const getPostDetails = async (slug: string) => {
 export const getCategoryPosts = async (categorySlug: string) => {
   const query = gql`
     query GetCategoryPosts($slug: String!) {
-      postsConnection(where: { categories_some: { slug: $slug } }) {
+      postsConnection(
+        where: { categories_some: { slug: $slug } }
+        orderBy: createdAt_DESC
+      ) {
         edges {
           node {
             id
