@@ -14,10 +14,29 @@ import {
 } from 'components';
 import { NodeDTO, PostDTO } from 'interfaces';
 import { getPostDetails, getPosts } from 'services';
+import { HTMLAttributes, ImgHTMLAttributes, LiHTMLAttributes } from 'react';
 
 interface PostDetailsProps {
   post: PostDTO;
 }
+
+const components = {
+  h2: (props: HTMLAttributes<HTMLHeadingElement>) => (
+    <h2 className="text-3xl pt-12 pb-6" {...props} />
+  ),
+  h3: (props: HTMLAttributes<HTMLHeadingElement>) => (
+    <h2 className="text-2xl pt-6" {...props} />
+  ),
+  p: (props: HTMLAttributes<HTMLParagraphElement>) => (
+    <p className="text-lg text-gray-900 py-3" {...props} />
+  ),
+  li: (props: LiHTMLAttributes<HTMLLIElement>) => (
+    <li className="text-lg list-disc ml-4 py-3" {...props} />
+  ),
+  img: (props: ImgHTMLAttributes<HTMLImageElement>) => (
+    <img className="rounded-lg shadow-lg mx-auto my-3" {...props} />
+  )
+};
 
 const PostDetails = ({ post }: PostDetailsProps) => {
   const { isFallback } = useRouter();
@@ -37,6 +56,7 @@ const PostDetails = ({ post }: PostDetailsProps) => {
                 {...(post.content as MDXRemoteSerializeResult<
                   Record<string, unknown>
                 >)}
+                components={components}
               />
             </div>
           </div>
