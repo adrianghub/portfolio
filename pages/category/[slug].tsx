@@ -45,7 +45,8 @@ export const getStaticProps: GetStaticProps<
   return {
     props: {
       posts
-    }
+    },
+    revalidate: 60
   };
 };
 

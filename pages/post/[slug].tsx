@@ -70,7 +70,8 @@ export const getStaticProps: GetStaticProps<PostDetailsProps, Params> = async ({
         ...post,
         content: markdown
       }
-    }
+    },
+    revalidate: 60
   };
 };
 
