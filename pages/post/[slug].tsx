@@ -10,7 +10,8 @@ import {
   CommentsForm,
   Comments,
   Sidebar,
-  Loader
+  Loader,
+  CodeBlock
 } from 'components';
 import { NodeDTO, PostDTO } from 'interfaces';
 import { getPostDetails, getPosts } from 'services';
@@ -25,17 +26,22 @@ const components = {
     <h2 className="text-3xl pt-12 pb-6" {...props} />
   ),
   h3: (props: HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 className="text-2xl pt-6" {...props} />
+    <h3 className="text-2xl pt-6" {...props} />
+  ),
+  h4: (props: HTMLAttributes<HTMLHeadingElement>) => (
+    <h4 className="text-xl pt-6" {...props} />
   ),
   p: (props: HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="text-lg text-gray-900 py-3" {...props} />
+    <p className="text-md sm:text-lg text-gray-900 leading-relaxed py-3" {...props} />
   ),
   li: (props: LiHTMLAttributes<HTMLLIElement>) => (
-    <li className="text-lg list-disc ml-4 py-3" {...props} />
+    <li className="text-md sm:text-lg leading-relaxed ml-4 py-3" {...props} />
   ),
   img: (props: ImgHTMLAttributes<HTMLImageElement>) => (
     <img className="rounded-lg shadow-lg mx-auto my-3" {...props} />
-  )
+  ),
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  pre: (props: HTMLAttributes<HTMLPreElement> & any) => <CodeBlock {...props} />
 };
 
 const PostDetails = ({ post }: PostDetailsProps) => {

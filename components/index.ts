@@ -12,3 +12,4 @@ export { PostDate } from './PostDate';
 export { PostDetail } from './PostDetail';
 export { Comments } from './Comments';
 export { CommentsForm } from './CommentsForm';
+export { CodeBlock } from './CodeBlock';
