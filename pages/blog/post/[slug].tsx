@@ -32,7 +32,10 @@ const components = {
     <h4 className="text-xl pt-6" {...props} />
   ),
   p: (props: HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="text-md sm:text-lg text-gray-900 leading-relaxed py-3" {...props} />
+    <p
+      className="text-md sm:text-lg text-gray-900 leading-relaxed py-3"
+      {...props}
+    />
   ),
   li: (props: LiHTMLAttributes<HTMLLIElement>) => (
     <li className="text-md sm:text-lg leading-relaxed ml-4 py-3" {...props} />
@@ -44,7 +47,7 @@ const components = {
   pre: (props: HTMLAttributes<HTMLPreElement> & any) => <CodeBlock {...props} />
 };
 
-const PostDetails = ({ post }: PostDetailsProps) => {
+const PostDetailsPage = ({ post }: PostDetailsProps) => {
   const { isFallback } = useRouter();
 
   if (isFallback) {
@@ -80,7 +83,7 @@ const PostDetails = ({ post }: PostDetailsProps) => {
   );
 };
 
-export default PostDetails;
+export default PostDetailsPage;
 
 export const getStaticProps: GetStaticProps<PostDetailsProps, Params> = async ({
   params
