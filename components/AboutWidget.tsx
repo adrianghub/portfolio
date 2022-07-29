@@ -1,3 +1,4 @@
+import { SOCIAL_MEDIA } from 'data';
 import {
   RiGithubFill,
   RiLinkedinBoxLine,
@@ -14,20 +15,58 @@ export const AboutWidget = () => (
       <span className="mr-1">
         I do some web stuff primarly using JS. Currently
       </span>
-      <a href="https://boldare.com" target="_blank" rel="norefferer">
+      <a
+        className="animated-link"
+        href="https://boldare.com"
+        target="_blank"
+        rel="norefferer"
+      >
         @Boldare
       </a>
       . Moutains and cats lover. Check out my{' '}
-      <a target="_blank" rel="norefferer" href="/resume.pdf">
+      <a
+        className="animated-link"
+        target="_blank"
+        rel="norefferer"
+        href="/resume.pdf"
+      >
         resume
       </a>
       .
     </p>
     <div className="flex justify-center">
-      <RiGithubFill className="social-icon mr-4" />
-      <RiLinkedinBoxLine className="social-icon mr-4" />
-      <RiInstagramLine className="social-icon mr-4" />
-      <RiTwitterLine className="social-icon" />
+      <a
+        className="hover:text-gray-500 duration-200"
+        href={SOCIAL_MEDIA.GH_HREF}
+        target="_blank"
+        rel="norefferer"
+      >
+        <RiGithubFill className="social-icon mr-4" />
+      </a>
+      <a
+        className="hover:text-gray-500 duration-200"
+        href={SOCIAL_MEDIA.LINKEDIN_HREF}
+        target="_blank"
+        rel="norefferer"
+      >
+        <RiLinkedinBoxLine className="social-icon mr-4" />
+      </a>
+      <a
+        className="hover:text-gray-500 duration-200"
+        href={SOCIAL_MEDIA.INSTA_HREF}
+        target="_blank"
+        rel="norefferer"
+      >
+        <RiInstagramLine className="social-icon mr-4" />
+      </a>
+      <a
+        className="hover:text-gray-500 duration-200"
+        href={SOCIAL_MEDIA.TWITTER_HREF}
+        target="_blank"
+        rel="norefferer"
+      >
+        <RiTwitterLine className="social-icon" />
+      </a>
     </div>
   </div>
 );

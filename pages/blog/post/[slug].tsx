@@ -37,6 +37,9 @@ const components = {
       {...props}
     />
   ),
+  a: (props: HTMLAttributes<HTMLAnchorElement>) => (
+    <a className="animated-link leading-relaxed" {...props} />
+  ),
   li: (props: LiHTMLAttributes<HTMLLIElement>) => (
     <li className="text-md sm:text-lg leading-relaxed ml-4 py-3" {...props} />
   ),

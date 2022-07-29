@@ -26,11 +26,16 @@ export const Header = () => {
           ) : (
             <>
               <Link href="/blog">
-                <span className="cursor-pointer font-bold text-xl lg:text-xl mr-5">
+                <span className="cursor-pointer font-bold text-xl lg:text-xl mr-5 hover:text-gray-500 duration-200">
                   Blog
                 </span>
               </Link>
-              <a href="/resume.pdf" target="_blank" rel="norefferer">
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="norefferer"
+                className="animated-link"
+              >
                 <span className="cursor-pointer font-bold text-xl lg:text-xl">
                   Resume
                 </span>

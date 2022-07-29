@@ -19,13 +19,18 @@ const IndexPage = () => {
         <p className="text-xl">
           Currently under construction. Checkout the
           <span className="mx-1 font-bold">
-            <Link className="ml-5" href="/blog">
-              Blog
+            <Link href="/blog" passHref>
+              <a className="animated-link">Blog</a>
             </Link>
           </span>
           or
           <span className="mx-1 font-bold">
-            <a target="_blank" rel="norefferer" href="/resume.pdf">
+            <a
+              className="animated-link"
+              target="_blank"
+              rel="norefferer"
+              href="/resume.pdf"
+            >
               Resume
             </a>
           </span>

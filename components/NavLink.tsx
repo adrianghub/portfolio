@@ -36,7 +36,7 @@ export const NavLink = ({
   return (
     <Link href={to} passHref>
       <a
-        className={`${
+        className={`animated-link ${
           isSelected || activeCategory ? 'active mr-8' : 'mr-8'
         } ${classes}`}
       >

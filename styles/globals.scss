@@ -45,11 +45,11 @@ h4,
 h5,
 h6,
 b,
-a {
+.animated-link {
   color: #6f4c5b;
 }
 
-a {
+.animated-link {
   text-decoration: none;
   background-image: linear-gradient($secondary_color, $secondary_color);
   background-repeat: no-repeat;

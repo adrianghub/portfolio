@@ -9,7 +9,10 @@ interface PostWidgetProps {
   slug: string;
 }
 
-export const PostWidget = ({ categoriesSlugs, slug }: Partial<PostWidgetProps>) => {
+export const PostWidget = ({
+  categoriesSlugs,
+  slug
+}: Partial<PostWidgetProps>) => {
   const [relatedPosts, setRelatedPosts] = useState<PostDTO[]>();
 
   useEffect(() => {
@@ -38,8 +41,8 @@ export const PostWidget = ({ categoriesSlugs, slug }: Partial<PostWidgetProps>) 
               <p className="text-gray-500 font-xs">
                 {moment(post.createdAt).format('MMMM DD, YYYY')}
               </p>
-              <Link className="text-md" href={`/post/${post.slug}`}>
-                {post.title}
+              <Link href={`/blog/post/${post.slug}`} passHref>
+                <a className="text-md animated-link">{post.title}</a>
               </Link>
             </div>
           </div>
