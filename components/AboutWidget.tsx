@@ -1,10 +1,21 @@
 import { SOCIAL_MEDIA } from 'data';
-import {
-  RiGithubFill,
-  RiLinkedinBoxLine,
-  RiInstagramLine,
-  RiTwitterLine
-} from 'react-icons/ri';
+import * as RemixIcons from 'react-icons/ri';
+
+const DynamicRemixIcon = ({
+  name,
+  additionalClasses
+}: {
+  name?: string;
+  additionalClasses: string;
+}) => {
+  if (!name) {
+    return null;
+  }
+
+  const IconComponent = RemixIcons[name as keyof typeof RemixIcons];
+
+  return <IconComponent className={additionalClasses} />;
+};
 
 export const AboutWidget = () => (
   <div className="pt-4 pb-8">
@@ -35,38 +46,20 @@ export const AboutWidget = () => (
       .
     </p>
     <div className="flex justify-center">
-      <a
-        className="hover:text-gray-500 duration-200"
-        href={SOCIAL_MEDIA.GH_HREF}
-        target="_blank"
-        rel="norefferer"
-      >
-        <RiGithubFill className="social-icon mr-4" />
-      </a>
-      <a
-        className="hover:text-gray-500 duration-200"
-        href={SOCIAL_MEDIA.LINKEDIN_HREF}
-        target="_blank"
-        rel="norefferer"
-      >
-        <RiLinkedinBoxLine className="social-icon mr-4" />
-      </a>
-      <a
-        className="hover:text-gray-500 duration-200"
-        href={SOCIAL_MEDIA.INSTA_HREF}
-        target="_blank"
-        rel="norefferer"
-      >
-        <RiInstagramLine className="social-icon mr-4" />
-      </a>
-      <a
-        className="hover:text-gray-500 duration-200"
-        href={SOCIAL_MEDIA.TWITTER_HREF}
-        target="_blank"
-        rel="norefferer"
-      >
-        <RiTwitterLine className="social-icon" />
-      </a>
+      {SOCIAL_MEDIA.map(({ name, href, iconName, lastIcon }) => (
+        <a
+          key={name}
+          className="hover:text-gray-500 duration-200"
+          href={href}
+          target="_blank"
+          rel="norefferer"
+        >
+          <DynamicRemixIcon
+            name={iconName}
+            additionalClasses={`social-icon ${!lastIcon ? 'mr-4' : ''}`}
+          />
+        </a>
+      ))}
     </div>
   </div>
 );
