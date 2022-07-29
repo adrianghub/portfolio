@@ -11,11 +11,17 @@ export const AboutWidget = () => (
       About Me
     </h3>
     <p className="text-md pb-8">
-      <span className="mr-1">I do some web stuff primarly using JS. Currently</span>
+      <span className="mr-1">
+        I do some web stuff primarly using JS. Currently
+      </span>
       <a href="https://boldare.com" target="_blank" rel="norefferer">
         @Boldare
       </a>
-      . Moutains and cats lover.
+      . Moutains and cats lover. Check out my{' '}
+      <a target="_blank" rel="norefferer" href="/resume.pdf">
+        resume
+      </a>
+      .
     </p>
     <div className="flex justify-center">
       <RiGithubFill className="social-icon mr-4" />

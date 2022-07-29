@@ -7,7 +7,11 @@ export const Header = () => {
   const { pathname } = useRouter();
 
   return (
-    <div className="container mx-auto px-10 mb-8">
+    <div
+      className={`container mx-auto px-10 mb-8 ${
+        pathname === '/' ? 'sticky top-0' : ''
+      }`}
+    >
       <div className="border-b w-full border-gray-300 py-8 flex flex-col justify-between items-center sm:flex-row">
         <div className="block py-4">
           <Link href="/">
@@ -17,12 +21,22 @@ export const Header = () => {
           </Link>
         </div>
         <div className="flex justify-end items-center">
-          <Link href="/blog">
-            <span className="cursor-pointer font-bold text-xl lg:text-xl mr-5">
-              Blog
-            </span>
-          </Link>
-          {pathname !== '/search' && pathname !== '/' && <SearchBar />}
+          {pathname !== '/search' && pathname !== '/' ? (
+            <SearchBar />
+          ) : (
+            <>
+              <Link href="/blog">
+                <span className="cursor-pointer font-bold text-xl lg:text-xl mr-5">
+                  Blog
+                </span>
+              </Link>
+              <a href="/resume.pdf" target="_blank" rel="norefferer">
+                <span className="cursor-pointer font-bold text-xl lg:text-xl">
+                  Resume
+                </span>
+              </a>
+            </>
+          )}
         </div>
       </div>
       {pathname !== '/' && <Categories />}

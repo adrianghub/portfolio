@@ -4,12 +4,16 @@ import { PostAuthor, PostDate } from 'components';
 
 interface PostCardProps {
   post: PostDTO;
-  spotlight?: boolean; 
+  spotlight?: boolean;
 }
 
 export const PostCard = ({ post, spotlight }: PostCardProps) => (
-  <Link href={`/post/${post.slug}`}>
-    <div className={`${spotlight ? 'bg-whitechocolate-300 mt-8' : ''} shadow-lg rounded-lg lg:p-8 mb-8 p-4 cursor-pointer post-card-wrapper`}>
+  <Link href={`blog/post/${post.slug}`}>
+    <div
+      className={`${
+        spotlight ? 'bg-whitechocolate-300 mt-8' : ''
+      } shadow-lg rounded-lg lg:p-8 mb-8 p-4 cursor-pointer post-card-wrapper`}
+    >
       <div className="post-card-wrapper-inner">
         <h1
           className="text-1xl md:text-2xl lg:text-3xl font-semibold mb-2

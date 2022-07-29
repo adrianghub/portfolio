@@ -58,7 +58,6 @@ a {
   transition: background-size 0.3s ease-in-out;
 
   &:hover,
-  &:focus,
   &:active {
     background-size: 100% 3px;
   }
