@@ -8,7 +8,7 @@ interface PostCardProps {
 }
 
 export const PostCard = ({ post, spotlight }: PostCardProps) => (
-  <Link href={`blog/post/${post.slug}`}>
+  <Link href={`/blog/post/${post.slug}`}>
     <div
       className={`${
         spotlight ? 'bg-whitechocolate-300 mt-8' : ''

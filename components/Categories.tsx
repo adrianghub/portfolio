@@ -17,7 +17,7 @@ export const Categories = () => {
 
   useEffect(() => {
     categories?.map((category) => {
-      if (asPath.split('/')[2] === category.slug) {
+      if (asPath.split('/')[3] === category.slug) {
         setActiveCategory(true);
       }
     });
@@ -28,7 +28,7 @@ export const Categories = () => {
       {categories?.map((category, idx) => (
         <NavLink
           key={idx}
-          to={`/category/${category.slug}`}
+          to={`/blog/category/${category.slug}`}
           additionalClasses="mt-4"
           text={category.name}
           activeCategory={activeCategory}
