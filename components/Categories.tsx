@@ -9,7 +9,7 @@ export const Categories = () => {
     { name: string; slug: string }[] | undefined
   >();
   const [activeCategory, setActiveCategory] = useState(false);
-  const { asPath } = useRouter();
+  const { asPath, pathname } = useRouter();
 
   useEffect(() => {
     void getCategories().then((cat: PostCategory[]) => setCategories(cat));
@@ -25,6 +25,12 @@ export const Categories = () => {
 
   return (
     <div className="pt-4 pb-8 flex flex-wrap justify-center text-center">
+      <NavLink
+        to="/blog"
+        additionalClasses="mt-4"
+        text={'All'}
+        activeCategory={activeCategory}
+      />
       {categories?.map((category, idx) => (
         <NavLink
           key={idx}
