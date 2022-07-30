@@ -11,7 +11,8 @@ import {
   Comments,
   Sidebar,
   Loader,
-  CodeBlock
+  CodeBlock,
+  SeoWrapper
 } from 'components';
 import { NodeDTO, PostDTO } from 'interfaces';
 import { getPostDetails, getPosts } from 'services';
@@ -63,13 +64,18 @@ const PostDetailsPage = ({ post }: PostDetailsProps) => {
         <div className="col-span-1 lg:col-span-8">
           <div className="shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
             <div className="px-4 lg:px-0">
-              <PostDetail post={post} />
-              <MDXRemote
-                {...(post.content as MDXRemoteSerializeResult<
-                  Record<string, unknown>
-                >)}
-                components={components}
-              />
+              <SeoWrapper
+                title={`${post.title} | Adrian Zinko`}
+                description={post.rawContent.slice(0, 60)}
+              >
+                <PostDetail post={post} />
+                <MDXRemote
+                  {...(post.content as MDXRemoteSerializeResult<
+                    Record<string, unknown>
+                  >)}
+                  components={components}
+                />
+              </SeoWrapper>
             </div>
           </div>
           <CommentsForm slug={post.slug} />
@@ -100,7 +106,8 @@ export const getStaticProps: GetStaticProps<PostDetailsProps, Params> = async ({
     props: {
       post: {
         ...post,
-        content: markdown
+        content: markdown,
+        rawContent: post.content as string
       }
     },
     revalidate: 60

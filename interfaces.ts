@@ -11,6 +11,7 @@ export interface PostDTO {
   author: AuthorDTO;
   createdAt: string;
   content: string | MDXRemoteSerializeResult<Record<string, unknown>>;
+  rawContent: string;
   categories: PostCategory[];
 }
 
