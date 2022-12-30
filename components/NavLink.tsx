@@ -34,14 +34,13 @@ export const NavLink = ({
       : '';
 
   return (
-    <Link href={to} passHref>
-      <a
-        className={`animated-link ${
-          isSelected || activeCategory ? 'active mr-8' : 'mr-8'
-        } ${classes}`}
-      >
-        {children || text}
-      </a>
+    <Link
+      href={to}
+      className={`animated-link ${
+        isSelected || activeCategory ? 'active mr-8' : 'mr-8'
+      } ${classes}`}
+    >
+      {children || text}
     </Link>
   );
 };

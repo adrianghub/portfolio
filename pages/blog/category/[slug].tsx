@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { GetStaticProps, GetStaticPaths } from 'next/types';
 import { Params } from 'next/dist/server/router';
 import { NodeDTO, PostCategory } from 'interfaces';
@@ -48,7 +46,7 @@ export const getStaticProps: GetStaticProps<
   CategoryPostsProps,
   Params
 > = async ({ params }) => {
-  const posts = await getCategoryPosts(params?.slug);
+  const posts = await getCategoryPosts(params?.slug as string);
   return {
     props: {
       posts

@@ -80,7 +80,9 @@ export const SearchBar = () => {
               <>
                 <div>
                   {posts?.slice(0, 2).map(({ node: post }) => (
-                    <PostCard key={post.id} post={post} spotlight />
+                    <div onClick={() => setShowSearchBar(false)}>
+                      <PostCard key={post.id} post={post} spotlight />
+                    </div>
                   ))}
                 </div>
                 {posts && posts.length !== 0 ? (

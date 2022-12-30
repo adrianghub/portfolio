@@ -2,11 +2,11 @@
 /* eslint-disable @typescript-eslint/no-unsafe-return */
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { request, gql } from 'graphql-request';
-import { CommentObjData } from 'interfaces';
+import { CommentObjData, NodeDTO, PostCategory, PostDTO } from 'interfaces';
 
 const graphcmsAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || '';
 
-export const getPosts = async () => {
+export const getPosts = async (): Promise<NodeDTO[]> => {
   const query = gql`
     query GePosts {
       postsConnection(orderBy: createdAt_DESC) {
@@ -39,7 +39,7 @@ export const getPosts = async () => {
   return result.postsConnection.edges;
 };
 
-export const getPostDetails = async (slug: string) => {
+export const getPostDetails = async (slug: string): Promise<PostDTO> => {
   const query = gql`
     query GePostDetails($slug: String!) {
       post(where: { slug: $slug }) {
@@ -69,7 +69,9 @@ export const getPostDetails = async (slug: string) => {
   return result.post;
 };
 
-export const getCategoryPosts = async (categorySlug: string) => {
+export const getCategoryPosts = async (
+  categorySlug: string
+): Promise<NodeDTO[]> => {
   const query = gql`
     query GetCategoryPosts($slug: String!) {
       postsConnection(
@@ -152,7 +154,7 @@ export const getSimilarPosts = async (
   return result.posts;
 };
 
-export const getCategories = async () => {
+export const getCategories = async (): Promise<PostCategory[]> => {
   const query = gql`
     query GetCategories {
       categories {

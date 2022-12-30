@@ -15,8 +15,8 @@ export const Header = () => {
       <div className="border-b w-full border-gray-300 py-8 flex flex-col justify-between items-center sm:flex-row">
         <div className="block py-4">
           <Link href="/">
-            <span className="cursor-pointer font-bold text-3xl lg:text-5xl">
-              Portfolio Website
+            <span className="site-title cursor-pointer text-3xl lg:text-5xl">
+              portfolio
             </span>
           </Link>
         </div>

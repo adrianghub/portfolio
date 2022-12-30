@@ -41,8 +41,11 @@ export const PostWidget = ({
               <p className="text-gray-500 font-xs">
                 {moment(post.createdAt).format('MMMM DD, YYYY')}
               </p>
-              <Link href={`/blog/post/${post.slug}`} passHref>
-                <a className="text-md animated-link">{post.title}</a>
+              <Link
+                href={`/blog/post/${post.slug}`}
+                className="text-md animated-link"
+              >
+                {post.title}
               </Link>
             </div>
           </div>

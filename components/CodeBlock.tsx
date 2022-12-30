@@ -1,17 +1,13 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-return */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
-/* eslint-disable @typescript-eslint/no-unsafe-call */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/restrict-template-expressions */
-import { useEffect, useState } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import rangeParser from 'parse-numeric-range';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
 import theme from 'prism-react-renderer/themes/nightOwl';
 import { Button } from './Button';
 
 export const CodeBlock = (props: {
-  children: { props: { className: string; children: string; highlights: string } };
+  children: {
+    props: { className: string; children: ReactNode; highlights: string };
+  };
 }) => {
   const [isCopied, setIsCopied] = useState(false);
   const [isNavigatorClipboard, setIsNavigatorClipboard] = useState(false);
@@ -38,7 +34,7 @@ export const CodeBlock = (props: {
   };
 
   const className = props.children.props.className || '';
-  const code = props.children.props.children.trim();
+  const code = (props.children?.props?.children as string)?.trim();
   const language = className.replace(/language-/, '');
   const highlights = calculateLinesToHighlight(
     props.children.props.highlights || ''
@@ -80,6 +76,7 @@ export const CodeBlock = (props: {
               {tokens.map((line, i) => (
                 <div
                   {...getLineProps({ line, key: i })}
+                  // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                   key={`${line}-${i}`}
                   style={{
                     background: highlights(i) ? '#00f5c426' : 'transparent',
@@ -88,6 +85,7 @@ export const CodeBlock = (props: {
                 >
                   {line.map((token, key) => (
                     <span
+                      // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
                       key={`${key}-${token}`}
                       {...getTokenProps({ token, key })}
                     />

@@ -9,7 +9,7 @@ export const Categories = () => {
     { name: string; slug: string }[] | undefined
   >();
   const [activeCategory, setActiveCategory] = useState(false);
-  const { asPath, pathname } = useRouter();
+  const { asPath } = useRouter();
 
   useEffect(() => {
     void getCategories().then((cat: PostCategory[]) => setCategories(cat));

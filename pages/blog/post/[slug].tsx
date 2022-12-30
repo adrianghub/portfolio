@@ -1,7 +1,4 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-/* eslint-disable @typescript-eslint/no-unsafe-argument */
 import { GetStaticProps, GetStaticPaths } from 'next/types';
-import { Params } from 'next/dist/server/router';
 import { useRouter } from 'next/router';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
@@ -17,6 +14,7 @@ import {
 import { NodeDTO, PostDTO } from 'interfaces';
 import { getPostDetails, getPosts } from 'services';
 import { HTMLAttributes, ImgHTMLAttributes, LiHTMLAttributes } from 'react';
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 
 interface PostDetailsProps {
   post: PostDTO;
@@ -48,7 +46,7 @@ const components = {
     <img className="rounded-lg shadow-lg mx-auto my-3" {...props} />
   ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  pre: (props: HTMLAttributes<HTMLPreElement> & any) => <CodeBlock {...props} />
+  pre: (props: any) => <CodeBlock {...props} />
 };
 
 const PostDetailsPage = ({ post }: PostDetailsProps) => {
@@ -96,8 +94,9 @@ export default PostDetailsPage;
 
 export const getStaticProps: GetStaticProps<PostDetailsProps, Params> = async ({
   params
-}) => {
-  const post: PostDTO = await getPostDetails(params?.slug);
+}: Params) => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+  const post = await getPostDetails(params?.slug as string);
 
   const markdown: MDXRemoteSerializeResult<Record<string, unknown>> =
     await serialize(post.content as string);
@@ -115,7 +114,7 @@ export const getStaticProps: GetStaticProps<PostDetailsProps, Params> = async ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts: NodeDTO[] = await getPosts();
+  const posts = await getPosts();
 
   return {
     paths: posts.map(({ node: { slug } }: NodeDTO) => ({ params: { slug } })),

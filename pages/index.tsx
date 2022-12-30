@@ -17,16 +17,16 @@ const IndexPage = () => {
   return (
     <SeoWrapper {...seoData}>
       <div className="container mx-auto px-10 mb-8">
-        <div className="grid place-items-center min-h-[calc(100vh-145px-32px)]">
+        <div className="grid place-items-center min-h-[calc(100vh-245px)]">
           <p className="text-xl">
-            Currently under construction. Checkout the
-            <span className="mx-1 font-bold">
-              <Link href="/blog" passHref>
-                <a className="animated-link">Blog</a>
+            Currently under construction. Check out the
+            <span className="mx-2 font-bold">
+              <Link className="animated-link" href="/blog" passHref>
+                Blog
               </Link>
             </span>
             or
-            <span className="mx-1 font-bold">
+            <span className="mx-2 font-bold">
               <a
                 className="animated-link"
                 target="_blank"

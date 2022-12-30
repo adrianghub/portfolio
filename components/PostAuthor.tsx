@@ -11,8 +11,8 @@ export const PostAuthor = ({ name, avatarUrl }: PostAuthorProps) => (
       unoptimized
       loader={({ src }) => src}
       src={avatarUrl}
-      width="30px"
-      height="30px"
+      width="30"
+      height="30"
       alt={name}
     />
     <p className="inline align-middle text-gray-700 ml-2 text-sm md:text-lg">
