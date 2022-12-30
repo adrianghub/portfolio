@@ -1,11 +1,11 @@
 import { GetStaticProps, GetStaticPaths } from 'next/types';
-import { Params } from 'next/dist/server/router';
 import { NodeDTO, PostCategory } from 'interfaces';
 import { getCategories, getCategoryPosts } from 'services';
 import { useRouter } from 'next/router';
 import { Loader } from 'components/Loader';
 import { PostCard, SeoWrapper, Sidebar } from 'components';
 import { capitalizeFirstLetter } from 'util/capitalizeFirstLetter';
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 
 interface CategoryPostsProps {
   posts: NodeDTO[];
@@ -46,6 +46,7 @@ export const getStaticProps: GetStaticProps<
   CategoryPostsProps,
   Params
 > = async ({ params }) => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const posts = await getCategoryPosts(params?.slug as string);
   return {
     props: {

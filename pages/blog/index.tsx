@@ -3,9 +3,9 @@ import { Loader, Posts, SeoWrapper } from 'components';
 import type { GetStaticProps } from 'next';
 import { Sidebar } from 'components';
 import { NodeDTO } from 'interfaces';
-import { Params } from 'next/dist/server/router';
 import { getPosts } from 'services';
 import { useRouter } from 'next/router';
+import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 
 interface IndexProps {
   posts: NodeDTO[];
