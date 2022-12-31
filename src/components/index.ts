@@ -14,3 +14,5 @@ export { Comments } from './Comments';
 export { CommentsForm } from './CommentsForm';
 export { CodeBlock } from './CodeBlock';
 export { SeoWrapper } from './SeoWrapper';
+export { Input } from './Input';
+export { OneFourthLayout } from './OneFourthLayout';

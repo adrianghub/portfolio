@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { Header } from './';
+import { Header } from '.';
 
 interface LayoutProps {
   children: ReactNode;
@@ -8,6 +8,6 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps) => (
   <>
     <Header />
-    {children}
+    <main className="container mx-auto px-10 mb-8">{children}</main>
   </>
 );

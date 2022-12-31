@@ -9,7 +9,9 @@ import {
   Sidebar,
   Loader,
   CodeBlock,
-  SeoWrapper
+  SeoWrapper,
+  PostWidget,
+  OneFourthLayout
 } from 'components';
 import { NodeDTO, PostDTO } from 'interfaces';
 import { getPostDetails, getPosts } from 'services';
@@ -57,9 +59,9 @@ const PostDetailsPage = ({ post }: PostDetailsProps) => {
   }
 
   return (
-    <div className="container mx-auto px-10 mb-8">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        <div className="col-span-1 lg:col-span-8">
+    <OneFourthLayout
+      childrenLeft={
+        <>
           <div className="shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
             <div className="px-4 lg:px-0">
               <SeoWrapper
@@ -78,15 +80,17 @@ const PostDetailsPage = ({ post }: PostDetailsProps) => {
           </div>
           <CommentsForm slug={post.slug} />
           <Comments slug={post.slug} />
-        </div>
-        <div className="col-span-1 lg:col-span-4 relative lg:sticky top-2 h-screen">
-          <Sidebar
+        </>
+      }
+      childrenRight={
+        <Sidebar>
+          <PostWidget
             slug={post.slug}
             categoriesSlugs={post.categories.map((category) => category.slug)}
           />
-        </div>
-      </div>
-    </div>
+        </Sidebar>
+      }
+    ></OneFourthLayout>
   );
 };
 

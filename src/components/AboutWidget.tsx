@@ -39,7 +39,7 @@ export const AboutWidget = () => (
         className="animated-link"
         target="_blank"
         rel="norefferer"
-        href="/resume.pdf"
+        href="/assets/resume.pdf"
       >
         resume
       </a>

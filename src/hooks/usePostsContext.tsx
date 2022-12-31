@@ -1,4 +1,4 @@
-import { PostsContext } from 'lib/PostsContext';
+import { PostsContext } from 'libs/PostsContext';
 import { useContext } from 'react';
 
 export const usePostsContext = () => {

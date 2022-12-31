@@ -30,16 +30,11 @@ export const Header = () => {
                   Blog
                 </span>
               </Link>
-              <a
-                href="/resume.pdf"
-                target="_blank"
-                rel="norefferer"
-                className="animated-link"
-              >
+              <Link href="/resume" className="animated-link">
                 <span className="cursor-pointer font-bold text-xl lg:text-xl">
                   Resume
                 </span>
-              </a>
+              </Link>
             </>
           )}
         </div>

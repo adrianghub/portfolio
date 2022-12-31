@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import { Posts } from 'components';
-import { Sidebar } from 'components';
+import { OneFourthLayout, Posts, PostWidget, Sidebar } from 'components';
 import { usePostsContext } from 'hooks/usePostsContext';
 import { useSearchContext } from 'hooks/useSearchContext';
 import { SearchBar } from 'components/SearchBar';
@@ -17,19 +16,21 @@ const SearchPage = () => {
       <SearchBar />
       <h2 className="text-2xl md:text-3xl mb-8">
         {searchValue ? (
-          <>
+          <span>
             Results for query : <b>{searchValue}</b>
-          </>
+          </span>
         ) : (
           'All Posts'
         )}
       </h2>
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-        {posts && <Posts posts={posts} />}
-        <div className="col-span-1 lg:col-span-4 relative lg:sticky top-2 h-screen">
-          <Sidebar />
-        </div>
-      </div>
+      <OneFourthLayout
+        childrenLeft={posts && <Posts posts={posts} />}
+        childrenRight={
+          <Sidebar>
+            <PostWidget />
+          </Sidebar>
+        }
+      />
     </div>
   );
 };

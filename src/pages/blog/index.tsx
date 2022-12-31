@@ -1,10 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
-import { Loader, Posts, SeoWrapper } from 'components';
 import type { GetStaticProps } from 'next';
-import { Sidebar } from 'components';
+import { useRouter } from 'next/router';
+import {
+  Loader,
+  Posts,
+  SeoWrapper,
+  Sidebar,
+  OneFourthLayout
+} from 'components';
 import { NodeDTO } from 'interfaces';
 import { getPosts } from 'services';
-import { useRouter } from 'next/router';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
 
 interface IndexProps {
@@ -25,14 +30,10 @@ const BlogPage = ({ posts }: IndexProps) => {
 
   return (
     <SeoWrapper {...seoData}>
-      <div className="container mx-auto px-10 mb-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {posts && <Posts posts={posts} />}
-          <div className="col-span-1 lg:col-span-4 relative lg:sticky top-2 h-screen">
-            <Sidebar />
-          </div>
-        </div>
-      </div>
+      <OneFourthLayout
+        childrenLeft={posts && <Posts posts={posts} />}
+        childrenRight={<Sidebar />}
+      />
     </SeoWrapper>
   );
 };

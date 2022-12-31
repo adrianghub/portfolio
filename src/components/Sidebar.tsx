@@ -1,14 +1,15 @@
+import { ReactNode } from 'react';
 import { AboutWidget } from './AboutWidget';
-import { PostWidget } from './PostWidget';
 
 interface SidebarProps {
   slug: string;
   categoriesSlugs: string[];
+  children: ReactNode;
 }
 
-export const Sidebar = ({ slug, categoriesSlugs }: Partial<SidebarProps>) => (
+export const Sidebar = ({ children }: Partial<SidebarProps>) => (
   <div className="shadow-lg rounded-lg px-8 pt-8 pb-4">
     <AboutWidget />
-    <PostWidget slug={slug} categoriesSlugs={categoriesSlugs} />
+    {children}
   </div>
 );
