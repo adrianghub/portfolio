@@ -1,4 +1,4 @@
-import { SOCIAL_MEDIA } from 'data';
+import { SOCIAL_MEDIA } from 'shared/data';
 import * as RemixIcons from 'react-icons/ri';
 
 const DynamicRemixIcon = ({

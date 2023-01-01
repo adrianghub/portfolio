@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { getCategories } from 'services';
+import { getCategories } from 'shared/services';
 import { PostCategory } from 'interfaces';
-import { NavLink } from './NavLink';
 import { useRouter } from 'next/router';
+import { NavLink } from 'shared/components';
 
 export const Categories = () => {
   const [categories, setCategories] = useState<

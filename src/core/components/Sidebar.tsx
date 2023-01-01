@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { AboutWidget } from './AboutWidget';
+import { AboutWidget } from '../../shared/components/AboutWidget';
 
 interface SidebarProps {
   slug: string;

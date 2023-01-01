@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { PostDTO } from 'interfaces';
-import { PostAuthor, PostDate } from 'components';
+import { PostAuthor, PostDate } from '.';
 
 interface PostCardProps {
   post: PostDTO;

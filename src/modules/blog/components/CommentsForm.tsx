@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
-import { submitComment } from 'services';
-import { Button } from './Button';
-import { Input } from './Input';
+import { submitComment } from 'shared/services';
+import { Button } from '../../../shared/components/Button';
+import { Input } from '../../../shared/components/Input';
 
 interface CommentsFormProps {
   slug: string;

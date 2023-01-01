@@ -2,7 +2,7 @@ import { PostDTO } from 'interfaces';
 import moment from 'moment';
 import Link from 'next/link';
 import { useState, useEffect } from 'react';
-import { getRecentPosts, getSimilarPosts } from 'services';
+import { getRecentPosts, getSimilarPosts } from 'shared/services';
 
 interface PostWidgetProps {
   categoriesSlugs: string[];

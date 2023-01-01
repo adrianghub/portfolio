@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import parse from 'html-react-parser';
 import moment from 'moment';
-import { getComments } from 'services';
+import { getComments } from 'shared/services';
 import { CommentObjData } from 'interfaces';
 
 interface CommentsProps {

@@ -1,16 +1,12 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
-import {
-  Loader,
-  Posts,
-  SeoWrapper,
-  Sidebar,
-  OneFourthLayout
-} from 'components';
 import { NodeDTO } from 'interfaces';
-import { getPosts } from 'services';
+import { getPosts } from 'shared/services';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
+import { Posts } from 'modules/blog/components';
+import { Loader, SeoWrapper } from 'shared/components';
+import { OneFourthLayout, Sidebar } from 'core/components';
 
 interface IndexProps {
   posts: NodeDTO[];

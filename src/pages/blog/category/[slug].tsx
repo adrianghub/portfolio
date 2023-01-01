@@ -1,17 +1,12 @@
 import { GetStaticProps, GetStaticPaths } from 'next/types';
 import { NodeDTO, PostCategory } from 'interfaces';
-import { getCategories, getCategoryPosts } from 'services';
+import { getCategories, getCategoryPosts } from 'shared/services';
 import { useRouter } from 'next/router';
-import {} from 'components/Loader';
-import {
-  PostCard,
-  SeoWrapper,
-  Sidebar,
-  Loader,
-  OneFourthLayout
-} from 'components';
-import { capitalizeFirstLetter } from 'utils/capitalizeFirstLetter';
+import { capitalizeFirstLetter } from 'shared/utils/capitalizeFirstLetter';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
+import { OneFourthLayout, Sidebar } from 'core/components';
+import { PostCard } from 'modules/blog/components';
+import { SeoWrapper, Loader } from 'shared/components';
 
 interface CategoryPostsProps {
   posts: NodeDTO[];

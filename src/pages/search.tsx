@@ -1,8 +1,8 @@
+import { OneFourthLayout, Sidebar } from 'core/components';
+import { Posts, PostWidget } from 'modules/blog/components';
 import Head from 'next/head';
-import { OneFourthLayout, Posts, PostWidget, Sidebar } from 'components';
-import { usePostsContext } from 'hooks/usePostsContext';
-import { useSearchContext } from 'hooks/useSearchContext';
-import { SearchBar } from 'components/SearchBar';
+import { SearchBar } from 'shared/components';
+import { usePostsContext, useSearchContext } from 'shared/hooks';
 
 const SearchPage = () => {
   const { posts } = usePostsContext();

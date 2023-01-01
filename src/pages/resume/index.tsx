@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import { OneFourthLayout, Sidebar } from 'core/components';
 import Link from 'next/link';
-import { SeoWrapper, Sidebar, OneFourthLayout } from 'components';
+import { SeoWrapper } from 'shared/components';
 
 const seoData = {
   title: 'Blog | Adrian Zinko',
@@ -23,7 +24,7 @@ const ResumePage = () => {
         </Link>
       </div>
       <OneFourthLayout
-        childrenLeft={<div>resume</div>}
+        childrenLeft={<div>(under construction)</div>}
         childrenRight={<Sidebar />}
       />
     </SeoWrapper>

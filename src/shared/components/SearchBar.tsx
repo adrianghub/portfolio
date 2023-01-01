@@ -2,11 +2,9 @@ import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { AiOutlineClose } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
-import { usePostsContext } from 'hooks/usePostsContext';
-import { useSearchContext } from 'hooks/useSearchContext';
-import { Input } from './Input';
-import { Button } from './Button';
-import { PostCard } from './PostCard';
+import { usePostsContext, useSearchContext } from 'shared/hooks';
+import { PostCard } from 'modules/blog/components';
+import { Button, Input } from './';
 
 export const SearchBar = () => {
   const [showSearchBar, setShowSearchBar] = useState(false);

@@ -4,7 +4,7 @@ import { createContext, ReactNode } from 'react';
 import request from 'graphql-request';
 import useSWR from 'swr';
 import { NodeDTO } from 'interfaces';
-import { useSearchContext } from 'hooks/useSearchContext';
+import { useSearchContext } from 'shared/hooks';
 
 interface PostsContextProps {
   posts: NodeDTO[] | undefined;

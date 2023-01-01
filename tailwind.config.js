@@ -1,7 +1,9 @@
 module.exports = {
   content: [
     './src/pages/**/*.{js,ts,jsx,tsx}',
-    './src/components/**/*.{js,ts,jsx,tsx}'
+    './src/core/**/*.{js,ts,jsx,tsx}',
+    './src/modules/**/*.{js,ts,jsx,tsx}',
+    './src/shared/**/*.{js,ts,jsx,tsx}'
   ],
   darkMode: 'media',
   theme: {

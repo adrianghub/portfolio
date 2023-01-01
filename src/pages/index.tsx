@@ -1,7 +1,6 @@
-import { Loader, SeoWrapper, Input } from 'components';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { useState } from 'react';
+import { Loader, SeoWrapper } from 'shared/components';
 
 const seoData = {
   title: 'Home | Adrian Zinko',
@@ -15,11 +14,11 @@ const IndexPage = () => {
     return <Loader />;
   }
 
-  const [error, setError] = useState(null);
-  const [quantity, setQuantity] = useState(1);
-  const [name, setName] = useState('');
-  const [message, setmMessage] = useState('');
-  const presets = [1, 3, 5];
+  // const [error, setError] = useState(null);
+  // const [quantity, setQuantity] = useState(1);
+  // const [name, setName] = useState('');
+  // const [message, setmMessage] = useState('');
+  // const presets = [1, 3, 5];
 
   return (
     <SeoWrapper {...seoData}>
@@ -28,7 +27,8 @@ const IndexPage = () => {
           <h2 className="text-2xl">
             I run on soy latte. You can buy me one if you wish ;)
           </h2>
-          {presets.map((preset) => (
+          <p className="text-xl text-center">(under construction)</p>
+          {/* {presets.map((preset) => (
             <button key={preset} onClick={() => setQuantity(preset)}>
               {preset}
             </button>
@@ -38,7 +38,7 @@ const IndexPage = () => {
             additionalClasses="p-4 my-4"
             placeholder="Value"
             name="value"
-          />
+          /> */}
         </div>
 
         <p className="text-xl">

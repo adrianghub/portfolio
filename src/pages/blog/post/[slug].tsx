@@ -2,21 +2,19 @@ import { GetStaticProps, GetStaticPaths } from 'next/types';
 import { useRouter } from 'next/router';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import {
-  PostDetail,
-  CommentsForm,
-  Comments,
-  Sidebar,
-  Loader,
-  CodeBlock,
-  SeoWrapper,
-  PostWidget,
-  OneFourthLayout
-} from 'components';
 import { NodeDTO, PostDTO } from 'interfaces';
-import { getPostDetails, getPosts } from 'services';
+import { getPostDetails, getPosts } from 'shared/services';
 import { HTMLAttributes, ImgHTMLAttributes, LiHTMLAttributes } from 'react';
 import { Params } from 'next/dist/shared/lib/router/utils/route-matcher';
+import { OneFourthLayout, Sidebar } from 'core/components';
+import { Loader, SeoWrapper } from 'shared/components';
+import {
+  CodeBlock,
+  PostDetail,
+  Comments,
+  CommentsForm,
+  PostWidget
+} from 'modules/blog/components';
 
 interface PostDetailsProps {
   post: PostDTO;
