@@ -27,7 +27,7 @@ const IndexPage = () => {
           <h2 className="text-2xl">
             I run on soy latte. You can buy me one if you wish ;)
           </h2>
-          <p className="text-xl text-center">(under construction)</p>
+          <p className="text-xl text-center py-8">(under construction)</p>
           {/* {presets.map((preset) => (
             <button key={preset} onClick={() => setQuantity(preset)}>
               {preset}

@@ -24,7 +24,9 @@ const ResumePage = () => {
         </Link>
       </div>
       <OneFourthLayout
-        childrenLeft={<div>(under construction)</div>}
+        childrenLeft={
+          <div className="text-center sm:text-left">(under construction)</div>
+        }
         childrenRight={<Sidebar />}
       />
     </SeoWrapper>
