@@ -12,7 +12,7 @@ export const PostCard = ({ post, spotlight }: PostCardProps) => (
     <div
       className={`${
         spotlight ? 'bg-whitechocolate-300 mt-8' : ''
-      } shadow-lg rounded-lg lg:p-8 mb-8 p-4 cursor-pointer post-card-wrapper`}
+      } border border-gray-300 rounded-lg lg:p-8 mb-8 p-4 cursor-pointer post-card-wrapper`}
     >
       <div className="post-card-wrapper-inner">
         <h1
@@ -33,7 +33,7 @@ export const PostCard = ({ post, spotlight }: PostCardProps) => (
             {post.categories.map((category, idx) => (
               <p
                 key={idx}
-                className="inline align-middle text-gray-700 ml-2 text-sm md:text-lg"
+                className="inline align-middle text-gray-700 text-sm md:text-lg"
               >
                 {category.name}
               </p>

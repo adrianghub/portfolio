@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { OneFourthLayout, Sidebar } from 'core/components';
 import Link from 'next/link';
 import { SeoWrapper } from 'shared/components';

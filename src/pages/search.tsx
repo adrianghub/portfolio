@@ -1,5 +1,5 @@
 import { OneFourthLayout, Sidebar } from 'core/components';
-import { Posts, PostWidget } from 'modules/blog/components';
+import { Posts } from 'modules/blog/components';
 import Head from 'next/head';
 import { SearchBar } from 'shared/components';
 import { usePostsContext, useSearchContext } from 'shared/hooks';
@@ -25,11 +25,7 @@ const SearchPage = () => {
       </h2>
       <OneFourthLayout
         childrenLeft={posts && <Posts posts={posts} />}
-        childrenRight={
-          <Sidebar>
-            <PostWidget />
-          </Sidebar>
-        }
+        childrenRight={<Sidebar postWidget />}
       />
     </div>
   );

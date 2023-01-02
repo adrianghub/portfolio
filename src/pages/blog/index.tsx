@@ -28,7 +28,7 @@ const BlogPage = ({ posts }: IndexProps) => {
     <SeoWrapper {...seoData}>
       <OneFourthLayout
         childrenLeft={posts && <Posts posts={posts} />}
-        childrenRight={<Sidebar />}
+        childrenRight={<Sidebar postWidget />}
       />
     </SeoWrapper>
   );

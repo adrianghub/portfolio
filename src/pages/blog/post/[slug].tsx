@@ -43,7 +43,7 @@ const components = {
     <li className="text-md sm:text-lg leading-relaxed ml-4 py-3" {...props} />
   ),
   img: (props: ImgHTMLAttributes<HTMLImageElement>) => (
-    <img className="rounded-lg shadow-lg mx-auto my-3" {...props} />
+    <img className="rounded-lg mx-auto my-3" {...props} />
   ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   pre: (props: any) => <CodeBlock {...props} />
@@ -60,7 +60,7 @@ const PostDetailsPage = ({ post }: PostDetailsProps) => {
     <OneFourthLayout
       childrenLeft={
         <>
-          <div className="shadow-lg rounded-lg lg:p-8 pb-12 mb-8">
+          <div className="border border-gray-300 rounded-lg lg:p-8 pb-12 mb-8">
             <div className="px-4 lg:px-0">
               <SeoWrapper
                 title={`${post.title} | Adrian Zinko`}

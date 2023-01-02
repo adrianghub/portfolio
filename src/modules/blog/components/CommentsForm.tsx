@@ -64,14 +64,14 @@ export const CommentsForm = ({ slug }: CommentsFormProps) => {
   };
 
   return (
-    <div className="shadow-lg rounded-lg p-8 pb-12 mb-8">
+    <div className="border border-gray-300 rounded-lg p-8 pb-12 mb-8">
       <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
         Leave a comment
       </h3>
       <div className="grid grid-cols-1 gap-4 mb-4">
         <Input
           textareaRef={commentElRef}
-          additionalClasses="p-4"
+          classes="p-4"
           placeholder="Comment"
           name="comment"
           textarea
@@ -79,14 +79,14 @@ export const CommentsForm = ({ slug }: CommentsFormProps) => {
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
         <Input
-          inputRef={nameElRef}
-          additionalClasses="p-2 px-4"
+          ref={nameElRef}
+          classes="p-2 px-4"
           placeholder="Name"
           name="name"
         />
         <Input
-          inputRef={emailElRef}
-          additionalClasses="p-2 px-4"
+          ref={emailElRef}
+          classes="p-2 px-4"
           placeholder="Email"
           name="email"
         />
@@ -94,7 +94,7 @@ export const CommentsForm = ({ slug }: CommentsFormProps) => {
       <div className="grid grid-cols-1 gap-4 mb-4">
         <div>
           <Input
-            inputRef={storeDataElRef}
+            ref={storeDataElRef}
             id="storeData"
             name="storeData"
             type="checkbox"

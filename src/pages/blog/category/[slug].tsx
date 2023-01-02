@@ -33,7 +33,7 @@ const CategoryPostsPage = ({ posts }: CategoryPostsProps) => {
             </>
           )
         }
-        childrenRight={<Sidebar />}
+        childrenRight={<Sidebar postWidget />}
       />
     </SeoWrapper>
   );

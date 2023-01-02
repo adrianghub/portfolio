@@ -2,30 +2,30 @@ import { MutableRefObject } from 'react';
 
 interface InputProps {
   id?: string;
-  inputRef?: MutableRefObject<HTMLInputElement | null>;
+  ref?: MutableRefObject<HTMLInputElement | null>;
   textareaRef?: MutableRefObject<HTMLTextAreaElement | null>;
   type?: string;
-  additionalClasses?: string;
+  classes?: string;
   name: string;
   placeholder?: string;
   textarea?: boolean;
   value?: string | string[];
-  onChangeInput?: (evt: React.ChangeEvent<HTMLInputElement>) => void;
-  onChangeTextarea?: (evt: React.ChangeEvent<HTMLTextAreaElement>) => void;
+  onChange?: (
+    evt: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ) => void;
 }
 
 export const Input = ({
   id,
-  inputRef,
+  ref,
   textareaRef,
   type = 'text',
-  additionalClasses,
+  classes,
   name,
   placeholder,
   textarea,
   value,
-  onChangeInput,
-  onChangeTextarea
+  onChange
 }: InputProps) => {
   const sharedClasses =
     'w-full rounded-lg focus:outline-none focus:ring focus:ring-gray-300 bg-gray-100 text-gray-700';
@@ -34,13 +34,13 @@ export const Input = ({
     return (
       <input
         id={id}
-        ref={inputRef}
+        ref={ref}
         type={type}
-        className={`accent-gray-900 ${additionalClasses || ''}`}
+        className={`accent-gray-900 ${classes || ''}`}
         name={name}
         placeholder={placeholder}
         value={value}
-        onChange={onChangeInput}
+        onChange={onChange}
       />
     );
   }
@@ -48,23 +48,23 @@ export const Input = ({
   return !textarea ? (
     <input
       id={id}
-      ref={inputRef}
+      ref={ref}
       type={type}
-      className={`${sharedClasses} ${additionalClasses || ''}`}
+      className={`${sharedClasses} ${classes || ''}`}
       name={name}
       placeholder={placeholder}
       value={value}
-      onChange={onChangeInput}
+      onChange={onChange}
     />
   ) : (
     <textarea
       id={id}
       ref={textareaRef}
-      className={`${sharedClasses} ${additionalClasses || ''}`}
+      className={`${sharedClasses} ${classes || ''}`}
       name={name}
       placeholder={placeholder}
       value={value}
-      onChange={onChangeTextarea}
+      onChange={onChange}
     />
   );
 };

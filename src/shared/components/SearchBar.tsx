@@ -64,10 +64,10 @@ export const SearchBar = () => {
       <div className="relative container px-10 mb-8">
         <Input
           name="search"
-          additionalClasses="mt-10 px-4 py-3 search-input"
+          classes="mt-10 px-4 py-3 search-input"
           placeholder="Type search query..."
           value={searchValue}
-          onChangeInput={(evt) => setSearchValue(evt.target.value)}
+          onChange={(evt) => setSearchValue(evt.target.value)}
         />
         {searchValue && (
           <>
@@ -107,10 +107,10 @@ export const SearchBar = () => {
     <div className={`w-full relative`}>
       <Input
         name="search"
-        additionalClasses="mt-4 md:mt-0 px-4 py-3 search-input"
+        classes="mt-4 md:mt-0 px-4 py-3 search-input"
         placeholder="Type search query..."
         value={searchValue}
-        onChangeInput={(evt) => setSearchValue(evt.target.value)}
+        onChange={(evt) => setSearchValue(evt.target.value)}
       />
       {searchValue && (
         <button onClick={() => setSearchValue('')}>
