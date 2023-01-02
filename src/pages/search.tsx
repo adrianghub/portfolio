@@ -9,7 +9,7 @@ const SearchPage = () => {
   const { searchValue } = useSearchContext();
 
   return (
-    <div className="container mx-auto px-10 mb-8">
+    <div className="container mx-auto px-8 mb-8">
       <Head>
         <title>Search | Adrian Zinko | Blog</title>
       </Head>

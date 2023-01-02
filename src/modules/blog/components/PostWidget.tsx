@@ -27,7 +27,7 @@ export const PostWidget = ({
   }, [slug]);
 
   return (
-    <div className="py-8">
+    <div className="pt-8 pb-4">
       <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
         {slug ? 'Related Posts' : 'Recent Posts'}
       </h3>

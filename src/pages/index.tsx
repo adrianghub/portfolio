@@ -1,6 +1,6 @@
-import { useRouter } from 'next/router';
 import Link from 'next/link';
-import { Loader, SeoWrapper } from 'shared/components';
+import { useRouter } from 'next/router';
+import { Loader, SeoWrapper, SocialMediaRow } from 'shared/components';
 
 const seoData = {
   title: 'Home | Adrian Zinko',
@@ -24,10 +24,16 @@ const IndexPage = () => {
     <SeoWrapper {...seoData}>
       <div className="grid place-items-center min-h-[calc(100vh-245px)]">
         <div>
-          <h2 className="text-2xl">
-            I run on soy latte. You can buy me one if you wish ;)
+          <h2 className="text-lg md:text-2xl mb-8">
+            I run on soy latte. You can{' '}
+            <Link href="/buymeacoffee" className="animated-link">
+              buy
+            </Link>{' '}
+            me one if you wish ;)
           </h2>
-          <p className="text-xl text-center py-8">(under construction)</p>
+
+          <SocialMediaRow />
+
           {/* {presets.map((preset) => (
             <button key={preset} onClick={() => setQuantity(preset)}>
               {preset}
@@ -40,27 +46,6 @@ const IndexPage = () => {
             name="value"
           /> */}
         </div>
-
-        <p className="text-xl">
-          Didn't convince you? Check out the
-          <span className="mx-2 font-bold">
-            <Link className="animated-link" href="/blog" passHref>
-              Blog
-            </Link>
-          </span>
-          or
-          <span className="mx-2 font-bold">
-            <Link
-              className="animated-link"
-              target="_blank"
-              rel="norefferer"
-              href="/resume"
-            >
-              Resume
-            </Link>
-          </span>
-          instead.
-        </p>
       </div>
     </SeoWrapper>
   );

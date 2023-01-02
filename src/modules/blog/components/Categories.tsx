@@ -24,7 +24,7 @@ export const Categories = () => {
   }, []);
 
   return (
-    <div className="pt-4 pb-8 flex flex-wrap justify-center text-center">
+    <div className="py-4 flex flex-wrap justify-center text-center">
       <NavLink
         to="/blog"
         additionalClasses="mt-4"

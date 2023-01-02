@@ -1,10 +1,10 @@
-import { OneFourthLayout, Sidebar } from 'core/components';
+import { OneFourthLayout } from 'core/components';
 import Link from 'next/link';
 import { SeoWrapper } from 'shared/components';
 
 const seoData = {
-  title: 'Blog | Adrian Zinko',
-  description: 'Tech blog website'
+  title: 'Resume | Adrian Zinko',
+  description: 'Curriculum vitae (web & pdf) page [under construction]'
 };
 
 const ResumePage = () => {
@@ -26,7 +26,7 @@ const ResumePage = () => {
         childrenLeft={
           <div className="text-center sm:text-left">(under construction)</div>
         }
-        childrenRight={<Sidebar />}
+        childrenRight={null}
       />
     </SeoWrapper>
   );

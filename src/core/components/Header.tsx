@@ -6,10 +6,14 @@ import { SearchBar } from 'shared/components';
 export const Header = () => {
   const { pathname } = useRouter();
 
+  const stickyHeaderPath = pathname === '/' || pathname === '/resume';
+  const noSearchPath =
+    pathname !== '/search' && pathname !== '/' && pathname !== '/resume';
+
   return (
     <div
-      className={`container mx-auto px-10 mb-8 ${
-        pathname === '/' ? 'sticky top-0' : ''
+      className={`container mx-auto px-8 mb-8 ${
+        stickyHeaderPath ? 'sticky top-0 backdrop-blur-sm' : ''
       }`}
     >
       <div className="border-b w-full border-gray-300 py-8 flex flex-col justify-between items-center sm:flex-row">
@@ -21,7 +25,7 @@ export const Header = () => {
           </Link>
         </div>
         <div className="flex justify-end items-center">
-          {pathname !== '/search' && pathname !== '/' ? (
+          {noSearchPath ? (
             <SearchBar />
           ) : (
             <>

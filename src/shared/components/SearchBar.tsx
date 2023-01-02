@@ -61,7 +61,7 @@ export const SearchBar = () => {
       onClick={handleCloseSpotlight}
       className="fixed z-50 inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex flex-col items-center mx-auto"
     >
-      <div className="relative container px-10 mb-8">
+      <div className="relative container px-8 mb-8">
         <Input
           name="search"
           classes="mt-10 px-4 py-3 search-input"

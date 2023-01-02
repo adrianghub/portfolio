@@ -8,7 +8,7 @@ interface SidebarProps {
 }
 
 export const Sidebar = ({ children, postWidget }: Partial<SidebarProps>) => (
-  <div className="border border-gray-300 rounded-lg px-8 pt-8 pb-4">
+  <div className="border border-gray-300 rounded-lg px-8 pt-8 pb-4 my-4 lg:mb-8">
     <AboutWidget />
     {postWidget && <PostWidget />}
     {children}
