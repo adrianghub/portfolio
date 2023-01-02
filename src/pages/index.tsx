@@ -14,37 +14,25 @@ const IndexPage = () => {
     return <Loader />;
   }
 
-  // const [error, setError] = useState(null);
-  // const [quantity, setQuantity] = useState(1);
-  // const [name, setName] = useState('');
-  // const [message, setmMessage] = useState('');
-  // const presets = [1, 3, 5];
-
   return (
     <SeoWrapper {...seoData}>
       <div className="grid place-items-center min-h-[calc(100vh-245px)]">
         <div>
-          <h2 className="text-lg md:text-2xl mb-8">
-            I run on soy latte. You can{' '}
-            <Link href="/buymeacoffee" className="animated-link">
-              buy
-            </Link>{' '}
-            me one if you wish ;)
+          <h2 className="text-lg md:text-3xl mb-8">
+            Software Developer
+            <Link
+              className="ml-2 animated-link"
+              href="https://boldare.com"
+              target="_blank"
+              rel="norefferer"
+            >
+              @Boldare
+            </Link>
           </h2>
 
           <SocialMediaRow />
 
-          {/* {presets.map((preset) => (
-            <button key={preset} onClick={() => setQuantity(preset)}>
-              {preset}
-            </button>
-          ))}
-
-          <Input
-            additionalClasses="p-4 my-4"
-            placeholder="Value"
-            name="value"
-          /> */}
+          {/* <CoffeeForm /> */}
         </div>
       </div>
     </SeoWrapper>
