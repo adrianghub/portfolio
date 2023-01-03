@@ -37,7 +37,9 @@ export const NavLink = ({
     <Link
       href={to}
       className={`animated-link ${
-        isSelected || activeCategory ? 'active mr-8' : 'mr-8'
+        isSelected || activeCategory
+          ? 'active mr-8 last:sm:mr-0'
+          : 'mr-8 last:sm:mr-0'
       } ${classes}`}
     >
       {children || text}

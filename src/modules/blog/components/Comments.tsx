@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-call */
 import { useState, useEffect } from 'react';
 import parse from 'html-react-parser';
 import moment from 'moment';

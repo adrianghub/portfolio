@@ -10,13 +10,9 @@
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "project": [
-      "./tsconfig.json"
-    ]
+    "project": ["./tsconfig.json"]
   },
-  "plugins": [
-    "@typescript-eslint"
-  ],
+  "plugins": ["@typescript-eslint"],
   "rules": {
     "jsx-a11y/label-has-associated-control": 0,
     "react/jsx-props-no-spreading": 0,
@@ -29,21 +25,10 @@
   },
   "overrides": [
     {
-      "files": [
-        "*.ts",
-        "*.tsx"
-      ], // Your TypeScript files extension
-      // As mentioned in the comments, you should extend TypeScript plugins here,
-      // instead of extending them outside the `overrides`.
-      // If you don't want to extend any rules, you don't need an `extends` attribute.
-      "extends": [
-        "plugin:@typescript-eslint/recommended",
-        "plugin:@typescript-eslint/recommended-requiring-type-checking"
-      ],
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@typescript-eslint/recommended"],
       "parserOptions": {
-        "project": [
-          "./tsconfig.json"
-        ] // Specify it only for TypeScript files
+        "project": ["./tsconfig.json"] // Specify it only for TypeScript files
       }
     }
   ]

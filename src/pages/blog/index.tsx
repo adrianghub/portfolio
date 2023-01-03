@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import type { GetStaticProps } from 'next';
 import { useRouter } from 'next/router';
 import { NodeDTO } from 'interfaces';

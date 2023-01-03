@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { createContext, ReactNode } from 'react';
 import request from 'graphql-request';
 import useSWR from 'swr';
@@ -56,7 +54,7 @@ export const PostsProvider = ({ children }: PostsProviderProps) => {
     { revalidateOnFocus: true }
   );
 
-  const posts = data?.postsConnection?.edges;
+  const posts = data?.postsConnection.edges;
 
   return (
     <PostsContext.Provider value={{ posts }}>{children}</PostsContext.Provider>

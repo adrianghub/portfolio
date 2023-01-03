@@ -1,44 +1,29 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
 import { submitComment } from 'shared/services';
-import { Button } from '../../../shared/components/Button';
-import { Input } from '../../../shared/components/Input';
+import { Input, Button, Form } from 'shared/components';
 
 interface CommentsFormProps {
   slug: string;
 }
 
+interface FormValues {
+  name: string;
+  email: string;
+  comment: string;
+}
+
 export const CommentsForm = ({ slug }: CommentsFormProps) => {
-  const [error, setError] = useState(false);
-  const [showSuccessMessage, setShowSuccessMessage] = useState<
-    boolean | null
-  >();
-  const commentElRef = useRef<HTMLTextAreaElement | null>(null);
-  const nameElRef = useRef<HTMLInputElement | null>(null);
-  const emailElRef = useRef<HTMLInputElement | null>(null);
-  const storeDataElRef = useRef<HTMLInputElement | null>(null);
+  const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>();
+  const {
+    formState: { errors, isSubmitting },
+    register,
+    reset,
+    handleSubmit
+  } = useForm<FormValues>();
 
-  useEffect(() => {
-    let name: string | null | undefined = nameElRef?.current?.value;
-    let email: string | null | undefined = emailElRef?.current?.value;
-
-    if (name && email) {
-      name = window.localStorage.getItem('name');
-      email = window.localStorage.getItem('email');
-    }
-  }, []);
-
-  const handleSubmitComment = async () => {
-    setError(false);
-
-    const comment = commentElRef?.current?.value;
-    const name = nameElRef?.current?.value;
-    const email = emailElRef?.current?.value;
-    const storeData = storeDataElRef?.current?.checked;
-
-    if (!comment || !name || !email) {
-      setError(true);
-      return;
-    }
+  const onSubmitComment: SubmitHandler<FormValues> = async (data) => {
+    const { name, email, comment } = data;
 
     const commentObj = {
       name,
@@ -47,72 +32,55 @@ export const CommentsForm = ({ slug }: CommentsFormProps) => {
       slug
     };
 
-    if (storeData) {
-      localStorage.setItem('name', name);
-      localStorage.setItem('email', email);
-    } else {
-      localStorage.removeItem('name');
-      localStorage.removeItem('email');
-    }
-
     await submitComment(commentObj).then(() => {
       setShowSuccessMessage(true);
+      reset();
+
       setTimeout(() => {
         setShowSuccessMessage(false);
-      }, 3000);
+      }, 2000);
     });
   };
 
   return (
-    <div className="border border-gray-300 rounded-lg p-8 pb-12 mb-8">
+    <Form onSubmit={handleSubmit(onSubmitComment)}>
       <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
         Leave a comment
       </h3>
+
       <div className="grid grid-cols-1 gap-4 mb-4">
         <Input
-          textareaRef={commentElRef}
+          name="comment"
           classes="p-4"
           placeholder="Comment"
-          name="comment"
+          register={register}
+          errors={errors}
           textarea
+          required
         />
       </div>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mb-4">
+
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
         <Input
-          ref={nameElRef}
-          classes="p-2 px-4"
-          placeholder="Name"
           name="name"
+          classes="py-2 px-4"
+          placeholder="Name"
+          register={register}
+          errors={errors}
+          required
         />
         <Input
-          ref={emailElRef}
-          classes="p-2 px-4"
-          placeholder="Email"
           name="email"
+          classes="py-2 px-4"
+          placeholder="Email"
+          register={register}
+          errors={errors}
+          required
         />
       </div>
-      <div className="grid grid-cols-1 gap-4 mb-4">
-        <div>
-          <Input
-            ref={storeDataElRef}
-            id="storeData"
-            name="storeData"
-            type="checkbox"
-            value="true"
-          />
-          <label
-            className="text-gray-500 cursor-pointer ml-2"
-            htmlFor="storeData"
-          >
-            Save my email and name for the next time I comment
-          </label>
-        </div>
-      </div>
-      {error && (
-        <p className="text-xs text-red-400">All fields are required.</p>
-      )}
+
       <div className="mt-8">
-        <Button type="button" onClick={() => void handleSubmitComment()}>
+        <Button type="submit" disabled={isSubmitting || showSuccessMessage}>
           Send
         </Button>
         {showSuccessMessage && (
@@ -121,6 +89,6 @@ export const CommentsForm = ({ slug }: CommentsFormProps) => {
           </span>
         )}
       </div>
-    </div>
+    </Form>
   );
 };

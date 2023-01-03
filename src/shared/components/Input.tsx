@@ -1,70 +1,89 @@
-import { MutableRefObject } from 'react';
+import { ErrorMessage } from '@hookform/error-message';
+import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form';
 
 interface InputProps {
-  id?: string;
-  ref?: MutableRefObject<HTMLInputElement | null>;
-  textareaRef?: MutableRefObject<HTMLTextAreaElement | null>;
-  type?: string;
-  classes?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  register?: UseFormRegister<any>;
+  errors?: Partial<FieldErrorsImpl>;
   name: string;
+  classes?: string;
+  type?: string;
   placeholder?: string;
   textarea?: boolean;
-  value?: string | string[];
-  onChange?: (
-    evt: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
-  ) => void;
+  required?: boolean;
 }
 
 export const Input = ({
-  id,
-  ref,
-  textareaRef,
-  type = 'text',
-  classes,
+  register,
+  errors,
   name,
+  classes,
+  type = 'text',
   placeholder,
   textarea,
-  value,
-  onChange
+  required = false
 }: InputProps) => {
   const sharedClasses =
     'w-full rounded-lg focus:outline-none focus:ring focus:ring-gray-300 bg-gray-100 text-gray-700';
 
-  if (type === 'checkbox') {
-    return (
+  const emailPattern = {
+    value:
+      /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+    message: 'Enter a valid email.'
+  };
+
+  const renderInput = () => {
+    return !textarea ? (
       <input
-        id={id}
-        ref={ref}
         type={type}
-        className={`accent-gray-900 ${classes || ''}`}
-        name={name}
+        className={
+          type !== 'checkbox'
+            ? `${sharedClasses} ${classes || ''}`
+            : `accent-gray-900 ${classes || ''}`
+        }
         placeholder={placeholder}
-        value={value}
-        onChange={onChange}
+        {...register?.(
+          name,
+          required
+            ? {
+                required: `${name.charAt(0).toUpperCase()}${name.slice(
+                  1
+                )} is required.`,
+                pattern: name === 'email' ? emailPattern : undefined
+              }
+            : undefined
+        )}
+      />
+    ) : (
+      <textarea
+        className={`${sharedClasses} ${classes || ''}`}
+        placeholder={placeholder}
+        {...register?.(
+          name,
+          required
+            ? {
+                required: `${name.charAt(0).toUpperCase()}${name.slice(
+                  1
+                )} is required.`
+              }
+            : undefined
+        )}
       />
     );
-  }
+  };
 
-  return !textarea ? (
-    <input
-      id={id}
-      ref={ref}
-      type={type}
-      className={`${sharedClasses} ${classes || ''}`}
-      name={name}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-    />
-  ) : (
-    <textarea
-      id={id}
-      ref={textareaRef}
-      className={`${sharedClasses} ${classes || ''}`}
-      name={name}
-      placeholder={placeholder}
-      value={value}
-      onChange={onChange}
-    />
+  return (
+    <>
+      {renderInput()}
+      {errors && (
+        <ErrorMessage
+          errors={errors}
+          name={name}
+          render={({ message }) => (
+            <p className="text-sm text-red-400">{message}</p>
+          )}
+        />
+      )}
+    </>
   );
 };

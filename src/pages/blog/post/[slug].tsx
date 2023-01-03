@@ -97,7 +97,6 @@ export default PostDetailsPage;
 export const getStaticProps: GetStaticProps<PostDetailsProps, Params> = async ({
   params
 }: Params) => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const post = await getPostDetails(params?.slug as string);
 
   const markdown: MDXRemoteSerializeResult<Record<string, unknown>> =

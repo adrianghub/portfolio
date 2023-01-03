@@ -45,7 +45,6 @@ export const getStaticProps: GetStaticProps<
   CategoryPostsProps,
   Params
 > = async ({ params }) => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
   const posts = await getCategoryPosts(params?.slug as string);
   return {
     props: {
