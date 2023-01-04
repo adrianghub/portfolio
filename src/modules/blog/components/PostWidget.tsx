@@ -1,3 +1,5 @@
+'use client';
+
 import { PostDTO } from 'interfaces';
 import moment from 'moment';
 import Link from 'next/link';

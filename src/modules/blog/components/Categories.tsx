@@ -1,7 +1,9 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import { getCategories } from 'shared/services';
 import { PostCategory } from 'interfaces';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 import { NavLink } from 'shared/components';
 
 export const Categories = () => {
@@ -9,7 +11,7 @@ export const Categories = () => {
     { name: string; slug: string }[] | undefined
   >();
   const [activeCategory, setActiveCategory] = useState(false);
-  const { asPath } = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     void getCategories().then((cat: PostCategory[]) => setCategories(cat));
@@ -17,7 +19,7 @@ export const Categories = () => {
 
   useEffect(() => {
     categories?.map((category) => {
-      if (asPath.split('/')[3] === category.slug) {
+      if (pathname?.split('/')[3] === category.slug) {
         setActiveCategory(true);
       }
     });

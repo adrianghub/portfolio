@@ -1,4 +1,5 @@
-import { useRouter } from 'next/router';
+'use client';
+
 import {
   createContext,
   Dispatch,
@@ -21,9 +22,7 @@ export const SearchContext = createContext<SearchContextProps | undefined>(
 );
 
 export const SearchProvider = ({ children }: SearchProviderProps) => {
-  const router = useRouter();
-
-  const [searchValue, setSearchValue] = useState(router.query.q as string || '');
+  const [searchValue, setSearchValue] = useState('');
 
   return (
     <SearchContext.Provider value={{ searchValue, setSearchValue }}>

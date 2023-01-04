@@ -22,7 +22,7 @@ export const PostCard = ({ post, spotlight }: PostCardProps) => (
           {post.title}
         </h1>
         <div className="block lg:flex text-center items-center justify-center w-full">
-          <div className="flex items-center justify-start mt-2 lg:mb-0 lg:mt-0 w-full mr-8">
+          <div className="flex items-center justify-start mt-8 lg:mb-0 lg:mt-0 w-full mr-8">
             <PostAuthor
               name={post.author.name}
               avatarUrl={post.author.avatar.url}

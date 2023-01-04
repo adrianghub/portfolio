@@ -1,3 +1,5 @@
+'use client';
+
 import { ErrorMessage } from '@hookform/error-message';
 import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form';
 

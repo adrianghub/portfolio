@@ -1,9 +1,11 @@
+'use client';
+
 import { Categories, SearchBar } from 'modules/blog/components';
 import Link from 'next/link';
-import { useRouter } from 'next/router';
+import { usePathname } from 'next/navigation';
 
 export const Header = () => {
-  const { pathname } = useRouter();
+  const pathname = usePathname();
 
   const stickyHeaderPath = pathname === '/' || pathname === '/resume';
   const noSearchPath =

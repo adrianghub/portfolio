@@ -1,3 +1,5 @@
+'use client';
+
 import { NextSeo } from 'next-seo';
 
 interface SeoWrapperProps {

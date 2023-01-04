@@ -1,3 +1,5 @@
+'use client';
+
 import { ReactNode, useEffect, useState } from 'react';
 import rangeParser from 'parse-numeric-range';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';

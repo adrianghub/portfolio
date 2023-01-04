@@ -1,5 +1,7 @@
-import { useRouter } from 'next/router';
+'use client';
+
 import { useState, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import { AiOutlineClose } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
 import { usePostsContext, useSearchContext } from 'shared/hooks';
@@ -12,9 +14,10 @@ export const SearchBar = () => {
   const { searchValue, setSearchValue } = useSearchContext();
   const { posts } = usePostsContext();
   const router = useRouter();
+  const pathname = usePathname();
   const { register, reset } = useForm();
 
-  const isSearchPath = router.pathname === '/search';
+  const isSearchPath = pathname === '/search';
 
   const redirectToQueryResults = () => {
     if (searchValue) {
@@ -47,7 +50,7 @@ export const SearchBar = () => {
   }, []);
 
   useEffect(() => {
-    if (router.pathname === '/') {
+    if (pathname === '/') {
       setSearchValue('');
       setShowSearchBar(false);
     }
@@ -55,7 +58,7 @@ export const SearchBar = () => {
     if (isSearchPath) {
       setShowSearchBar(true);
     }
-  }, [router.pathname]);
+  }, [pathname]);
 
   const renderFullSearch = () => (
     <div className={`${!isSearchPath ? 'lg:w-[50vw]' : ''} relative w-full`}>

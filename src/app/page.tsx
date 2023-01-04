@@ -1,11 +1,5 @@
 import Link from 'next/link';
-import { useRouter } from 'next/router';
-import {
-  Loader,
-  SeoWrapper,
-  SocialMediaRow,
-  SubscribeForm
-} from 'shared/components';
+import { SeoWrapper, SocialMediaRow, SubscribeForm } from 'shared/components';
 
 const seoData = {
   title: 'Home | Adrian Zinko',
@@ -13,12 +7,6 @@ const seoData = {
 };
 
 const IndexPage = () => {
-  const { isFallback } = useRouter();
-
-  if (isFallback) {
-    return <Loader />;
-  }
-
   return (
     <SeoWrapper {...seoData}>
       <div className="grid place-items-center min-h-[calc(100vh-245px)]">
@@ -40,8 +28,6 @@ const IndexPage = () => {
           </div>
 
           <SubscribeForm />
-
-          {/* <CoffeeForm /> */}
         </div>
       </div>
     </SeoWrapper>

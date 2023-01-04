@@ -7,7 +7,7 @@ type Data = {
   name: string;
 };
 
-export default async function submitComment(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
