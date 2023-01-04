@@ -23,16 +23,7 @@ export const CommentsForm = ({ slug }: CommentsFormProps) => {
   } = useForm<FormValues>();
 
   const onSubmitComment: SubmitHandler<FormValues> = async (data) => {
-    const { name, email, comment } = data;
-
-    const commentObj = {
-      name,
-      email,
-      comment,
-      slug
-    };
-
-    await submitComment(commentObj).then(() => {
+    await submitComment({ ...data, slug }).then(() => {
       setShowSuccessMessage(true);
       reset();
 

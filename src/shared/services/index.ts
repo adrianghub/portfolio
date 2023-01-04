@@ -181,12 +181,33 @@ export const getComments = async (slug: string) => {
 };
 
 export const submitComment = async (commentObj: CommentObjData) => {
-  const result = await fetch('/api/comments', {
+  const result = await fetch('/api/submitComment', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify(commentObj)
+  });
+
+  return result.json();
+};
+
+export const subscribe = async ({
+  email,
+  name
+}: {
+  email: string;
+  name?: string;
+}) => {
+  const result = await fetch(`/api/subscribe`, {
+    body: JSON.stringify({
+      name,
+      email
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'POST'
   });
 
   return result.json();

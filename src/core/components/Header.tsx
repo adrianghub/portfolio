@@ -1,7 +1,6 @@
-import { Categories } from 'modules/blog/components';
+import { Categories, SearchBar } from 'modules/blog/components';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { SearchBar } from 'shared/components';
 
 export const Header = () => {
   const { pathname } = useRouter();

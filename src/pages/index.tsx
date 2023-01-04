@@ -1,6 +1,11 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { Loader, SeoWrapper, SocialMediaRow } from 'shared/components';
+import {
+  Loader,
+  SeoWrapper,
+  SocialMediaRow,
+  SubscribeForm
+} from 'shared/components';
 
 const seoData = {
   title: 'Home | Adrian Zinko',
@@ -18,7 +23,7 @@ const IndexPage = () => {
     <SeoWrapper {...seoData}>
       <div className="grid place-items-center min-h-[calc(100vh-245px)]">
         <div>
-          <h2 className="text-lg md:text-3xl mb-8">
+          <h2 className="text-lg md:text-3xl mb-8 text-center">
             Software Developer
             <Link
               className="ml-2 animated-link"
@@ -30,7 +35,11 @@ const IndexPage = () => {
             </Link>
           </h2>
 
-          <SocialMediaRow />
+          <div className="my-8">
+            <SocialMediaRow />
+          </div>
+
+          <SubscribeForm />
 
           {/* <CoffeeForm /> */}
         </div>

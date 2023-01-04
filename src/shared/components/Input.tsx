@@ -6,22 +6,28 @@ interface InputProps {
   register?: UseFormRegister<any>;
   errors?: Partial<FieldErrorsImpl>;
   name: string;
+  value?: string;
   classes?: string;
   type?: string;
   placeholder?: string;
   textarea?: boolean;
   required?: boolean;
+  onChange?: (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => void;
 }
 
 export const Input = ({
   register,
   errors,
   name,
+  value,
   classes,
   type = 'text',
   placeholder,
   textarea,
-  required = false
+  required = false,
+  onChange
 }: InputProps) => {
   const sharedClasses =
     'w-full rounded-lg focus:outline-none focus:ring focus:ring-gray-300 bg-gray-100 text-gray-700';
@@ -42,32 +48,26 @@ export const Input = ({
             : `accent-gray-900 ${classes || ''}`
         }
         placeholder={placeholder}
-        {...register?.(
-          name,
-          required
-            ? {
-                required: `${name.charAt(0).toUpperCase()}${name.slice(
-                  1
-                )} is required.`,
-                pattern: name === 'email' ? emailPattern : undefined
-              }
-            : undefined
-        )}
+        {...register?.(name, {
+          onChange,
+          value,
+          required: required
+            ? `${name.charAt(0).toUpperCase()}${name.slice(1)} is required.`
+            : undefined,
+          pattern: name === 'email' ? emailPattern : undefined
+        })}
       />
     ) : (
       <textarea
         className={`${sharedClasses} ${classes || ''}`}
         placeholder={placeholder}
-        {...register?.(
-          name,
-          required
-            ? {
-                required: `${name.charAt(0).toUpperCase()}${name.slice(
-                  1
-                )} is required.`
-              }
+        {...register?.(name, {
+          onChange,
+          value,
+          required: required
+            ? `${name.charAt(0).toUpperCase()}${name.slice(1)} is required.`
             : undefined
-        )}
+        })}
       />
     );
   };

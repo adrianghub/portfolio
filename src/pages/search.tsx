@@ -1,7 +1,6 @@
 import { OneFourthLayout, Sidebar } from 'core/components';
-import { Posts } from 'modules/blog/components';
+import { Posts, SearchBar } from 'modules/blog/components';
 import Head from 'next/head';
-import { SearchBar } from 'shared/components';
 import { usePostsContext, useSearchContext } from 'shared/hooks';
 
 const SearchPage = () => {
