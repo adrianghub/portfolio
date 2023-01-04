@@ -22,7 +22,7 @@ export const Comments = ({ slug }: CommentsProps) => {
       {comments && comments.length > 0 && (
         <div className="bg-white border border-gray-300 rounded-lg p-8 pb-12 mb-8">
           <h3 className="text-xl mb-8 font-semibold border-b pb-4">
-            {comments.length} Comments
+            {comments.length > 1 ? `${comments.length} Comments` : '1 Comment'}
           </h3>
           {comments.map((comment) => (
             <div

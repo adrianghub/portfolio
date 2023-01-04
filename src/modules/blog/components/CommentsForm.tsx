@@ -35,7 +35,7 @@ export const CommentsForm = ({ slug }: CommentsFormProps) => {
 
   return (
     <Form onSubmit={handleSubmit(onSubmitComment)}>
-      <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
+      <h3 className="text-xl mb-8 font-semibold border-b border-gray-400 pb-4">
         Leave a comment
       </h3>
 
