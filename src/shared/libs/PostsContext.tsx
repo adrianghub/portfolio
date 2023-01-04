@@ -1,8 +1,9 @@
-import { createContext, ReactNode } from 'react';
-import request from 'graphql-request';
-import useSWR from 'swr';
+import { createContext, ReactNode, useEffect } from 'react';
+
 import { NodeDTO } from 'interfaces';
 import { useSearchContext } from 'shared/hooks';
+import { getPosts } from 'shared/services';
+import { useQuery } from '@tanstack/react-query';
 
 interface PostsContextProps {
   posts: NodeDTO[] | undefined;
@@ -19,42 +20,16 @@ export const PostsContext = createContext<PostsContextProps | undefined>(
 export const PostsProvider = ({ children }: PostsProviderProps) => {
   const { searchValue } = useSearchContext();
 
-  const { data } = useSWR(
-    [
-      process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || '',
-      `query PostQuery($searchValue: String) {
-        postsConnection(orderBy: createdAt_DESC, where: {title_contains: $searchValue}) {
-          edges {
-            node {
-              id
-              author {
-                bio
-                name
-                id
-                avatar {
-                  url
-                }
-              }
-              createdAt
-              slug
-              title
-              categories {
-                name
-                slug
-                id
-              }
-            }
-          }
-        }
-      }
-    `,
-      searchValue
-    ],
-    (endpoint, query) => request(endpoint, query, { searchValue }),
-    { revalidateOnFocus: true }
-  );
+  const query = useQuery({
+    queryKey: ['posts'],
+    queryFn: () => getPosts(searchValue)
+  });
 
-  const posts = data?.postsConnection.edges;
+  useEffect(() => {
+    query.refetch();
+  }, [searchValue]);
+
+  const posts = query.data;
 
   return (
     <PostsContext.Provider value={{ posts }}>{children}</PostsContext.Provider>

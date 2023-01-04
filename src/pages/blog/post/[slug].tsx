@@ -60,7 +60,7 @@ const PostDetailsPage = ({ post }: PostDetailsProps) => {
     <OneFourthLayout
       childrenLeft={
         <>
-          <div className="border border-gray-300 rounded-lg lg:p-8 pb-12 mb-8">
+          <div className="border border-gray-300 rounded-lg lg:p-8 pb-12 mb-8 mt-0 lg:mt-4">
             <div className="px-4 lg:px-0">
               <SeoWrapper
                 title={`${post.title} | Adrian Zinko`}

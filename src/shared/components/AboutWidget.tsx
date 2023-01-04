@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { SocialMediaRow } from './SocialMediaRow';
 
 export const AboutWidget = () => (
-  <div className="pt-4 pb-8">
+  <div className="pt-8 lg:pt-0 pb-8">
     <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
       About Me
     </h3>

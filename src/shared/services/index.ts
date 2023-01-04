@@ -3,10 +3,13 @@ import { CommentObjData, NodeDTO, PostCategory, PostDTO } from 'interfaces';
 
 const graphcmsAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || '';
 
-export const getPosts = async (): Promise<NodeDTO[]> => {
+export const getPosts = async (searchValue?: string): Promise<NodeDTO[]> => {
   const query = gql`
-    query GePosts {
-      postsConnection(orderBy: createdAt_DESC) {
+    query GetPosts($searchValue: String!) {
+      postsConnection(
+        orderBy: createdAt_DESC
+        where: { title_contains: $searchValue }
+      ) {
         edges {
           node {
             id
@@ -32,7 +35,10 @@ export const getPosts = async (): Promise<NodeDTO[]> => {
     }
   `;
 
-  const result = await request(graphcmsAPI, query);
+  const result = await request(graphcmsAPI, query, {
+    searchValue: searchValue || ''
+  });
+
   return result.postsConnection.edges;
 };
 
