@@ -77,7 +77,7 @@ export const CommentsForm = ({ slug }: CommentsFormProps) => {
           Send
         </Button>
         {showSuccessMessage && (
-          <span className="text-xl float-right font-semibold mt-3 text-green-300">
+          <span className="text-xl float-right font-semibold mt-3 text-green-400">
             Comment submitted for review!
           </span>
         )}

@@ -61,10 +61,10 @@ export const SubscribeForm = () => {
 
       {showSuccessMessage && (
         <div className="grid place-items-center">
-          <p className="text-sm md:text-xl float-right font-semibold mt-3 text-green-400">
+          <p className="text-sm md:text-xl float-right font-semibold mt-3">
             You're about to join my newsletter community! 🎉
           </p>
-          <p className="text-sm md:text-xl float-right font-semibold mt-3 text-green-400">
+          <p className="text-sm md:text-xl float-right font-semibold mt-3">
             Please confirm your email address.
           </p>
         </div>

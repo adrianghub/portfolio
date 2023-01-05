@@ -199,11 +199,11 @@ export const submitComment = async (commentObj: CommentObjData) => {
 };
 
 export const subscribe = async ({
-  email,
-  name
+  name,
+  email
 }: {
-  email: string;
   name?: string;
+  email: string;
 }) => {
   const result = await fetch(`/api/subscribe`, {
     body: JSON.stringify({
