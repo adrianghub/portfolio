@@ -32,7 +32,7 @@ export default async function handler(
     const data = await result.json();
 
     if (!result.ok) {
-      return res.status(500).json({ error: data.error.email[0] });
+      return res.status(500).json({ error: data.error });
     }
   } catch (error) {
     if (error instanceof Error) {
@@ -40,5 +40,5 @@ export default async function handler(
     }
   }
 
-  res.status(201);
+  res.status(201).json({});
 }

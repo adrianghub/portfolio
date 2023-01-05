@@ -40,11 +40,11 @@ export default async function handler(
   try {
     const result = await graphQLClient.request(commentMutation, req.body);
 
-    return res.status(201).send(result);
+    return res.status(201).json(result);
   } catch (error) {
     console.error(error);
     return res
       .status(500)
-      .send({ name: 'An GraphCMS API error has occurred.' });
+      .json({ name: 'An GraphCMS API error has occurred.' });
   }
 }
