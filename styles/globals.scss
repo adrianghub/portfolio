@@ -105,13 +105,12 @@ button[disabled] {
 }
 
 .search-icon {
-  height: 40px;
-  width: 40px;
+  height: 24px;
+  width: 24px;
 }
 
 .search-icon.full-search {
-  position: relative;
-  top: 1.4em;
+  display: none;
 }
 
 .close-icon {

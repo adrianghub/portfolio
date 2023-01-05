@@ -15,7 +15,7 @@ export default function RootLayout({
       <QueryProvider>
         <SearchProvider>
           <PostsProvider>
-            <body className="bg-whitechocolate-300 h-screen w-full">
+            <body className="bg-whitechocolate-300 h-screen max-w-7xl mx-auto">
               <Layout>{children}</Layout>
             </body>
           </PostsProvider>
