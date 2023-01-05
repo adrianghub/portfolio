@@ -16,7 +16,7 @@ const SearchPage = () => {
 
   return (
     <SeoWrapper {...seoData}>
-      <div className="container mx-auto px-8 mb-8">
+      <div className="container mx-auto mb-8">
         <SearchBar />
         <h2 className="text-2xl md:text-3xl mb-8">
           {searchValue ? (

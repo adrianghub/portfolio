@@ -8,6 +8,6 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps) => (
   <>
     <Header />
-    <main className="container mx-auto px-8 mb-8">{children}</main>
+    <main className="container mx-auto px-8">{children}</main>
   </>
 );

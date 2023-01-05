@@ -86,7 +86,7 @@ export const SearchBar = () => {
     <div
       id="spotlight"
       onClick={handleCloseSpotlight}
-      className="fixed z-50 inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex flex-col items-center mx-auto px-8 mb-8"
+      className="fixed z-50 inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex flex-col items-center mx-auto mb-8"
     >
       {renderFullSearch()}
 

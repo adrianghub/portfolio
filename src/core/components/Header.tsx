@@ -13,7 +13,7 @@ export const Header = () => {
 
   return (
     <div
-      className={`container mx-auto px-8 mb-8 ${
+      className={`container mx-auto mb-8 px-8 ${
         stickyHeaderPath ? 'sticky top-0 backdrop-blur-sm' : ''
       }`}
     >
