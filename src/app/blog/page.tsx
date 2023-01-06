@@ -8,13 +8,17 @@ const seoData = {
   description: 'Tech blog website'
 };
 
+const POSTS_TO_LOAD = 6;
+
 const BlogPage = async () => {
-  const posts = (await getPosts()) || [];
+  const posts = await getPosts();
 
   return (
     <SeoWrapper {...seoData}>
       <OneFourthLayout
-        childrenLeft={posts && <Posts posts={posts} />}
+        childrenLeft={
+          posts && <Posts posts={posts} postsToLoad={POSTS_TO_LOAD} />
+        }
         childrenRight={<Sidebar postWidget />}
       />
     </SeoWrapper>
