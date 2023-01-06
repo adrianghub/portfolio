@@ -1,15 +1,9 @@
 import { OneFourthLayout } from 'core/components';
 import Link from 'next/link';
-import { SeoWrapper } from 'shared/components';
-
-const seoData = {
-  title: 'Resume | Adrian Zinko',
-  description: 'Curriculum vitae (web & pdf) page [under construction]'
-};
 
 const ResumePage = () => {
   return (
-    <SeoWrapper {...seoData}>
+    <>
       <div className="flex justify-center mb-8">
         <Link
           href="/assets/resume.pdf"
@@ -28,7 +22,7 @@ const ResumePage = () => {
         }
         childrenRight={null}
       />
-    </SeoWrapper>
+    </>
   );
 };
 

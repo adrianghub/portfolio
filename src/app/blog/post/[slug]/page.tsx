@@ -1,7 +1,6 @@
 import { serialize } from 'next-mdx-remote/serialize';
 import { getPostDetails, getPosts } from 'shared/services';
 import { OneFourthLayout, Sidebar } from 'core/components';
-import { SeoWrapper } from 'shared/components';
 import {
   PostDetail,
   Comments,
@@ -17,33 +16,28 @@ const PostDetailsPage = async ({ params }: { params: { slug: string } }) => {
   const markdown = await serialize(post.content as string);
 
   return (
-    <SeoWrapper
-      title={`${post.title} | Blog | Adrian Zinko`}
-      description={(post.content as string).slice(0, 60)}
-    >
-      <OneFourthLayout
-        childrenLeft={
-          <>
-            <div className="border border-gray-300 rounded-lg lg:p-8 pb-12 mb-8 mt-0 lg:mt-4">
-              <div className="px-4 lg:px-0">
-                <PostDetail post={post} />
-                <MDXContent markdown={markdown} />
-              </div>
+    <OneFourthLayout
+      childrenLeft={
+        <>
+          <div className="border border-gray-300 rounded-lg lg:p-8 pb-12 mb-8 mt-0 lg:mt-4">
+            <div className="px-4 lg:px-0">
+              <PostDetail post={post} />
+              <MDXContent markdown={markdown} />
             </div>
-            <CommentsForm slug={post.slug} />
-            <Comments slug={post.slug} />
-          </>
-        }
-        childrenRight={
-          <Sidebar>
-            <PostWidget
-              slug={post.slug}
-              categoriesSlugs={post.categories.map((category) => category.slug)}
-            />
-          </Sidebar>
-        }
-      ></OneFourthLayout>
-    </SeoWrapper>
+          </div>
+          <CommentsForm slug={post.slug} />
+          <Comments slug={post.slug} />
+        </>
+      }
+      childrenRight={
+        <Sidebar>
+          <PostWidget
+            slug={post.slug}
+            categoriesSlugs={post.categories.map((category) => category.slug)}
+          />
+        </Sidebar>
+      }
+    ></OneFourthLayout>
   );
 };
 

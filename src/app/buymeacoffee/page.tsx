@@ -1,5 +1,4 @@
 import { OneFourthLayout, Sidebar } from 'core/components';
-import { SeoWrapper } from 'shared/components';
 
 const seoData = {
   title: 'Buy me a coffee | Adrian Zinko',
@@ -8,14 +7,12 @@ const seoData = {
 
 const BuyMeACoffeePage = () => {
   return (
-    <SeoWrapper {...seoData}>
-      <OneFourthLayout
-        childrenLeft={
-          <div className="text-center sm:text-left">(under construction)</div>
-        }
-        childrenRight={<Sidebar />}
-      />
-    </SeoWrapper>
+    <OneFourthLayout
+      childrenLeft={
+        <div className="text-center sm:text-left">(under construction)</div>
+      }
+      childrenRight={<Sidebar />}
+    />
   );
 };
 

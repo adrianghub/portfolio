@@ -1,6 +1,5 @@
 export { Loader } from './Loader';
 export { AboutWidget } from './AboutWidget';
-export { SeoWrapper } from './SeoWrapper';
 export { Input } from './Input';
 export { Form } from './Form';
 export { Button } from './Button';
