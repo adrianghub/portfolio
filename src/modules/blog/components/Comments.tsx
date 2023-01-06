@@ -17,7 +17,7 @@ export const Comments = ({ slug }: CommentsProps) => {
     void getComments(slug).then((result: CommentObjData[]) =>
       setComments(result)
     );
-  }, []);
+  }, [slug]);
 
   return (
     <>

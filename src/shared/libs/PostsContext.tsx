@@ -29,7 +29,7 @@ export const PostsProvider = ({ children }: PostsProviderProps) => {
 
   useEffect(() => {
     query.refetch();
-  }, [searchValue]);
+  }, [searchValue, query]);
 
   const posts = query.data;
 

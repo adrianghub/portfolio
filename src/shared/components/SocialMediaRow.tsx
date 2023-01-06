@@ -25,7 +25,7 @@ export const SocialMediaRow = () => (
         className="hover:text-gray-500 duration-200"
         href={href}
         target="_blank"
-        rel="norefferer"
+        rel="norefferer noreferrer"
       >
         <DynamicRemixIcon
           name={iconName}

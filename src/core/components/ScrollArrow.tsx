@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { FaArrowCircleUp } from 'react-icons/fa';
 
 const PAGE_T_OFFSET = 400;
@@ -8,13 +8,13 @@ const PAGE_T_OFFSET = 400;
 export const ScrollArrow = () => {
   const [showScroll, setShowScroll] = useState(false);
 
-  const checkScrollTop = () => {
+  const checkScrollTop = useCallback(() => {
     if (!showScroll && window.pageYOffset > PAGE_T_OFFSET) {
       setShowScroll(true);
     } else if (showScroll && window.pageYOffset <= PAGE_T_OFFSET) {
       setShowScroll(false);
     }
-  };
+  }, [showScroll]);
 
   useEffect(() => {
     window.addEventListener('scroll', checkScrollTop);

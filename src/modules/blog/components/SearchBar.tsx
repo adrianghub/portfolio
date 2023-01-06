@@ -58,7 +58,7 @@ export const SearchBar = () => {
     if (isSearchPath) {
       setShowSearchBar(true);
     }
-  }, [pathname]);
+  }, [isSearchPath, pathname, setSearchValue]);
 
   const renderFullSearch = () => (
     <div className={`${!isSearchPath ? 'lg:w-[50vw]' : ''} relative w-full`}>

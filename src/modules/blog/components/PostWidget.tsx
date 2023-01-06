@@ -26,7 +26,7 @@ export const PostWidget = ({
     }
 
     void getRecentPosts().then((result: PostDTO[]) => setRelatedPosts(result));
-  }, [slug]);
+  }, [categoriesSlugs, slug]);
 
   return (
     <div className="pt-8 pb-4">

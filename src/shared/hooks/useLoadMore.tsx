@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 'use client';
 
 import { NodeDTO } from 'interfaces';
@@ -22,12 +23,12 @@ export const useLoadMore = (posts: NodeDTO[], postsToFetch?: number) => {
       setPostsList([...postsList, ...nextResults]);
       setLoadMore(false);
     }
-  }, [loadMore, hasMore]);
+  }, [loadMore, hasMore, postsList, posts, postsToFetch]);
 
   useEffect(() => {
     const isMoreToLoad = postsList.length < posts.length;
     setHasMore(isMoreToLoad);
-  }, [postsList]);
+  }, [posts.length, postsList]);
 
   const handleLoadMore = () => {
     setLoadMore(true);

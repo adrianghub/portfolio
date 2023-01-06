@@ -1,4 +1,5 @@
 import { HTMLAttributes, LiHTMLAttributes, ImgHTMLAttributes } from 'react';
+import Image from 'next/image';
 import { CodeBlock } from './CodeBlock';
 
 export const components = {
@@ -24,7 +25,15 @@ export const components = {
     <li className="text-md sm:text-lg leading-relaxed ml-4 py-3" {...props} />
   ),
   img: (props: ImgHTMLAttributes<HTMLImageElement>) => (
-    <img className="rounded-lg mx-auto my-3" {...props} />
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    <Image
+      className="rounded-lg mx-auto my-3"
+      {...props}
+      alt=""
+      width={1000}
+      height={1000}
+    />
   ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   pre: (props: any) => <CodeBlock {...props} />
