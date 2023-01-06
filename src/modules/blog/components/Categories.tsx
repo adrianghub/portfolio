@@ -23,7 +23,8 @@ export const Categories = () => {
         setActiveCategory(true);
       }
     });
-  }, [categories, pathname]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <div className="mx-4 py-4 flex flex-wrap justify-center text-center">
