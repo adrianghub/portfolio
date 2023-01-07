@@ -26,6 +26,15 @@ module.exports = {
         whitechocolate: {
           300: '#EDE4DA'
         }
+      },
+      keyframes: {
+        fadeIn: {
+          '0%, ': { opacity: '0' },
+          '100%': { opacity: '0.3' }
+        }
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.3s'
       }
     }
   },

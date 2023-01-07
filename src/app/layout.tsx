@@ -17,11 +17,11 @@ export default function RootLayout({
           <PostsProvider>
             <body className="bg-whitechocolate-300 h-screen max-w-7xl mx-auto">
               <Layout>{children}</Layout>
+              <ScrollArrow />
             </body>
           </PostsProvider>
         </SearchProvider>
       </QueryProvider>
-      <ScrollArrow />
     </html>
   );
 }

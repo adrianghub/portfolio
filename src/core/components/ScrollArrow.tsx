@@ -29,7 +29,7 @@ export const ScrollArrow = () => {
   return (
     <FaArrowCircleUp
       onClick={scrollTop}
-      className="scroll-arrow"
+      className="fixed w-screen h-8 bottom-5 left-1/2 -translate-x-1/2 transition-opacity duration-300 cursor-pointer animate-fade-in opacity-30 hover:opacity-100"
       style={{ display: showScroll ? 'flex' : 'none' }}
     />
   );
