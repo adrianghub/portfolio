@@ -24,6 +24,7 @@ export default async function handler(
           fields: {
             name
           },
+          groups: ['76752286712333911'],
           double_optin: true
         })
       }
