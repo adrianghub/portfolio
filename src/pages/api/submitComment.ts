@@ -3,17 +3,13 @@ import { GraphQLClient, gql } from 'graphql-request';
 
 const graphcmsAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || '';
 
-type Data = {
-  name: string;
-};
-
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>
+  res: NextApiResponse
 ) {
   const graphQLClient = new GraphQLClient(graphcmsAPI, {
     headers: {
-      authorization: `Bearer ${process.env.NEXT_PUBLIC_GRAPHCMS_TOKEN || ''}`
+      authorization: `Bearer ${process.env.NEXT_PUBLIC_GRAPHCMS_TOKEN}`
     }
   });
 

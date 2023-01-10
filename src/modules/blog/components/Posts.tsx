@@ -22,13 +22,19 @@ export const Posts = ({ posts, postsToLoad }: PostsProps) => {
 
   return (
     <div className="lg:col-span-8 col-span-1 mt-0 lg:mt-4">
-      {loadedPosts.map(({ node: post }) => (
-        <PostCard key={post.id} post={post} />
-      ))}
-      {hasMore && (
-        <div className="mb-8">
-          <Button onClick={loadMore}>Load more</Button>
-        </div>
+      {postsToLoad ? (
+        <>
+          {loadedPosts.map(({ node: post }) => (
+            <PostCard key={post.id} post={post} />
+          ))}
+          {hasMore && (
+            <div className="mb-8">
+              <Button onClick={loadMore}>Load more</Button>
+            </div>
+          )}
+        </>
+      ) : (
+        posts.map(({ node: post }) => <PostCard key={post.id} post={post} />)
       )}
     </div>
   );

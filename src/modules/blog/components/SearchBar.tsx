@@ -69,6 +69,7 @@ export const SearchBar = () => {
         placeholder="Type search query..."
         onChange={(evt) => setSearchValue(evt.target.value)}
         register={register}
+        autofocus
       />
       {searchValue && (
         <AiOutlineClose

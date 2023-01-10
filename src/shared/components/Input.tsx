@@ -6,6 +6,7 @@ import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form';
 interface InputProps {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register?: UseFormRegister<any>;
+  autofocus?: boolean;
   errors?: Partial<FieldErrorsImpl>;
   name: string;
   value?: string;
@@ -21,6 +22,7 @@ interface InputProps {
 
 export const Input = ({
   register,
+  autofocus,
   errors,
   name,
   value,
@@ -58,6 +60,7 @@ export const Input = ({
             : undefined,
           pattern: name === 'email' ? emailPattern : undefined
         })}
+        autoFocus={autofocus}
       />
     ) : (
       <textarea
@@ -70,6 +73,7 @@ export const Input = ({
             ? `${name.charAt(0).toUpperCase()}${name.slice(1)} is required.`
             : undefined
         })}
+        autoFocus={autofocus}
       />
     );
   };
