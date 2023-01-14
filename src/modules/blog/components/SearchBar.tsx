@@ -63,13 +63,13 @@ export const SearchBar = () => {
   const renderFullSearch = () => (
     <div className={`${!isSearchPath ? 'lg:w-[50vw]' : ''} relative w-full`}>
       <Input
+        register={register}
+        classes="mt-10 px-4 py-3 search-input"
         name="search"
         value={searchValue}
-        classes="mt-10 px-4 py-3 search-input"
         placeholder="Type search query..."
         onChange={(evt) => setSearchValue(evt.target.value)}
-        register={register}
-        autofocus
+        autoFocus
       />
       {searchValue && (
         <AiOutlineClose
@@ -103,14 +103,11 @@ export const SearchBar = () => {
             ))}
           </div>
           {posts && posts.length !== 0 ? (
-            <Button
-              onClick={redirectToQueryResults}
-              additionalClasses="flex mx-auto"
-            >
+            <Button onClick={redirectToQueryResults} classes="flex mx-auto">
               Show all results ({posts.length})
             </Button>
           ) : (
-            <Button disabled additionalClasses="flex mt-4 mx-auto">
+            <Button disabled classes="flex mt-4 mx-auto">
               No results found
             </Button>
           )}

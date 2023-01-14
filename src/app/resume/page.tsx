@@ -9,11 +9,9 @@ const ResumePage = () => {
           href="/assets/resume.pdf"
           target="_blank"
           rel="norefferer"
-          className="animated-link"
+          className="font-bold text-xl lg:text-xl animated-link"
         >
-          <span className="cursor-pointer font-bold text-xl lg:text-xl">
-            resume (pdf)
-          </span>
+          resume (pdf)
         </Link>
       </div>
       <OneFourthLayout

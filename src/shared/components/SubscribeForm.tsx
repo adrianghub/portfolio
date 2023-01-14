@@ -36,17 +36,17 @@ export const SubscribeForm = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
             <Input
-              name="name"
-              classes="py-2 px-4"
-              placeholder="Name"
               register={register}
+              classes="py-2 px-4"
+              name="name"
+              placeholder="Name (optional)"
             />
             <Input
-              name="email"
-              classes="py-2 px-4"
-              placeholder="Email"
               register={register}
               errors={errors}
+              classes="py-2 px-4"
+              name="email"
+              placeholder="Email"
               required
             />
           </div>

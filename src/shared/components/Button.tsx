@@ -5,14 +5,14 @@ type ButtonCommonType = 'button' | 'submit' | 'reset' | undefined;
 interface ButtonProps {
   type?: ButtonCommonType;
   children?: ReactNode;
-  additionalClasses?: string;
+  classes?: string;
   onClick?: () => void;
   disabled?: boolean;
 }
 
 export const Button = ({
   type = 'button',
-  additionalClasses,
+  classes,
   children,
   onClick,
   disabled,
@@ -24,7 +24,7 @@ export const Button = ({
   return (
     <button
       type={type}
-      className={`${sharedClasses} ${additionalClasses || ''}`}
+      className={`${sharedClasses} ${classes || ''}`}
       onClick={onClick}
       {...otherProps}
       disabled={disabled}

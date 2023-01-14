@@ -1,3 +1,4 @@
+import { PostCategory } from 'interfaces';
 import { PostWidget } from 'modules/blog/components';
 import { ReactNode } from 'react';
 import { AboutWidget } from '../../shared/components/AboutWidget';
@@ -5,6 +6,7 @@ import { AboutWidget } from '../../shared/components/AboutWidget';
 interface SidebarProps {
   children: ReactNode;
   postWidget?: boolean;
+  categories?: PostCategory[];
 }
 
 export const Sidebar = ({ children, postWidget }: Partial<SidebarProps>) => (

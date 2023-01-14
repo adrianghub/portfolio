@@ -1,48 +1,51 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { getCategories } from 'shared/services';
+import { useRouter } from 'next/navigation';
 import { PostCategory } from 'interfaces';
-import { usePathname } from 'next/navigation';
-import { NavLink } from 'shared/components';
 
-export const Categories = () => {
-  const [categories, setCategories] = useState<
-    { name: string; slug: string }[] | undefined
-  >();
-  const [activeCategory, setActiveCategory] = useState(false);
-  const pathname = usePathname();
+export const Categories = ({
+  categories,
+  current
+}: {
+  categories: PostCategory[];
+  current?: string;
+}) => {
+  const router = useRouter();
 
-  useEffect(() => {
-    void getCategories().then((cat: PostCategory[]) => setCategories(cat));
-  }, []);
+  function handleChange(evt: React.ChangeEvent<HTMLSelectElement>) {
+    const { value } = evt.target;
 
-  useEffect(() => {
-    categories?.map((category) => {
-      if (pathname?.split('/')[3] === category.slug) {
-        setActiveCategory(true);
+    if (value === 'All') {
+      return router.push('/blog');
+    }
+
+    categories.forEach((category) => {
+      if (category.name === value) {
+        return router.push(`/blog/category/${category.slug}`);
       }
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }
 
   return (
-    <div className="mx-4 py-4 flex flex-wrap justify-center text-center">
-      <NavLink
-        to="/blog"
-        additionalClasses="mt-4"
-        text={'All'}
-        activeCategory={activeCategory}
-      />
-      {categories?.map((category, idx) => (
-        <NavLink
-          key={idx}
-          to={`/blog/category/${category.slug}`}
-          additionalClasses="mt-4"
-          text={category.name}
-          activeCategory={activeCategory}
-        />
-      ))}
+    <div className="border border-gray-300 rounded-lg px-8 lg:pt-8 pb-4 mt-4 mb-4 pt-4">
+      <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
+        Categories
+      </h3>
+      <select onChange={handleChange}>
+        {!current ? (
+          <option value="All">All</option>
+        ) : (
+          <>
+            <option value={current}>{current}</option>
+            <option value="All">All</option>
+          </>
+        )}
+        {categories
+          .filter((category) => category.name !== current)
+          .map((category, idx) => (
+            <option key={idx}>{category.name}</option>
+          ))}
+      </select>
     </div>
   );
 };

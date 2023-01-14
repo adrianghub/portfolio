@@ -30,7 +30,7 @@ export const CodeBlock = (props: {
     <div className="bg-slate-600 rounded-lg p-4 my-4 font-md">
       <div className={'flex justify-end relative'}>
         {isNavigatorClipboard && (
-          <div
+          <span
             className="cursor-pointer"
             aria-label="Copy to clipboard"
             onClick={() => {
@@ -40,7 +40,7 @@ export const CodeBlock = (props: {
             }}
           >
             {copied ? ' ✅' : '📋'}
-          </div>
+          </span>
         )}
       </div>
       <div className={'overflow-auto px-2 p-6'}>

@@ -1,15 +1,14 @@
 import { OneFourthLayout, Sidebar } from 'core/components';
-
-const seoData = {
-  title: 'Buy me a coffee | Adrian Zinko',
-  description: 'Buy me a coffee style page [under construction]'
-};
+import CoffeeForm from 'modules/buymeacoffee/components/CoffeeForm';
 
 const BuyMeACoffeePage = () => {
   return (
     <OneFourthLayout
+      title={'Caffè latte donation ;)'}
       childrenLeft={
-        <div className="text-center sm:text-left">(under construction)</div>
+        <div className="text-center sm:text-left">
+          <CoffeeForm />
+        </div>
       }
       childrenRight={<Sidebar />}
     />

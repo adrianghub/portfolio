@@ -1,7 +1,6 @@
 module.exports = {
   content: [
     './src/app/**/*.{js,ts,jsx,tsx}',
-    './src/pages/**/*.{js,ts,jsx,tsx}',
     './src/core/**/*.{js,ts,jsx,tsx}',
     './src/modules/**/*.{js,ts,jsx,tsx}',
     './src/shared/**/*.{js,ts,jsx,tsx}'
@@ -31,10 +30,25 @@ module.exports = {
         fadeIn: {
           '0%, ': { opacity: '0' },
           '100%': { opacity: '0.3' }
+        },
+        bounce: {
+          '0%': {
+            transform: 'translateY(0)',
+            'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)'
+          },
+          '50%': {
+            transform: 'translateY(-25%)',
+            'animation-timing-function': 'cubic-bezier(0, 0, 0.2, 1)'
+          },
+          '100%': {
+            transform: 'translateY(0)',
+            'animation-timing-function': 'cubic-bezier(0.8, 0, 1, 1)'
+          }
         }
       },
       animation: {
-        'fade-in': 'fadeIn 0.3s'
+        'fade-in': 'fadeIn 0.3s',
+        bounce: 'bounce 1s infinite'
       }
     }
   },

@@ -1,8 +1,11 @@
 'use client';
 
-import { Categories, SearchBar } from 'modules/blog/components';
+import { SearchBar } from 'modules/blog/components';
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+
+import coffeeCup from '../../../public/assets/icons/coffee-cup.svg';
 
 export const Header = () => {
   const pathname = usePathname();
@@ -19,10 +22,8 @@ export const Header = () => {
     >
       <div className="border-b w-full border-gray-300 py-8 flex flex-col justify-between items-center sm:flex-row">
         <div className="block py-4">
-          <Link href="/">
-            <span className="site-title cursor-pointer text-3xl lg:text-5xl">
-              portfolio
-            </span>
+          <Link href="/" className="site-title text-3xl lg:text-5xl">
+            portfolio
           </Link>
         </div>
         <div className="flex justify-end items-center">
@@ -30,21 +31,25 @@ export const Header = () => {
             <SearchBar />
           ) : (
             <>
-              <Link href="/blog">
-                <span className="cursor-pointer font-bold text-xl lg:text-xl mr-5 hover:text-gray-500 duration-200">
-                  Blog
-                </span>
+              <Link
+                href="/blog"
+                className="font-bold text-xl lg:text-xl mr-5 hover:text-gray-500 duration-200"
+              >
+                Blog
               </Link>
-              <Link href="/resume" className="animated-link">
-                <span className="cursor-pointer font-bold text-xl lg:text-xl">
-                  Resume
-                </span>
+              <Link
+                href="/resume"
+                className="animated-link font-bold text-xl lg:text-xl"
+              >
+                Resume
+              </Link>
+              <Link href="/buymeacoffee" className="ml-4 hover:animate-bounce">
+                <Image src={coffeeCup} alt="Coffee cup" />
               </Link>
             </>
           )}
         </div>
       </div>
-      {pathname !== '/' && <Categories />}
     </div>
   );
 };

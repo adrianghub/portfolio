@@ -5,7 +5,7 @@ const IndexPage = () => {
   return (
     <div className="grid place-items-center min-h-[calc(100vh-245px)]">
       <div>
-        <h2 className="text-lg md:text-3xl mb-8 text-center">
+        <h1 className="text-center text-2xl md:text-5xl  mt-8 mb-16">
           Software Developer
           <Link
             className="ml-2 animated-link"
@@ -15,7 +15,7 @@ const IndexPage = () => {
           >
             @Boldare
           </Link>
-        </h2>
+        </h1>
 
         <div className="my-8">
           <SocialMediaRow />
