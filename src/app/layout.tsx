@@ -7,7 +7,6 @@ import { SearchProvider } from 'shared/libs/SearchContext';
 import QueryProvider from './query-client-provider';
 
 export const revalidate = 60;
-export const runtime = 'experimental-edge';
 
 const inconsolata = Inconsolata();
 
