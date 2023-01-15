@@ -11,6 +11,7 @@ interface InputProps<T> {
   onChange?: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
+  required?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [x: string]: any;
 }
@@ -21,6 +22,7 @@ export const Input = <T extends object>({
   classes,
   textarea,
   onChange,
+  required,
   ...props
 }: InputProps<T>) => {
   const sharedClasses =
@@ -32,7 +34,7 @@ export const Input = <T extends object>({
     message: 'Enter a valid email.'
   };
 
-  const { type, name, value, required } = props;
+  const { type, name, value } = props;
 
   const renderInput = () => {
     return !textarea ? (

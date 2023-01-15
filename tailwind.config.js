@@ -24,7 +24,9 @@ module.exports = {
         },
         whitechocolate: {
           300: '#EDE4DA'
-        }
+        },
+        primary: '#2d1f25',
+        secondary: '#db2777'
       },
       keyframes: {
         fadeIn: {

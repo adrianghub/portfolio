@@ -12,6 +12,7 @@ import {
 
 import coffeeCup from '../../../../public/assets/icons/coffee-cup.svg';
 import Image from 'next/image';
+import { AiOutlineClose } from 'react-icons/ai';
 
 interface FormValues {
   quantity: string;
@@ -51,9 +52,13 @@ const CoffeeForm = () => {
   return (
     <div className="flex flex-col sm:flex-row xl:flex-col">
       <div className="flex flex-col xl:flex-row items-center justify-between flex-nowrap mb-8 sm:mr-8 xl:mr-0">
-        <Image src={coffeeCup} alt="Coffee cup" />
+        <Image
+          src={coffeeCup}
+          alt="Coffee cup"
+          className="relative right-1 animate-pulse"
+        />
 
-        <span className=" my-4 xl:my-0 xl:mx-4 text-xl font-bold">X</span>
+        <AiOutlineClose className="my-4 xl:my-0 xl:mx-4 text-xl font-bold" />
 
         <div>
           {PRESETS.map((preset) => (

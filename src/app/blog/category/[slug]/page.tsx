@@ -35,5 +35,5 @@ export default CategoryPostsPage;
 export async function generateStaticParams() {
   const categories = await getCategories();
 
-  return categories.map(({ slug, name }) => ({ slug, name }));
+  return categories.map(({ slug }) => ({ slug }));
 }
