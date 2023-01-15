@@ -2,6 +2,8 @@ import { getCategories, getPosts } from 'shared/services';
 import { Categories, Posts } from 'modules/blog/components';
 import { OneFourthLayout, Sidebar } from 'core/components';
 
+export const revalidate = 60;
+
 const POSTS_TO_LOAD = 6;
 
 const BlogPage = async () => {

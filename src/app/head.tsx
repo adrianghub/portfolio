@@ -1,7 +1,12 @@
 export default function Head() {
   return (
     <>
-      <title>Home | Adrian Zinko</title>
+      <title>Portfolio | Adrian Zinko</title>
+      <meta
+        name="description"
+        content="Software Developer Portfolio | Blog | Resume"
+      />
+      <meta property="og:image" content="https://adrianzinko.com/api/static" />
 
       <link
         rel="apple-touch-icon"

@@ -1,9 +1,15 @@
 import '../../styles/globals.scss';
 
+import { Inconsolata } from '@next/font/google';
 import { Layout, ScrollArrow } from 'core/components';
 import { PostsProvider } from 'shared/libs/PostsContext';
 import { SearchProvider } from 'shared/libs/SearchContext';
 import QueryProvider from './query-client-provider';
+
+export const revalidate = 60;
+export const runtime = 'experimental-edge';
+
+const inconsolata = Inconsolata();
 
 export default function RootLayout({
   children
@@ -11,7 +17,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className={inconsolata.className}>
       <QueryProvider>
         <SearchProvider>
           <PostsProvider>

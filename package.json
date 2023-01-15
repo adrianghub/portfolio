@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@hookform/error-message": "^2.0.1",
+    "@next/font": "^13.1.2",
     "@tanstack/react-query": "^4.20.9",
+    "@vercel/og": "^0.0.27",
     "encoding": "^0.1.13",
     "eslint-config-next": "^13.1.1",
     "graphql": "^16.5.0",
