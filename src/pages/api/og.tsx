@@ -10,10 +10,12 @@ export default function handler() {
       <div
         style={{
           display: 'flex',
-          fontSize: 128,
           background: '#EDE4DA',
           width: '100%',
-          height: '100%'
+          height: '100%',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontSize: 64
         }}
       >
         Developer Portfolio | Adrian Zinko

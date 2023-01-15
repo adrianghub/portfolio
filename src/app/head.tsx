@@ -6,7 +6,7 @@ export default function Head() {
         name="description"
         content="Software Developer Portfolio | Blog | Resume"
       />
-      <meta property="og:image" content="https://adrianzinko.com/api/static" />
+      <meta property="og:image" content="https://adrianzinko.com/api/og" />
 
       <link
         rel="apple-touch-icon"
