@@ -10,7 +10,7 @@ import coffeeCup from '../../../public/assets/icons/coffee-cup.svg';
 export const Header = () => {
   const pathname = usePathname();
 
-  const stickyHeaderPath = pathname === '/' || pathname === '/resume';
+  const stickyHeaderPath = pathname === '/';
   const noSearchPath =
     pathname !== '/search' && pathname !== '/' && pathname !== '/resume';
 
@@ -33,13 +33,13 @@ export const Header = () => {
             <>
               <Link
                 href="/blog"
-                className="font-bold text-xl lg:text-xl mr-5 hover:text-gray-500 duration-200"
+                className="prose font-bold text-xl lg:text-xl mr-5 hover:text-gray-500 duration-200"
               >
                 Blog
               </Link>
               <Link
                 href="/resume"
-                className="animated-link font-bold text-xl lg:text-xl"
+                className="prose animated-link font-bold text-xl lg:text-xl"
               >
                 Resume
               </Link>

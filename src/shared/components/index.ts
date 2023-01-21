@@ -1,5 +1,6 @@
 export { Loader } from './Loader';
 export { AboutWidget } from './AboutWidget';
+export { ContactWidget } from './ContactWidget';
 export { Input } from './Input';
 export { Form } from './Form';
 export { Button } from './Button';

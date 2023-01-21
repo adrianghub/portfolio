@@ -8,7 +8,7 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
-      typography: (theme) => ({
+      typography: () => ({
         dark: {
           css: {
             color: 'white'
@@ -69,7 +69,7 @@ module.exports = {
     enabled: true,
     content: ['./src/**/*.tsx'],
     options: {
-      safelist: ['dark'] //specific classes
+      safelist: ['dark']
     }
   }
 };

@@ -1,9 +1,6 @@
-'use client';
-
 import { PostDTO } from 'interfaces';
 import moment from 'moment';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
 import { getRecentPosts, getSimilarPosts } from 'shared/services';
 
 interface PostWidgetProps {
@@ -11,30 +8,29 @@ interface PostWidgetProps {
   slug: string;
 }
 
-export const PostWidget = ({
+// TODO: Add meaningful type - to be resolved after https://github.com/microsoft/TypeScript/pull/51328
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const PostWidget: any = async ({
   categoriesSlugs,
   slug
 }: Partial<PostWidgetProps>) => {
-  const [relatedPosts, setRelatedPosts] = useState<PostDTO[]>();
+  let postReferences: PostDTO[] = [];
 
-  useEffect(() => {
-    if (slug && categoriesSlugs) {
-      void getSimilarPosts(slug, categoriesSlugs).then((result: PostDTO[]) =>
-        setRelatedPosts(result)
-      );
-      return;
-    }
+  if (slug && categoriesSlugs) {
+    postReferences = await getSimilarPosts(slug, categoriesSlugs);
+  }
 
-    void getRecentPosts().then((result: PostDTO[]) => setRelatedPosts(result));
-  }, [categoriesSlugs, slug]);
+  if (postReferences && postReferences.length === 0) {
+    postReferences = await getRecentPosts();
+  }
 
   return (
     <div className="pt-8 pb-4">
       <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
         {slug ? 'Related Posts' : 'Recent Posts'}
       </h3>
-      {relatedPosts &&
-        relatedPosts.map((post) => (
+      {postReferences &&
+        postReferences.map((post) => (
           <div key={post.title} className="flex items-center w-full mb-4">
             <div className="flex-grow">
               <p className="text-gray-500 font-xs">

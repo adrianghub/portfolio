@@ -16,7 +16,7 @@ export const OneFourthLayout = ({
   <>
     {title && (
       <h1
-        className={`text-center text-5xl sm:text-7xl font-semibold my-8 ${
+        className={`text-center text-3xl sm:text-5xl lg:text-7xl font-semibold my-8 ${
           headingClasses ? headingClasses : ''
         }`}
       >

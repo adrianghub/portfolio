@@ -26,7 +26,7 @@ export const Input = <T extends object>({
   ...props
 }: InputProps<T>) => {
   const sharedClasses =
-    'w-full rounded-lg focus:outline-none focus:ring focus:ring-gray-300 bg-gray-100 text-gray-700';
+    'prose w-full rounded-lg focus:outline-none focus:ring focus:ring-gray-300 bg-gray-100 text-gray-700';
 
   const emailPattern = {
     value:

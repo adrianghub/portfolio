@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { SocialMediaRow } from './SocialMediaRow';
 
 export const AboutWidget = () => (
-  <div className="pt-8 lg:pt-0 pb-8">
+  <div className="border border-gray-300 rounded-lg px-8 lg:pt-8 pb-4 mt-4 mb-4 pt-4">
     <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
       About Me
     </h3>
@@ -24,10 +24,6 @@ export const AboutWidget = () => (
         <li>{'>'} Mountains and cats lover.</li>
         <li>
           {'>'} Check out my
-          <Link className="mx-2 animated-link" href="/resume">
-            resume
-          </Link>
-          or
           <Link className="ml-2 animated-link" href="/blog">
             blog page
           </Link>
@@ -36,5 +32,16 @@ export const AboutWidget = () => (
       </ul>
     </div>
     <SocialMediaRow />
+
+    <div className="flex justify-center">
+      <Link
+        href="/assets/resume.pdf"
+        target="_blank"
+        rel="norefferer"
+        className="font-bold text-xl lg:text-xl animated-link"
+      >
+        resume (pdf)
+      </Link>
+    </div>
   </div>
 );

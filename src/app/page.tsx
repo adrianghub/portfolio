@@ -5,7 +5,7 @@ const IndexPage = () => {
   return (
     <div className="grid place-items-center min-h-[calc(100vh-245px)]">
       <div>
-        <h1 className="text-center text-2xl md:text-5xl  mt-8 mb-16">
+        <h1 className="prose text-center text-2xl md:text-5xl mt-8 mb-16">
           Software Developer
           <Link
             className="ml-2 animated-link"

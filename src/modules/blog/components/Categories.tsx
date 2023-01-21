@@ -27,17 +27,20 @@ export const Categories = ({
   }
 
   return (
-    <div className="border border-gray-300 rounded-lg px-8 lg:pt-8 pb-4 mt-4 mb-4 pt-4">
+    <>
       <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
         Categories
       </h3>
-      <select onChange={handleChange}>
+      <select
+        onChange={handleChange}
+        className="prose block py-2.5 px-4 w-full text-lg rounded-lg    border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:ring focus:ring-gray-300 bg-gray-100 text-gray-700 focus:outline-none peer"
+      >
         {!current ? (
-          <option value="All">All</option>
+          <option value="All">All (blog page)</option>
         ) : (
           <>
             <option value={current}>{current}</option>
-            <option value="All">All</option>
+            <option value="All">All (blog page)</option>
           </>
         )}
         {categories
@@ -46,6 +49,6 @@ export const Categories = ({
             <option key={idx}>{category.name}</option>
           ))}
       </select>
-    </div>
+    </>
   );
 };

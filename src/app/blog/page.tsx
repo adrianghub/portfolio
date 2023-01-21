@@ -1,5 +1,5 @@
 import { getCategories, getPosts } from 'shared/services';
-import { Categories, Posts } from 'modules/blog/components';
+import { Categories, Posts, PostWidget } from 'modules/blog/components';
 import { OneFourthLayout, Sidebar } from 'core/components';
 
 export const revalidate = 60;
@@ -17,10 +17,10 @@ const BlogPage = async () => {
         posts && <Posts posts={posts} postsToLoad={POSTS_TO_LOAD} />
       }
       childrenRight={
-        <>
+        <Sidebar>
           <Categories categories={categories} />
-          <Sidebar postWidget />
-        </>
+          <PostWidget />
+        </Sidebar>
       }
     />
   );

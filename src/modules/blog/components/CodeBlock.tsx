@@ -27,7 +27,7 @@ export const CodeBlock = (props: {
   const code = (props.children?.props?.children as string)?.trim();
 
   return (
-    <div className="bg-slate-600 rounded-lg p-4 my-4 font-md">
+    <div className="bg-slate-600 rounded-lg p-4 my-4 font-md not-prose">
       <div className={'flex justify-end relative'}>
         {isNavigatorClipboard && (
           <span

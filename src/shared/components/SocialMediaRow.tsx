@@ -18,7 +18,7 @@ const DynamicRemixIcon = ({
 };
 
 export const SocialMediaRow = () => (
-  <div className="flex justify-center">
+  <div className="flex justify-center mb-8">
     {SOCIAL_MEDIA.map(({ name, href, iconName, lastIcon }) => (
       <a
         key={name}

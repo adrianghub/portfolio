@@ -19,15 +19,15 @@ const PostDetailsPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <h1 className="text-center text-5xl sm:text-7xl font-semibold my-8">
+      <h1 className="text-center text-3xl sm:text-5xl lg:text-7xl font-semibold my-8">
         {post.title}
       </h1>
       <OneFourthLayout
         childrenLeft={
           <>
-            <div className="border border-gray-300 rounded-lg lg:p-8 pt-8 pb-4 mb-8 mt-0 lg:mt-4">
-              <article className="px-4 lg:px-0 prose lg:prose-xl dark:prose-invert">
-                <PostDetail post={post} />
+            <div className="border border-gray-300 rounded-lg px-4 md:px-8 pt-8 pb-4 mb-8 mt-0 lg:mt-4 ">
+              <PostDetail post={post} />
+              <article className="px-4 prose md:prose-lg lg:prose-xl max-w-none dark:prose-invert">
                 <MDXContent markdown={markdown} />
               </article>
             </div>
@@ -36,20 +36,16 @@ const PostDetailsPage = async ({ params }: { params: { slug: string } }) => {
           </>
         }
         childrenRight={
-          <>
+          <Sidebar>
             <Categories
               categories={categories}
               current={post.categories.map((category) => category.name)[0]}
             />
-            <Sidebar categories={categories}>
-              <PostWidget
-                slug={post.slug}
-                categoriesSlugs={post.categories.map(
-                  (category) => category.slug
-                )}
-              />
-            </Sidebar>
-          </>
+            <PostWidget
+              slug={post.slug}
+              categoriesSlugs={post.categories.map((category) => category.slug)}
+            />
+          </Sidebar>
         }
       ></OneFourthLayout>
     </>
