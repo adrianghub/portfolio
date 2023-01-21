@@ -5,9 +5,16 @@ module.exports = {
     './src/modules/**/*.{js,ts,jsx,tsx}',
     './src/shared/**/*.{js,ts,jsx,tsx}'
   ],
-  darkMode: 'media',
+  darkMode: 'class',
   theme: {
     extend: {
+      typography: (theme) => ({
+        dark: {
+          css: {
+            color: 'white'
+          }
+        }
+      }),
       colors: {
         button: {
           wenge: {
@@ -55,7 +62,14 @@ module.exports = {
     }
   },
   variants: {
-    extend: {}
+    typography: ['dark']
   },
-  plugins: []
+  plugins: [require('@tailwindcss/typography')],
+  purge: {
+    enabled: true,
+    content: ['./src/**/*.tsx'],
+    options: {
+      safelist: ['dark'] //specific classes
+    }
+  }
 };

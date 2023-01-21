@@ -26,10 +26,10 @@ const PostDetailsPage = async ({ params }: { params: { slug: string } }) => {
         childrenLeft={
           <>
             <div className="border border-gray-300 rounded-lg lg:p-8 pt-8 pb-4 mb-8 mt-0 lg:mt-4">
-              <div className="px-4 lg:px-0">
+              <article className="px-4 lg:px-0 prose lg:prose-xl dark:prose-invert">
                 <PostDetail post={post} />
                 <MDXContent markdown={markdown} />
-              </div>
+              </article>
             </div>
             <CommentsForm slug={post.slug} />
             <Comments slug={post.slug} />
@@ -41,7 +41,7 @@ const PostDetailsPage = async ({ params }: { params: { slug: string } }) => {
               categories={categories}
               current={post.categories.map((category) => category.name)[0]}
             />
-            <Sidebar>
+            <Sidebar categories={categories}>
               <PostWidget
                 slug={post.slug}
                 categoriesSlugs={post.categories.map(

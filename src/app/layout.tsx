@@ -20,7 +20,7 @@ export default function RootLayout({
       <QueryProvider>
         <SearchProvider>
           <PostsProvider>
-            <body className="bg-whitechocolate-300 h-screen max-w-7xl mx-auto">
+            <body className="bg-whitechocolate-300 h-screen max-w-7xl mx-auto dark:bg-gray-800">
               <Layout>{children}</Layout>
               <ScrollArrow />
             </body>
