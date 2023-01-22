@@ -28,12 +28,12 @@ export const Categories = ({
 
   return (
     <>
-      <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
+      <h3 className="mb-8 pb-2 prose prose-xl border-b border-gray-300 ">
         Categories
       </h3>
       <select
         onChange={handleChange}
-        className="prose block py-2.5 px-4 w-full text-lg rounded-lg    border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:ring focus:ring-gray-300 bg-gray-100 text-gray-700 focus:outline-none peer"
+        className="w-full py-2.5 px-4 prose  rounded-lg border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 hover:ring hover:ring-gray-300 focus:ring focus:ring-gray-300 bg-gray-100 text-gray-700 focus:outline-none peer cursor-pointer transition duration-200"
       >
         {!current ? (
           <option value="All">All (blog page)</option>

@@ -7,7 +7,7 @@ const BuyMeACoffeePage = () => {
       title={'Donation ;)'}
       headingClasses={'mb-16'}
       childrenLeft={<CoffeeForm />}
-      childrenRight={<Sidebar />}
+      childrenRight={<Sidebar aboutWidget />}
     />
   );
 };

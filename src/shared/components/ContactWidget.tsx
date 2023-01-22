@@ -3,13 +3,11 @@ import { SocialMediaRow } from './SocialMediaRow';
 
 export const ContactWidget = () => (
   <>
-    <div className="pt-8 lg:pt-0">
-      <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
-        Contact
-      </h3>
+    <h3 className="mb-8 py-2 prose prose-xl border-b border-gray-300">
+      Contact
+    </h3>
 
-      <SocialMediaRow />
-    </div>
+    <SocialMediaRow />
 
     <div className="flex justify-center">
       <Link

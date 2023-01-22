@@ -1,8 +1,7 @@
 'use client';
 
-import { OneFourthLayout } from 'core/components';
+import { OneFourthLayout, Sidebar } from 'core/components';
 import { Posts, SearchBar } from 'modules/blog/components';
-import { AboutWidget } from 'shared/components';
 import { usePostsContext, useSearchContext } from 'shared/hooks';
 
 const SearchPage = () => {
@@ -23,7 +22,7 @@ const SearchPage = () => {
       </h2>
       <OneFourthLayout
         childrenLeft={posts && <Posts posts={posts} />}
-        childrenRight={<AboutWidget />}
+        childrenRight={<Sidebar aboutWidget />}
       />
     </div>
   );

@@ -2,15 +2,15 @@ import Link from 'next/link';
 import { SocialMediaRow } from './SocialMediaRow';
 
 export const AboutWidget = () => (
-  <div className="border border-gray-300 rounded-lg px-8 lg:pt-8 pb-4 mt-4 mb-4 pt-4">
-    <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
+  <>
+    <h3 className="mb-8 pb-2 prose prose-xl border-b border-gray-300">
       About Me
     </h3>
-    <div className="text-md pb-8">
+    <div className="prose xl:prose-xl pb-8">
       <ul>
-        <li> {'>'} I do some web stuff in JS.</li>
+        <li> I do some web stuff in JS.</li>
         <li>
-          {'>'} Currently
+          Currently
           <Link
             className="ml-2 animated-link"
             href="https://boldare.com"
@@ -21,9 +21,9 @@ export const AboutWidget = () => (
           </Link>
           .
         </li>
-        <li>{'>'} Mountains and cats lover.</li>
+        <li> Mountains and cats lover.</li>
         <li>
-          {'>'} Check out my
+          Check out my
           <Link className="ml-2 animated-link" href="/blog">
             blog page
           </Link>
@@ -43,5 +43,5 @@ export const AboutWidget = () => (
         resume (pdf)
       </Link>
     </div>
-  </div>
+  </>
 );

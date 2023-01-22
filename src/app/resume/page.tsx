@@ -1,5 +1,4 @@
-import { OneFourthLayout } from 'core/components';
-import { AboutWidget } from 'shared/components';
+import { OneFourthLayout, Sidebar } from 'core/components';
 
 const ResumePage = () => {
   return (
@@ -7,7 +6,7 @@ const ResumePage = () => {
       childrenLeft={
         <div className="text-center sm:text-left">(under construction)</div>
       }
-      childrenRight={<AboutWidget />}
+      childrenRight={<Sidebar aboutWidget />}
     />
   );
 };

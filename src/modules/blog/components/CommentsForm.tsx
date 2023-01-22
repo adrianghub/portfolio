@@ -59,7 +59,7 @@ export const CommentsForm = ({ slug }: CommentsFormProps) => {
           errors={errors}
           classes="py-2 px-4"
           name="name"
-          placeholder="Name"
+          placeholder="Name (optional)"
           required
         />
         <Input

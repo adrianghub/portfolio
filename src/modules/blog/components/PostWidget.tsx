@@ -26,19 +26,19 @@ export const PostWidget: any = async ({
 
   return (
     <div className="pt-8 pb-4">
-      <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
+      <h3 className="mb-8 pb-2 prose prose-xl border-b border-gray-300 ">
         {slug ? 'Related Posts' : 'Recent Posts'}
       </h3>
       {postReferences &&
         postReferences.map((post) => (
           <div key={post.title} className="flex items-center w-full mb-4">
             <div className="flex-grow">
-              <p className="text-gray-500 font-xs">
+              <p className="prose text-gray-500">
                 {moment(post.createdAt).format('MMMM DD, YYYY')}
               </p>
               <Link
                 href={`/blog/post/${post.slug}`}
-                className="text-md animated-link"
+                className="prose animated-link font-semibold"
               >
                 {post.title}
               </Link>
