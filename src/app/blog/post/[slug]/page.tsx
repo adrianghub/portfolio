@@ -25,9 +25,9 @@ const PostDetailsPage = async ({ params }: { params: { slug: string } }) => {
       <OneFourthLayout
         childrenLeft={
           <>
-            <div className="sm:border sm:border-gray-300 rounded-lg px-0 md:px-8 pt-8 pb-4 mb-8 mt-0 lg:mt-4 ">
+            <div className="md:border md:border-gray-300 rounded-lg px-0 md:px-8 pt-8 pb-4 mb-8 ">
               <PostDetail post={post} />
-              <article className="px-4 prose md:prose-lg lg:prose-xl max-w-none dark:prose-invert">
+              <article className="prose md:prose-lg lg:prose-xl max-w-none dark:prose-invert">
                 <MDXContent markdown={markdown} />
               </article>
             </div>

@@ -11,9 +11,13 @@ export const ContactWidget = () => (
 
     <div className="flex justify-center">
       <Link
-        href="/resume"
-        className="animated-link font-bold text-xl lg:text-xl"
+        href="/blog"
+        className="mr-5 prose font-bold hover:text-gray-500 duration-200"
       >
+        Blog
+      </Link>
+
+      <Link href="/resume" className="prose animated-link font-bold">
         Resume
       </Link>
     </div>

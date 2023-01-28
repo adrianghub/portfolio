@@ -9,7 +9,7 @@ interface PostDetailProps {
 
 export const PostDetail = ({ post }: PostDetailProps) => (
   <>
-    <div className="flex mb-8 w-full flex-col sm:flex-row sm:items-center px-4 ">
+    <div className="flex mb-8 w-full flex-col sm:flex-row sm:items-center">
       <div className="flex items-center justify-start w-full mr-4 ">
         <PostAuthor
           name={post.author.name}
