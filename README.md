@@ -1,5 +1,15 @@
 # portfolio
 
+Plans for further development
+
+- [x] Blog section
+- [x] Comments handling
+- [x] Search handling
+- [x] Newsletter subscription
+- [] Web Resume 
+- [] Dontaion handling
+- [] Universal dev resources table search (query,filters,sorting)
+
 
 From the performance perspective after switching on to Next v13 on average it looks good on a desktop while there is still room for many improvements on mobile (according to measurements done on Lighthouse).
 
