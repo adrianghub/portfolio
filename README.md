@@ -6,8 +6,9 @@ Plans for further development
 - [x] Comments handling
 - [x] Search handling
 - [x] Newsletter subscription
-- [ ] Web Resume 
-- [ ] Dontaion handling
+- [ ] Translations (pl/es)
+- [ ] Web Resume page
+- [ ] Dontaion page
 - [ ] Universal dev resources table search (query,filters,sorting)
 
 
