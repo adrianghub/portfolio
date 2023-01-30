@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 import { Button, Input } from 'shared/components';
 import {
   DONATION_VALUE,
@@ -13,44 +14,55 @@ import {
 import coffeeCup from '../../../../public/assets/icons/coffee-cup.svg';
 import Image from 'next/image';
 import { AiOutlineClose } from 'react-icons/ai';
+import { checkout } from 'shared/services';
 
 interface FormValues {
   quantity: string;
 }
 
 const CoffeeForm = () => {
-  const [error, setError] = useState(null);
-  const [quantity, setQuantity] = useState(1);
-  const [name, setName] = useState('');
-  const [message, setmMessage] = useState('');
+  const [error, setError] = useState<string | null>(null);
+  const [quantity, setQuantity] = useState<number | null>(null);
+  const router = useRouter();
 
   const {
-    formState: { errors, isSubmitting },
+    formState: { errors },
     register,
-    reset,
-    handleSubmit
+    reset
   } = useForm<FormValues>();
 
   function handleChange(
     evt: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) {
-    setQuantity((prevVal) => {
-      const valInNum = parseInt(evt.target.value, 10);
+    const num = Math.min(MAX_DONATION_VALUE, parseInt(evt.target.value, 10));
+    setQuantity(num);
+  }
 
-      if (valInNum < MIN_INPUT_VALUE) {
-        return MIN_INPUT_VALUE;
+  async function handleCheckout() {
+    setError(null);
+
+    try {
+      const res = await checkout({ quantity });
+
+      reset();
+
+      if (res.url) {
+        router.push(res.url);
       }
 
-      if (valInNum <= MAX_DONATION_VALUE / DONATION_VALUE) {
-        return valInNum;
+      setError(res.error);
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message);
+        return;
       }
-
-      return prevVal;
-    });
+    }
   }
 
   return (
     <div className="flex flex-col sm:flex-row xl:flex-col">
+      {error && <div>{error}</div>}
+
       <div className="flex flex-col xl:flex-row items-center justify-between flex-nowrap mb-8 sm:mr-8 xl:mr-0">
         <Image
           src={coffeeCup}
@@ -78,12 +90,20 @@ const CoffeeForm = () => {
           errors={errors}
           name="quantity"
           type="number"
-          value={quantity}
+          value={quantity || ''}
           min={MIN_INPUT_VALUE}
+          placeholder="0"
         />
-        <Button classes="my-4 xl:my-0">
-          Donate {quantity * (DONATION_VALUE / 100)}€ ({quantity}
-          {quantity > 1 ? ' cups' : ' cup'})
+        <Button classes="my-4 xl:my-0" disabled={true} onClick={handleCheckout}>
+          Donate{' '}
+          {quantity ? (
+            <>
+              {quantity * (DONATION_VALUE / 100)}€ ({quantity}
+              {quantity > 1 ? ' cups' : ' cup'})
+            </>
+          ) : (
+            ''
+          )}
         </Button>
       </div>
       <div className="flex-[2_2_0%]">

@@ -4,7 +4,7 @@ import CoffeeForm from 'modules/buymeacoffee/components/CoffeeForm';
 const BuyMeACoffeePage = () => {
   return (
     <OneFourthLayout
-      title={'Donation ;)'}
+      title={'Buy me a coffee'}
       headingClasses={'mb-16'}
       childrenLeft={<CoffeeForm />}
       childrenRight={<Sidebar aboutWidget />}

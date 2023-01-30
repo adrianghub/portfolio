@@ -218,3 +218,24 @@ export const subscribe = async ({
 
   return result.json();
 };
+
+export const checkout = async ({
+  quantity,
+  name
+}: {
+  quantity: number | null;
+  name?: string;
+}) => {
+  const result = await fetch('/api/checkout', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      quantity,
+      name
+    })
+  });
+
+  return result.json();
+};

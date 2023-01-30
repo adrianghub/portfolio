@@ -16,7 +16,7 @@ export default async function handler(
       {
         method: 'POST',
         headers: {
-          Authorization: `Bearer ${process.env.NEXT_PUBLIC_MAILERLITE_API_TOKEN}`,
+          Authorization: `Bearer ${process.env.MAILERLITE_API_TOKEN}`,
           'Content-Type': 'application/json'
         },
         body: JSON.stringify({

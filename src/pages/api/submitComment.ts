@@ -9,7 +9,7 @@ export default async function handler(
 ) {
   const graphQLClient = new GraphQLClient(graphcmsAPI, {
     headers: {
-      authorization: `Bearer ${process.env.NEXT_PUBLIC_GRAPHCMS_TOKEN}`
+      authorization: `Bearer ${process.env.GRAPHCMS_TOKEN}`
     }
   });
 
