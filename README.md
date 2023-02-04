@@ -13,4 +13,4 @@
 - [ ] Blog improvements (pagination, breadcrumbs)
 - [ ] Universal dev resources table search (query,filters,sorting)
 
-![Portfolio design for desktop and mobile]()
+![Portfolio design for desktop and mobile](https://azinko.s3.eu-central-1.amazonaws.com/az-portfolio-design.png)
