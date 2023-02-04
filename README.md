@@ -1,6 +1,7 @@
-# portfolio
+# Software Developer Portfolio
 
-Plans for further development
+
+### Plans for further development
 
 - [x] Blog section
 - [x] Comments handling
