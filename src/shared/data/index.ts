@@ -29,6 +29,6 @@ export const SOCIAL_MEDIA: SocialMediaDataProps[] = [
   },
   {
     name: 'Gmail',
-    href: 'mailto:zinko.adrian00@gmail.com'
+    href: 'mailto:hello@adrianzinko.com'
   }
 ];
