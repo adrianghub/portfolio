@@ -24,11 +24,12 @@ export const SOCIAL_MEDIA: SocialMediaDataProps[] = [
   {
     name: 'Instagram',
     href: 'https://www.instagram.com/_drianko',
-    iconName: 'RiInstagramLine',
-    lastIcon: true
+    iconName: 'RiInstagramLine'
   },
   {
     name: 'Gmail',
-    href: 'mailto:hello@adrianzinko.com'
+    href: 'mailto:hello@adrianzinko.com',
+    iconName: 'RiMailLine',
+    lastIcon: true
   }
 ];
