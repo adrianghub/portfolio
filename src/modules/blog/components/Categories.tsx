@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { PostCategory } from 'interfaces';
+import { PostCategory } from '@/interfaces';
 
 export const Categories = ({
   categories,

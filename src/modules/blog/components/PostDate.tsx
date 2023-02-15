@@ -1,4 +1,4 @@
-import moment from 'moment';
+import { formatDate } from '@/shared/utils/formatDate';
 
 interface PostDateProps {
   createdAt: string;
@@ -21,7 +21,7 @@ export const PostDate = ({ createdAt }: PostDateProps) => (
       />
     </svg>
     <span className="inline align-middle text-gray-700 text-sm md:text-lg">
-      {moment(createdAt).format('MMMM DD, YYYY')}
+      {formatDate(createdAt)}
     </span>
   </>
 );

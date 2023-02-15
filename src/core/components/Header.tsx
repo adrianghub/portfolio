@@ -1,18 +1,13 @@
 'use client';
 
-import { SearchBar } from 'modules/blog/components';
+import { SearchSpotlight } from '@/modules/blog/components/SearchSpotlight';
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-
-import coffeeCup from '../../../public/assets/icons/coffee-cup.svg';
 
 export const Header = () => {
   const pathname = usePathname();
 
   const stickyHeaderPath = pathname === '/';
-  const noSearchPath =
-    pathname !== '/search' && pathname !== '/' && pathname !== '/resume';
 
   return (
     <div
@@ -27,27 +22,22 @@ export const Header = () => {
           </Link>
         </div>
         <div className="flex justify-end items-center">
-          {noSearchPath ? (
-            <SearchBar />
-          ) : (
-            <>
-              <Link
-                href="/blog"
-                className="prose font-bold text-xl lg:text-xl mr-5 hover:text-gray-500 duration-200"
-              >
-                Blog
-              </Link>
-              <Link
-                href="/resume"
-                className="prose animated-link font-bold text-xl lg:text-xl"
-              >
-                Resume
-              </Link>
-              <Link href="/buymeacoffee" className="ml-4 hover:animate-bounce">
+          <Link
+            href="/blog"
+            className="prose font-bold text-xl lg:text-xl mr-5 hover:text-gray-500 duration-200"
+          >
+            Blog
+          </Link>
+          <Link
+            href="/resume"
+            className="prose animated-link font-bold text-xl lg:text-xl mr-5"
+          >
+            Resume
+          </Link>
+          <SearchSpotlight />
+          {/* <Link href="/buymeacoffee" className="ml-4 hover:animate-bounce">
                 <Image src={coffeeCup} alt="Coffee cup" />
-              </Link>
-            </>
-          )}
+              </Link> */}
         </div>
       </div>
     </div>

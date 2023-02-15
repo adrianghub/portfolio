@@ -1,5 +1,5 @@
-import { OneFourthLayout, Sidebar } from 'core/components';
-import CoffeeForm from 'modules/buymeacoffee/components/CoffeeForm';
+import { OneFourthLayout, Sidebar } from '@/core/components';
+import CoffeeForm from '@/modules/buymeacoffee/components/CoffeeForm';
 
 const BuyMeACoffeePage = () => {
   return (

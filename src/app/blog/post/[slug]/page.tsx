@@ -1,15 +1,17 @@
 import { serialize } from 'next-mdx-remote/serialize';
-import { getCategories, getPostDetails, getPosts } from 'shared/services';
-import { OneFourthLayout, Sidebar } from 'core/components';
+import { MdArrowBack } from 'react-icons/md';
+import { getCategories, getPostDetails, getPosts } from '@/shared/services';
+import { OneFourthLayout, Sidebar } from '@/core/components';
 import {
   PostDetail,
   Comments,
   CommentsForm,
   PostWidget,
   Categories
-} from 'modules/blog/components';
-import { NodeDTO } from 'interfaces';
-import { MDXContent } from 'app/mdx-remote';
+} from '@/modules/blog/components';
+import { NodeDTO } from '@/interfaces';
+import { MDXContent } from '@/app/mdx-remote';
+import Link from 'next/link';
 
 const PostDetailsPage = async ({ params }: { params: { slug: string } }) => {
   const post = await getPostDetails(params.slug);
@@ -19,9 +21,16 @@ const PostDetailsPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <h1 className="text-center text-3xl sm:text-5xl lg:text-7xl font-semibold my-8">
-        {post.title}
-      </h1>
+      <div className="flex">
+        <Link href="/blog">
+          <MdArrowBack className="text-3xl sm:text-5xl lg:text-7xl font-semibold my-8" />
+        </Link>
+
+        <h1 className="text-center text-3xl sm:text-5xl lg:text-7xl font-semibold my-8 mx-12">
+          {post.title}
+        </h1>
+      </div>
+
       <OneFourthLayout
         childrenLeft={
           <>

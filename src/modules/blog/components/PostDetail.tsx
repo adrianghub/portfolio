@@ -1,4 +1,4 @@
-import { PostDTO } from 'interfaces';
+import { PostDTO } from '@/interfaces';
 import { PostDate } from './PostDate';
 import { PostAuthor } from './PostAuthor';
 import Link from 'next/link';

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
-import { ContactWidget } from 'shared/components';
-import { AboutWidget } from '../../shared/components/AboutWidget';
+import { ContactWidget } from '@/shared/components';
+import { AboutWidget } from '@/shared/components/AboutWidget';
 
 interface SidebarProps {
   children: ReactNode;

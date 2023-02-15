@@ -1,8 +1,8 @@
 'use client';
 
-import { PostDTO } from 'interfaces';
-import { Button } from 'shared/components';
-import { useLoadMore } from 'shared/hooks/useLoadMore';
+import { PostDTO } from '@/interfaces';
+import { Button } from '@/shared/components';
+import { useLoadMore } from '@/shared/hooks/useLoadMore';
 import { PostCard } from './PostCard';
 
 interface NodeDTO {

@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { subscribe } from 'shared/services';
-import { Input, Button, Form } from 'shared/components';
+import { subscribe } from '@/shared/services';
+import { Input, Button, Form } from '@/shared/components';
 
 interface FormValues {
   name: string;

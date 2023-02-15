@@ -1,7 +1,7 @@
-import { PostDTO } from 'interfaces';
-import moment from 'moment';
 import Link from 'next/link';
-import { getRecentPosts, getSimilarPosts } from 'shared/services';
+import { PostDTO } from '@/interfaces';
+import { getRecentPosts, getSimilarPosts } from '@/shared/services';
+import { formatDate } from '@/shared/utils/formatDate';
 
 interface PostWidgetProps {
   categoriesSlugs: string[];
@@ -34,7 +34,7 @@ export const PostWidget: any = async ({
           <div key={post.title} className="flex items-center w-full mb-4">
             <div className="flex-grow">
               <p className="prose text-gray-500">
-                {moment(post.createdAt).format('MMMM DD, YYYY')}
+                {formatDate(post.createdAt)}
               </p>
               <Link
                 href={`/blog/post/${post.slug}`}

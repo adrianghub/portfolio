@@ -1,6 +1,6 @@
 'use client';
 
-import { NodeDTO } from 'interfaces';
+import { NodeDTO } from '@/interfaces';
 import { useEffect, useState } from 'react';
 
 export const useLoadMore = (posts: NodeDTO[], postsToLoad = posts.length) => {

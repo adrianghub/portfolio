@@ -1,8 +1,8 @@
 'use client';
 
-import { OneFourthLayout, Sidebar } from 'core/components';
-import { Posts, SearchBar } from 'modules/blog/components';
-import { usePostsContext, useSearchContext } from 'shared/hooks';
+import { OneFourthLayout, Sidebar } from '@/core/components';
+import { Posts, SearchBar } from '@/modules/blog/components';
+import { usePostsContext, useSearchContext } from '@/shared/hooks';
 
 const SearchPage = () => {
   const { posts } = usePostsContext();

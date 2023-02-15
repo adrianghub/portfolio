@@ -18,7 +18,7 @@ export const components = {
     />
   ),
   code: (props: HTMLAttributes<HTMLElement>) => (
-    <code className="text-secondary font-semibold not-prose" {...props} />
+    <code className="text-active font-semibold not-prose" {...props} />
   ),
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   pre: (props: any) => <CodeBlock {...props} />
