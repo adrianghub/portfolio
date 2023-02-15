@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation';
-import { Button, Input } from 'shared/components';
+import { Button, Input } from '@/shared/components';
 import {
   DONATION_VALUE,
   MAX_DONATION_VALUE,
@@ -14,7 +14,7 @@ import {
 import coffeeCup from '../../../../public/assets/icons/coffee-cup.svg';
 import Image from 'next/image';
 import { AiOutlineClose } from 'react-icons/ai';
-import { checkout } from 'shared/services';
+import { checkout } from '@/shared/services';
 
 interface FormValues {
   quantity: string;
