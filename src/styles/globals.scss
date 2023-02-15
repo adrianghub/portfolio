@@ -9,7 +9,8 @@
 // #3D3D3D - onyx
 
 $primary_color: #ede4da;
-$secondary_color: #db2777;
+$secondary_color: #6f4c5b;
+$active_color: #db2777;
 
 * {
   box-sizing: border-box;
@@ -34,12 +35,12 @@ h5,
 h6,
 b,
 .animated-link {
-  color: #6f4c5b;
+  color: $secondary_color;
 }
 
 .animated-link {
   text-decoration: none;
-  background-image: linear-gradient($secondary_color, $secondary_color);
+  background-image: linear-gradient($active_color, $active_color);
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: 0% 3px;
@@ -58,7 +59,7 @@ button[disabled] {
 
 .active {
   text-decoration: none;
-  background-image: linear-gradient($secondary_color, $secondary_color);
+  background-image: linear-gradient($active_color, $active_color);
   background-repeat: no-repeat;
   background-position: bottom left;
   background-size: 100% 3px;
@@ -86,7 +87,7 @@ button[disabled] {
 }
 
 .post-card-wrapper:hover h1 {
-  color: $secondary_color;
+  color: $active_color;
   transition: 0.2s;
 }
 

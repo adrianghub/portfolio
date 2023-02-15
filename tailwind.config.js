@@ -33,7 +33,8 @@ module.exports = {
           300: '#EDE4DA'
         },
         primary: '#2d1f25',
-        secondary: '#db2777'
+        secondary: '#6f4c5b;',
+        active: '#db2777'
       },
       keyframes: {
         fadeIn: {

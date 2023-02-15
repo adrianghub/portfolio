@@ -2,9 +2,9 @@
 
 import { createContext, ReactNode, useEffect } from 'react';
 
-import { NodeDTO } from 'interfaces';
-import { useSearchContext } from 'shared/hooks';
-import { getPosts } from 'shared/services';
+import { NodeDTO } from '@/interfaces';
+import { useSearchContext } from '@/shared/hooks';
+import { getPosts } from '@/shared/services';
 import { useQuery } from '@tanstack/react-query';
 
 interface PostsContextProps {

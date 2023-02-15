@@ -1,4 +1,4 @@
-import { PostsContext } from 'shared/libs/PostsContext';
+import { PostsContext } from '@/shared/libs/PostsContext';
 import { useContext } from 'react';
 
 export const usePostsContext = () => {

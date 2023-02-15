@@ -30,5 +30,5 @@ export interface CommentObjData {
   email: string;
   comment: string;
   slug: string;
-  createdAt?: string;
+  createdAt: string;
 }

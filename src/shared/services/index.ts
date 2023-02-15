@@ -1,5 +1,5 @@
 import { request, gql } from 'graphql-request';
-import { CommentObjData, NodeDTO, PostCategory, PostDTO } from 'interfaces';
+import { CommentObjData, NodeDTO, PostCategory, PostDTO } from '@/interfaces';
 
 const graphcmsAPI = process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT || '';
 
@@ -186,7 +186,9 @@ export const getComments = async (slug: string) => {
   return result.comments;
 };
 
-export const submitComment = async (commentObj: CommentObjData) => {
+export const submitComment = async (
+  commentObj: Omit<CommentObjData, 'createdAt'>
+) => {
   const result = await fetch('/api/submitComment', {
     method: 'POST',
     headers: {

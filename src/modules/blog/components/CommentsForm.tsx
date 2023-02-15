@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { submitComment } from 'shared/services';
-import { Input, Button, Form } from 'shared/components';
+import { submitComment } from '@/shared/services';
+import { Input, Button, Form } from '@/shared/components';
 
 interface CommentsFormProps {
   slug: string;

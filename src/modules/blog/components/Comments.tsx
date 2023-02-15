@@ -2,9 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import parse from 'html-react-parser';
-import moment from 'moment';
-import { getComments } from 'shared/services';
-import { CommentObjData } from 'interfaces';
+import { getComments } from '@/shared/services';
+import { CommentObjData } from '@/interfaces';
+import { formatDate } from '@/shared/utils/formatDate';
 
 interface CommentsProps {
   slug: string;
@@ -33,7 +33,7 @@ export const Comments = ({ slug }: CommentsProps) => {
             >
               <p className="mb-4">
                 <span className="font-semibold">{comment.name}</span> on{' '}
-                {moment(comment.createdAt).format('MMMM DD, YYYY')}
+                {formatDate(comment.createdAt)}
               </p>
               <p className="whitespace-pre-line text-gray-700 w-full">
                 {parse(comment.comment)}

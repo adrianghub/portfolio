@@ -1,4 +1,4 @@
-import { OneFourthLayout, Sidebar } from 'core/components';
+import { OneFourthLayout, Sidebar } from '@/core/components';
 
 const ResumePage = () => {
   return (

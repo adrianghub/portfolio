@@ -1,6 +1,6 @@
-import { getCategories, getPosts } from 'shared/services';
-import { Categories, Posts, PostWidget } from 'modules/blog/components';
-import { OneFourthLayout, Sidebar } from 'core/components';
+import { getCategories, getPosts } from '@/shared/services';
+import { Categories, Posts, PostWidget } from '@/modules/blog/components';
+import { OneFourthLayout, Sidebar } from '@/core/components';
 
 export const revalidate = 60;
 

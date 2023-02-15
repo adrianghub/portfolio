@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { SocialMediaRow, SubscribeForm } from 'shared/components';
+import { SocialMediaRow, SubscribeForm } from '@/shared/components';
 
 const IndexPage = () => {
   return (

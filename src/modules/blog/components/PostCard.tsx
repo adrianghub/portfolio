@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { PostDTO } from 'interfaces';
+import { PostDTO } from '@/interfaces';
 import { PostAuthor, PostDate } from '.';
 
 interface PostCardProps {
