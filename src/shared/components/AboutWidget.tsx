@@ -38,7 +38,7 @@ export const AboutWidget = () => (
         href="/assets/resume.pdf"
         target="_blank"
         rel="norefferer"
-        className="prune animated-link font-bold"
+        className="prose prose-xl font-bold text-white py-2 px-4 border-secondary bg-secondary transition-all delay-50 rounded-full hover:border-dashed hover:border-2 hover:bg-transparent hover:text-secondary hover:rounded-none"
       >
         resume (pdf)
       </Link>

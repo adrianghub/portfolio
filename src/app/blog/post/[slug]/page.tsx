@@ -21,12 +21,12 @@ const PostDetailsPage = async ({ params }: { params: { slug: string } }) => {
 
   return (
     <>
-      <div className="flex">
+      <div className="flex justify-center items-center">
         <Link href="/blog">
-          <MdArrowBack className="text-3xl sm:text-5xl lg:text-7xl font-semibold my-8" />
+          <MdArrowBack size={70} className="my-8" />
         </Link>
 
-        <h1 className="text-center text-3xl sm:text-5xl lg:text-7xl font-semibold my-8 mx-12">
+        <h1 className="text-center text-3xl sm:text-5xl lg:text-7xl font-semibold m-8 ">
           {post.title}
         </h1>
       </div>
