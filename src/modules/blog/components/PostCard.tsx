@@ -33,7 +33,7 @@ export const PostCard = ({ post, spotlight }: PostCardProps) => (
             {post.categories.map((category, idx) => (
               <p
                 key={idx}
-                className="inline align-middle text-gray-700 text-sm md:text-lg"
+                className="inline align-middle text-accent text-sm md:text-lg"
               >
                 {category.name}
               </p>

@@ -8,6 +8,19 @@ module.exports = {
   darkMode: 'class',
   theme: {
     extend: {
+      textColor: {
+        primary: 'var(--color-text-primary)',
+        secondary: 'var(--color-text-secondary)',
+        accent: 'var(--color-text-accent)'
+      },
+      backgroundColor: {
+        primary: 'var(--color-bg-primary)',
+        secondary: 'var(--color-bg-secondary)'
+      },
+      borderColor: {
+        primary: 'var(--color-bg-primary)',
+        secondary: 'var(--color-bg-secondary)'
+      },
       typography: () => ({
         dark: {
           css: {
@@ -28,13 +41,7 @@ module.exports = {
             800: '#2d1f25',
             900: '#2d1f25'
           }
-        },
-        whitechocolate: {
-          300: '#EDE4DA'
-        },
-        primary: '#2d1f25',
-        secondary: '#6f4c5b;',
-        active: '#db2777'
+        }
       },
       keyframes: {
         fadeIn: {

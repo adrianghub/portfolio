@@ -2,15 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-// #D3D3D3; - light gray
-// #f5f5f5 - cultured
-// #1e1014  - dark text
-// #ff595e - red salsa
-// #3D3D3D - onyx
+:root {
+  --color-bg-primary: #ede4da;
+  --color-bg-secondary: #6f4c5b;
+  --color-text-primary: #2d1f25;
+  --color-text-secondary: #6f4c5b;
+  --color-text-accent: #9a9a9a;
+  --color-active: #db2777;
+  --color-selection: #1e1014;
+}
 
-$primary_color: #ede4da;
-$secondary_color: #6f4c5b;
-$active_color: #db2777;
+.dark {
+  --color-bg-primary: #130e10;
+  --color-bg-secondary: #6a6a6a;
+  --color-text-primary: #ede4da;
+  --color-text-secondary: #63595d;
+  --color-accent: #3d3d3d;
+}
 
 * {
   box-sizing: border-box;
@@ -23,8 +31,8 @@ body {
 }
 
 ::selection {
-  background: #1e1014;
-  color: $primary_color;
+  background: var(--color-selection);
+  color: var(--color-text-primary);
 }
 
 h1,
@@ -35,16 +43,21 @@ h5,
 h6,
 b,
 .animated-link {
-  color: $secondary_color;
+  color: var(--color-text-secondary);
+  @apply dark:text-secondary;
+}
+
+.active-link {
+  text-decoration: none;
+  background-image: linear-gradient(var(--color-active), var(--color-active));
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  transition: background-size 0.3s ease-in-out;
 }
 
 .animated-link {
-  text-decoration: none;
-  background-image: linear-gradient($active_color, $active_color);
-  background-repeat: no-repeat;
-  background-position: bottom left;
+  @extend .active-link;
   background-size: 0% 3px;
-  transition: background-size 0.3s ease-in-out;
 
   &:hover,
   &:active {
@@ -52,18 +65,14 @@ b,
   }
 }
 
+.active {
+  @extend .active-link;
+  background-size: 100% 3px;
+}
+
 button[disabled] {
   cursor: not-allowed;
   pointer-events: all;
-}
-
-.active {
-  text-decoration: none;
-  background-image: linear-gradient($active_color, $active_color);
-  background-repeat: no-repeat;
-  background-position: bottom left;
-  background-size: 100% 3px;
-  transition: background-size 0.3s ease-in-out;
 }
 
 .site-title {
@@ -87,7 +96,7 @@ button[disabled] {
 }
 
 .post-card-wrapper:hover h1 {
-  color: $active_color;
+  color: var(--color-active);
   transition: 0.2s;
 }
 

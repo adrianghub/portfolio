@@ -1,5 +1,6 @@
 'use client';
 
+import { ThemeToggle } from '@/app/theme-toggle';
 import { SearchSpotlight } from '@/modules/blog/components/SearchSpotlight';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -16,15 +17,16 @@ export const Header = () => {
       }`}
     >
       <div className="border-b w-full border-gray-300 py-8 flex flex-col justify-between items-center sm:flex-row">
-        <div className="block py-4">
-          <Link href="/" className="site-title text-3xl lg:text-5xl">
+        <div className="flex items-center py-4">
+          <Link href="/" className="site-title text-3xl lg:text-5xl mr-2">
             portfolio
           </Link>
+          <ThemeToggle />
         </div>
         <div className="flex justify-end items-center">
           <Link
             href="/blog"
-            className="prose font-bold text-xl lg:text-xl mr-5 hover:text-gray-500 duration-200"
+            className="prose dark:text-white font-bold text-xl lg:text-xl mr-5 hover:text-gray-500 dark:hover:text-gray-300 duration-200"
           >
             Blog
           </Link>

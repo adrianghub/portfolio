@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { subscribe } from '@/shared/services';
 import { Input, Button, Form } from '@/shared/components';
+import { useMounted } from '../hooks/useMounted';
+import Loading from '@/app/loading';
 
 interface FormValues {
   name: string;
@@ -18,6 +20,11 @@ export const SubscribeForm = () => {
     reset,
     handleSubmit
   } = useForm<FormValues>();
+  const mounted = useMounted();
+
+  if (!mounted) {
+    return <Loading />;
+  }
 
   const onSubmitComment: SubmitHandler<FormValues> = async (data) => {
     await subscribe(data).then(() => {
