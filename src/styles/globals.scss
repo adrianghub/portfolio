@@ -7,7 +7,7 @@
   --color-bg-secondary: #6f4c5b;
   --color-text-primary: #2d1f25;
   --color-text-secondary: #6f4c5b;
-  --color-text-accent: #9a9a9a;
+  --color-text-accent: #6f6f6f;
   --color-active: #db2777;
   --color-selection: #1e1014;
 }
@@ -16,8 +16,9 @@
   --color-bg-primary: #130e10;
   --color-bg-secondary: #6a6a6a;
   --color-text-primary: #ede4da;
-  --color-text-secondary: #63595d;
-  --color-accent: #3d3d3d;
+  --color-text-secondary: #fafafa;
+  --color-text-accent: #fff;
+  --color-text-dark: #000;
 }
 
 * {
@@ -125,6 +126,8 @@ button[disabled] {
   position: absolute;
   top: 3.4em;
   right: 1em;
+  color: var(--color-text-primary);
+  @apply dark:text-dark;
 }
 
 .search-input {

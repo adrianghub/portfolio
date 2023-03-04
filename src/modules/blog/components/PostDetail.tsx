@@ -23,7 +23,7 @@ export const PostDetail = ({ post }: PostDetailProps) => (
           <Link
             key={category.name}
             href={`/blog/category/${category.slug}`}
-            className="text-gray-700 text-sm md:text-md w-fit h-fit rounded-lg mr-4 md:mr-0 md:ml-4 p-2 bg-slate-300 hover:bg-slate-200 duration-200 break-normal whitespace-nowrap mt-4 sm:mt-0"
+            className="text-black text-sm md:text-md w-fit h-fit rounded-lg mr-4 md:mr-0 md:ml-4 p-2 bg-slate-300 hover:bg-slate-200 duration-200 break-normal whitespace-nowrap mt-4 sm:mt-0"
           >
             #{category.name}
           </Link>

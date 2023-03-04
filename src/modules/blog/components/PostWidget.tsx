@@ -33,9 +33,7 @@ export const PostWidget: any = async ({
         postReferences.map((post) => (
           <div key={post.title} className="flex items-center w-full mb-4">
             <div className="flex-grow">
-              <p className="prose text-gray-500">
-                {formatDate(post.createdAt)}
-              </p>
+              <p className="prose text-accent">{formatDate(post.createdAt)}</p>
               <Link
                 href={`/blog/post/${post.slug}`}
                 className="prose animated-link font-semibold"

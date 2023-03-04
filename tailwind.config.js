@@ -11,7 +11,8 @@ module.exports = {
       textColor: {
         primary: 'var(--color-text-primary)',
         secondary: 'var(--color-text-secondary)',
-        accent: 'var(--color-text-accent)'
+        accent: 'var(--color-text-accent)',
+        dark: 'var(--color-text-dark)'
       },
       backgroundColor: {
         primary: 'var(--color-bg-primary)',
@@ -72,12 +73,5 @@ module.exports = {
   variants: {
     typography: ['dark']
   },
-  plugins: [require('@tailwindcss/typography')],
-  purge: {
-    enabled: true,
-    content: ['./src/**/*.tsx'],
-    options: {
-      safelist: ['dark']
-    }
-  }
+  plugins: [require('@tailwindcss/typography')]
 };

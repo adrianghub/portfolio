@@ -11,6 +11,7 @@ interface InputProps<T> {
   onChange?: (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => void;
+  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   required?: boolean;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [x: string]: any;
@@ -22,11 +23,12 @@ export const Input = <T extends object>({
   classes,
   textarea,
   onChange,
+  onClick,
   required,
   ...props
 }: InputProps<T>) => {
   const sharedClasses =
-    'w-full rounded-lg focus:outline-none focus:ring focus:ring-gray-300 bg-gray-100 text-gray-700';
+    'w-full rounded-lg focus:outline-none focus:ring focus:ring-gray-300 bg-gray-100 text-primary dark:text-black';
 
   const emailPattern = {
     value:
@@ -53,6 +55,10 @@ export const Input = <T extends object>({
             : undefined,
           pattern: name === 'email' ? emailPattern : undefined
         })}
+        onClick={(e) => {
+          e.stopPropagation();
+          onClick;
+        }}
         {...props}
       />
     ) : (
@@ -65,6 +71,10 @@ export const Input = <T extends object>({
             ? `${name.charAt(0).toUpperCase()}${name.slice(1)} is required.`
             : undefined
         })}
+        onClick={(e) => {
+          e.stopPropagation();
+          onClick;
+        }}
         {...props}
       />
     );

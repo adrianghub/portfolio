@@ -33,7 +33,7 @@ export const Categories = ({
       </h3>
       <select
         onChange={handleChange}
-        className="w-full py-2.5 px-4 prose  rounded-lg border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 hover:ring hover:ring-gray-300 focus:ring focus:ring-gray-300 bg-gray-100 text-gray-700 focus:outline-none peer cursor-pointer transition duration-200"
+        className="w-full py-2.5 px-4 prose  rounded-lg border-gray-200 appearance-none text-primary dark:text-black hover:ring hover:ring-gray-300 focus:ring focus:ring-gray-300 bg-gray-100 focus:outline-none peer cursor-pointer transition duration-200"
       >
         {!current ? (
           <option value="All">All (blog page)</option>

@@ -26,7 +26,7 @@ export const Header = () => {
         <div className="flex justify-end items-center">
           <Link
             href="/blog"
-            className="prose dark:text-white font-bold text-xl lg:text-xl mr-5 hover:text-gray-500 dark:hover:text-gray-300 duration-200"
+            className="prose text-primary font-bold text-xl lg:text-xl mr-5 hover:text-accent dark:hover:text-gray-300 duration-200"
           >
             Blog
           </Link>

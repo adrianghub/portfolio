@@ -46,7 +46,7 @@ export const SearchSpotlight = () => {
 
   const renderSpotlightSearch = () => (
     <div
-      className="fixed z-50 inset-0 bg-black bg-opacity-70 backdrop-blur-sm flex flex-col items-center mx-auto"
+      className="fixed z-50 inset-0 bg-black bg-opacity-80 backdrop-blur-sm flex flex-col items-center mx-auto"
       onClick={closeModal}
     >
       <div className="w-[80vw] lg:w-[50vw] relative">
@@ -62,7 +62,8 @@ export const SearchSpotlight = () => {
         {searchValue && (
           <AiOutlineClose
             className="close-icon"
-            onClick={() => {
+            onClick={(e) => {
+              e.stopPropagation();
               reset();
               setSearchValue('');
             }}

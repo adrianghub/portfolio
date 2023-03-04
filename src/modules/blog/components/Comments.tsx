@@ -35,7 +35,7 @@ export const Comments = ({ slug }: CommentsProps) => {
                 <span className="font-semibold">{comment.name}</span> on{' '}
                 {formatDate(comment.createdAt)}
               </p>
-              <p className="whitespace-pre-line text-gray-700 w-full">
+              <p className="whitespace-pre-line text-accent w-full">
                 {parse(comment.comment)}
               </p>
             </div>

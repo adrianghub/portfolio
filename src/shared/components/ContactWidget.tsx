@@ -12,7 +12,7 @@ export const ContactWidget = () => (
     <div className="flex justify-center">
       <Link
         href="/blog"
-        className="mr-5 prose font-bold hover:text-gray-500 duration-200"
+        className="mr-5 prose font-bold text-primary hover:text-accent duration-200"
       >
         Blog
       </Link>
