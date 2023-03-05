@@ -24,7 +24,7 @@ export const Header = () => {
     >
       <div className="border-b w-full border-gray-300 pt-8 flex flex-col justify-between items-center sm:flex-row">
         <div className="flex items-center py-4">
-          <Link href="/" className="site-title text-3xl lg:text-5xl mr-2">
+          <Link href="/" className="site-title mr-2">
             <Image
               src={resolvedTheme === 'light' ? logoDark : logoLight}
               alt="Portoflio logo with author name."
