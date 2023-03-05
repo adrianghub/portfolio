@@ -1,4 +1,4 @@
-# Software Developer Portfolio
+<center><img src="https://azinko.s3.eu-central-1.amazonaws.com/portfolio-lighter.svg" alt="Portfolio design for desktop and mobile"/></center>
 
 
 ### Plans for further development
