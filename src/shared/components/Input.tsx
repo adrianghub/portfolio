@@ -1,9 +1,14 @@
 'use client';
 
 import { ErrorMessage } from '@hookform/error-message';
-import { FieldErrorsImpl, UseFormRegister } from 'react-hook-form';
+import {
+  FieldErrorsImpl,
+  Path,
+  PathValue,
+  UseFormRegister
+} from 'react-hook-form';
 
-interface InputProps<T> {
+type InputProps<T> = {
   register: UseFormRegister<T>;
   errors?: Partial<FieldErrorsImpl>;
   classes?: string;
@@ -13,9 +18,10 @@ interface InputProps<T> {
   ) => void;
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
   required?: boolean;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  [x: string]: any;
-}
+} & Omit<
+  React.InputHTMLAttributes<HTMLInputElement | HTMLTextAreaElement>,
+  'name' | 'value'
+> & { name: Path<T>; value?: PathValue<T, Path<T>> | undefined };
 
 export const Input = <T extends object>({
   register,

@@ -22,10 +22,11 @@ export const Header = () => {
         stickyHeaderPath ? 'sticky top-0 backdrop-blur-sm' : ''
       }`}
     >
-      <div className="border-b w-full border-gray-300 pt-8 flex flex-col justify-between items-center sm:flex-row">
+      <div className="border-b w-full border-gray-300 py-8 sm:pb-0 flex flex-col justify-between items-center sm:flex-row">
         <div className="flex items-center py-4">
           <Link href="/" className="site-title mr-2">
             <Image
+              priority
               src={resolvedTheme === 'light' ? logoDark : logoLight}
               alt="Portoflio logo with author name."
               width={200}
@@ -37,7 +38,7 @@ export const Header = () => {
         <div className="flex justify-end items-center">
           <Link
             href="/blog"
-            className="prose text-primary font-bold text-xl lg:text-xl mr-5 hover:text-accent dark:hover:text-gray-300 duration-200"
+            className="prose text-primary font-bold text-xl lg:text-xl mr-5 hover:text-accent duration-200"
           >
             Blog
           </Link>

@@ -11,7 +11,7 @@ export const PostCard = ({ post, spotlight }: PostCardProps) => (
   <Link href={`/blog/post/${post.slug}`}>
     <div
       className={`${
-        spotlight ? 'bg-whitechocolate-300 mt-8' : ''
+        spotlight ? 'bg-primary mt-8' : ''
       } border border-gray-300 rounded-lg lg:p-8 mb-8 p-4 cursor-pointer post-card-wrapper`}
     >
       <div className="post-card-wrapper-inner">
