@@ -90,7 +90,7 @@ const CoffeeForm = () => {
           errors={errors}
           name="quantity"
           type="number"
-          value={quantity || ''}
+          value={String(quantity) || ''}
           min={MIN_INPUT_VALUE}
           placeholder="0"
         />
