@@ -10,12 +10,12 @@ export const components = {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     <Image
+      priority
       className="rounded-lg mx-auto my-3 max-w-full"
       alt="Custom image"
       {...props}
       width={1000}
       height={1000}
-      placeholder="blur"
     />
   ),
   code: (props: HTMLAttributes<HTMLElement>) => (

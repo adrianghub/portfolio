@@ -26,7 +26,6 @@ export const Header = () => {
         <div className="flex items-center py-4">
           <Link href="/" className="site-title mr-2">
             <Image
-              placeholder="blur"
               priority
               src={resolvedTheme === 'light' ? logoDark : logoLight}
               alt="Portoflio logo with author name."
