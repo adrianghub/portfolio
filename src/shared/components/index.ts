@@ -6,4 +6,4 @@ export { Form } from './Form';
 export { Button } from './Button';
 export { NavLink } from './NavLink';
 export { SocialMediaRow } from './SocialMediaRow';
-export { SubscribeForm } from './SubscribeForm';
+export { NewsletterForm } from './NewsletterForm';

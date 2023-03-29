@@ -2,6 +2,8 @@
 
 import { ThemeToggle } from '@/app/theme-toggle';
 import { SearchSpotlight } from '@/modules/blog/components/SearchSpotlight';
+import { Loader } from '@/shared/components';
+import { useMounted } from '@/shared/hooks/useMounted';
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -12,6 +14,7 @@ import logoLight from '../../../public/assets/icons/logo-light.svg';
 
 export const Header = () => {
   const pathname = usePathname();
+  const mounted = useMounted();
   const { resolvedTheme } = useTheme();
 
   const stickyHeaderPath = pathname === '/';
@@ -24,16 +27,24 @@ export const Header = () => {
     >
       <div className="border-b w-full border-gray-300 py-8 sm:pb-0 flex flex-col justify-between items-center sm:flex-row">
         <div className="flex items-center py-4">
-          <Link href="/" className="site-title mr-2">
-            <Image
-              priority
-              src={resolvedTheme === 'light' ? logoDark : logoLight}
-              alt="Portoflio logo with author name."
-              width={200}
-              height={200}
-            />
-          </Link>
-          <ThemeToggle />
+          {mounted ? (
+            <>
+              <Link href="/" className="site-title mr-2">
+                <Image
+                  priority
+                  src={resolvedTheme === 'light' ? logoDark : logoLight}
+                  alt="Portoflio logo with author name."
+                  width={200}
+                  height={200}
+                />
+              </Link>
+              <ThemeToggle />
+            </>
+          ) : (
+            <div className="flex items-center">
+              <Loader />
+            </div>
+          )}
         </div>
         <div className="flex justify-end items-center">
           <Link

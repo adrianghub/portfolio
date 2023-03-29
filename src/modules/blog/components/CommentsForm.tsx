@@ -60,7 +60,6 @@ export const CommentsForm = ({ slug }: CommentsFormProps) => {
           classes="py-2 px-4"
           name="name"
           placeholder="Name (optional)"
-          required
         />
         <Input
           register={register}

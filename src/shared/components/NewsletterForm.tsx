@@ -12,7 +12,7 @@ interface FormValues {
   email: string;
 }
 
-export const SubscribeForm = () => {
+export const NewsletterForm = () => {
   const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>();
   const {
     formState: { errors, isSubmitting, isSubmitSuccessful },
