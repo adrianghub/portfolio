@@ -15,6 +15,7 @@ export const components = {
       {...props}
       width={1000}
       height={1000}
+      placeholder="blur"
     />
   ),
   code: (props: HTMLAttributes<HTMLElement>) => (
