@@ -27,8 +27,7 @@
 
 html,
 body {
-  padding: 0;
-  margin: 0;
+  @apply m-0 p-0 overscroll-none;
 }
 
 ::selection {

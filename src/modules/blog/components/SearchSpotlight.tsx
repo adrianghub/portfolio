@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import { useForm } from 'react-hook-form';
 import Modal from 'react-modal';
@@ -8,7 +8,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 import { BsSearch } from 'react-icons/bs';
 import { usePostsContext, useSearchContext } from '@/shared/hooks';
 import { PostCard } from '@/modules/blog/components';
-import { Button, Input } from '@/shared/components';
+import { Button, Input, Loader } from '@/shared/components';
 
 const customModalStyles = {
   content: {
@@ -75,9 +75,11 @@ export const SearchSpotlight = () => {
         <>
           <div className="w-[80vw] lg:w-[50vw]">
             {posts?.slice(0, 2).map(({ node: post }) => (
-              <div key={post.id} onClick={closeModal}>
-                <PostCard post={post} spotlight />
-              </div>
+              <Suspense key={post.id} fallback={<Loader />}>
+                <div onClick={closeModal}>
+                  <PostCard post={post} spotlight />
+                </div>
+              </Suspense>
             ))}
           </div>
           {posts && posts.length !== 0 ? (
