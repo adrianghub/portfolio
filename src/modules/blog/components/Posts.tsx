@@ -1,8 +1,9 @@
 'use client';
 
 import { PostDTO } from '@/interfaces';
-import { Button } from '@/shared/components';
+import { Button, Loader } from '@/shared/components';
 import { useLoadMore } from '@/shared/hooks/useLoadMore';
+import { Suspense } from 'react';
 import { PostCard } from './PostCard';
 
 interface NodeDTO {
@@ -25,7 +26,9 @@ export const Posts = ({ posts, postsToLoad }: PostsProps) => {
       {postsToLoad ? (
         <>
           {loadedPosts.map(({ node: post }) => (
-            <PostCard key={post.id} post={post} />
+            <Suspense key={post.id} fallback={<Loader />}>
+              <PostCard post={post} />
+            </Suspense>
           ))}
           {hasMore && (
             <div className="mb-8">
@@ -34,7 +37,11 @@ export const Posts = ({ posts, postsToLoad }: PostsProps) => {
           )}
         </>
       ) : (
-        posts.map(({ node: post }) => <PostCard key={post.id} post={post} />)
+        posts.map(({ node: post }) => (
+          <Suspense key={post.id} fallback={<Loader />}>
+            <PostCard key={post.id} post={post} />
+          </Suspense>
+        ))
       )}
     </div>
   );

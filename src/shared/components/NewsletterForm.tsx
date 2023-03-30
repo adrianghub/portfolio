@@ -4,8 +4,6 @@ import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { subscribe } from '@/shared/services';
 import { Input, Button, Form } from '@/shared/components';
-import { useMounted } from '../hooks/useMounted';
-import Loading from '@/app/loading';
 
 interface FormValues {
   name: string;
@@ -20,11 +18,6 @@ export const NewsletterForm = () => {
     reset,
     handleSubmit
   } = useForm<FormValues>();
-  const mounted = useMounted();
-
-  if (!mounted) {
-    return <Loading />;
-  }
 
   const onSubmitComment: SubmitHandler<FormValues> = async (data) => {
     await subscribe(data).then(() => {
@@ -37,11 +30,11 @@ export const NewsletterForm = () => {
     <Form onSubmit={handleSubmit(onSubmitComment)}>
       {isSubmitSuccessful ? null : (
         <>
-          <h3 className="text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
+          <h3 className="text-md sm:text-xl mb-8 font-semibold border-b border-gray-300 pb-4">
             Subscribe to my newsletter
           </h3>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <Input
               register={register}
               classes="py-2 px-4"
@@ -68,7 +61,7 @@ export const NewsletterForm = () => {
 
       {showSuccessMessage && (
         <div className="grid place-items-center">
-          <p className="text-lg sm:text-xl font-semibold mt-3 text-center">
+          <p className="text-md sm:text-xl font-semibold mt-3 text-center">
             {"You're about to join my newsletter community! 🎉"}
           </p>
           <p className="text-lg sm:text-xl font-semibold mt-3 text-center">

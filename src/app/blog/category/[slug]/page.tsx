@@ -1,6 +1,8 @@
 import { getCategories, getCategoryPosts } from '@/shared/services';
 import { OneFourthLayout, Sidebar } from '@/core/components';
 import { Categories, PostCard, PostWidget } from '@/modules/blog/components';
+import { Suspense } from 'react';
+import { Loader } from '@/shared/components';
 
 const CategoryPostsPage = async ({ params }: { params: { slug: string } }) => {
   const posts = await getCategoryPosts(params.slug as string);
@@ -16,7 +18,9 @@ const CategoryPostsPage = async ({ params }: { params: { slug: string } }) => {
       childrenLeft={
         <>
           {posts.map((post, index) => (
-            <PostCard key={index} post={post.node} />
+            <Suspense key={index} fallback={<Loader />}>
+              <PostCard post={post.node} />
+            </Suspense>
           ))}
         </>
       }

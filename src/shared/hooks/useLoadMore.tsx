@@ -1,5 +1,3 @@
-'use client';
-
 import { NodeDTO } from '@/interfaces';
 import { useEffect, useState } from 'react';
 
