@@ -4,7 +4,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc",
+    "type-check": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.tsx",
     "lint-fix": "eslint . --ext .ts,.tsx --fix",
     "prettier": "prettier --config .prettierrc './**/*.{ts,tsx}' --write"

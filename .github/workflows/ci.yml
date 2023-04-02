@@ -1,0 +1,23 @@
+name: Github CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Type check
+        run: pnpm run type-check
+
+      - name: Lint
+        run: pnpm run lint
