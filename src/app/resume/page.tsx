@@ -1,11 +1,11 @@
 import { OneFourthLayout, Sidebar } from '@/core/components';
+import { ExperienceList } from '@/modules/resume/components/Experience';
+import data from '../../data.json';
 
 const ResumePage = () => {
   return (
     <OneFourthLayout
-      childrenLeft={
-        <div className="text-center sm:text-left">(under construction)</div>
-      }
+      childrenLeft={<ExperienceList experiences={data.experiences} />}
       childrenRight={<Sidebar aboutWidget />}
     />
   );

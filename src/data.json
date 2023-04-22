@@ -1,0 +1,82 @@
+{
+  "experiences": [
+    {
+      "id": "comapny-1",
+      "company": "Boldare",
+      "position": "JavaScript Developer",
+      "website": "http://www.boldare.com",
+      "startDate": "2022-01",
+      "endDate": "current",
+      "typeOfEmployment": "Full-time - Self-employed",
+      "summary": "So far, I was responsible mainly for the Frontend Development of apps for various clients. In September 2022 I finished Node Backend Development workshops and for my next steps, I'm planning to move toward Backend Development. Currently, I'm working on an internal application (frontend built from scratch on Angular 14+) for a client based in the US.",
+      "skills": [
+        "Angular",
+        "RxJS",
+        "NgRx",
+        "TypeScript",
+        "Next",
+        "React.js",
+        "Node.js",
+        "Figma"
+      ]
+    },
+    {
+      "id": "comapny-2",
+      "company": "Kodilla",
+      "position": "Mentor (Frontend/Fullstack Development JS)",
+      "website": "http://www.kodilla.com",
+      "startDate": "2022-01",
+      "endDate": "current",
+      "typeOfEmployment": "Freelance - Self-employed",
+      "summary": "I'm mentoring students in the Kodilla Bootcamp, helping them with their projects and giving them feedback on their code. I'm also responsible for the quality of the course materials.",
+      "skills": [
+        "CSS/SCSS",
+        "TypeScript",
+        "React.js",
+        "Redux",
+        "Node.js",
+        "NestJS",
+        "SQL/NoSQL",
+        "PrismaORM"
+      ]
+    },
+    {
+      "id": "comapny-3",
+      "company": "Billennium",
+      "position": "Frontend Developer",
+      "website": "https://billennium.com/",
+      "startDate": "2021-10",
+      "endDate": "2022-01",
+      "typeOfEmployment": "Full-time - Contract of Employment",
+      "summary": "I joined a German startup for a 6 weeks sprint to support the team working on the UNICEF website. I was responsible for the Frontend Development of the website. The project was built using Storybook, React, Webpack and the CMS was based on Strapi.",
+      "skills": [
+        "React.js",
+        "TypeScript",
+        "Material Design",
+        "Storybook",
+        "Webpack",
+        "Jest",
+        "Strapi"
+      ]
+    },
+    {
+      "id": "comapny-4",
+      "company": "ArdentCode",
+      "position": "Junior JavaScript Developer",
+      "website": "https://www.ardentcode.com",
+      "startDate": "2021-06",
+      "endDate": "2021-10",
+      "typeOfEmployment": "Full-time - Contract of Employment",
+      "summary": "I was responsible for improving test coverage for React components/utils/services. With a group of 4 teammates, I've created an MVP app (PWA) suited entirely for mobile devices. The app was designed for Botanics. The solution was the real-time navigation for the special maps provided by them. Maps could be uploaded through the app and stored locally on each device's browser (with the help of IndexedDB). Besides, I've integrated measurements from Garmin devices with the company's internal app. Integration consists of Garmin OAuth and .fitfile conversion. There were also bugs to fix as well as new features to implement.",
+      "skills": [
+        "React.js",
+        "TypeScript",
+        "Node.js",
+        "Redux",
+        "Jest",
+        "IndexedDB",
+        "PWA"
+      ]
+    }
+  ]
+}
