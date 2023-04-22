@@ -5,6 +5,8 @@ interface SocialMediaDataProps {
   lastIcon?: boolean;
 }
 
+export const LINKEDIN_URL = 'https://www.linkedin.com/in/adrian-zinko';
+
 export const SOCIAL_MEDIA: SocialMediaDataProps[] = [
   {
     name: 'Github',
@@ -13,7 +15,7 @@ export const SOCIAL_MEDIA: SocialMediaDataProps[] = [
   },
   {
     name: 'LinkedIn',
-    href: 'https://www.linkedin.com/in/adrian-zinko',
+    href: LINKEDIN_URL,
     iconName: 'RiLinkedinBoxLine'
   },
   {

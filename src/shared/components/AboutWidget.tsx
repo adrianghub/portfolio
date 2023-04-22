@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { SocialMediaRow } from './SocialMediaRow';
+import { BsNewspaper } from 'react-icons/bs';
 
 export const AboutWidget = () => (
   <>
@@ -38,9 +39,10 @@ export const AboutWidget = () => (
         href="/assets/resume.pdf"
         target="_blank"
         rel="norefferer"
-        className="prose prose-xl font-bold text-white py-2 px-4 border-secondary bg-secondary transition-all delay-50 rounded-full hover:outline-dashed hover:bg-transparent hover:text-secondary hover:rounded-none"
+        className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-secondary hover:bg-transparent hover:text-secondary hover:border-secondary transition-all duration-300 ease-in-out"
       >
-        resume (pdf)
+        <span>resume (pdf)</span>
+        <BsNewspaper className="ml-2" />
       </Link>
     </div>
   </>
