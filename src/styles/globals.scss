@@ -9,7 +9,8 @@
   --color-text-secondary: #6f4c5b;
   --color-text-accent: #6f6f6f;
   --color-active: #db2777;
-  --color-selection: #1e1014;
+  --color-text-selection: #ede4da;
+  --color-bg-selection: #130e10;
 }
 
 .dark {
@@ -19,6 +20,8 @@
   --color-text-secondary: #fafafa;
   --color-text-accent: #fff;
   --color-text-dark: #000;
+  --color-text-selection: #130e10;
+  --color-bg-selection: #ede4da;
 }
 
 * {
@@ -31,8 +34,8 @@ body {
 }
 
 ::selection {
-  background: var(--color-selection);
-  color: var(--color-text-primary);
+  background: var(--color-bg-selection);
+  color: var(--color-text-selection);
 }
 
 h1,
