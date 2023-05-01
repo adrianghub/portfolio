@@ -6,6 +6,8 @@ interface SocialMediaDataProps {
 }
 
 export const LINKEDIN_URL = 'https://www.linkedin.com/in/adrian-zinko';
+export const RESUME_URL =
+  'https://azinko.s3.eu-central-1.amazonaws.com/resume-adrianzinko.pdf';
 
 export const SOCIAL_MEDIA: SocialMediaDataProps[] = [
   {

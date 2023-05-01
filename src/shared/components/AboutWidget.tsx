@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { SocialMediaRow } from './SocialMediaRow';
 import { BsNewspaper } from 'react-icons/bs';
+import { RESUME_URL } from '../data';
 
 export const AboutWidget = () => (
   <>
@@ -35,15 +36,15 @@ export const AboutWidget = () => (
     <SocialMediaRow />
 
     <div className="flex justify-center">
-      <Link
-        href="/assets/resume.pdf"
+      <a
+        href={RESUME_URL}
         target="_blank"
-        rel="norefferer"
+        rel="norefferer noreferrer"
         className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-secondary hover:bg-transparent hover:text-secondary hover:border-secondary transition-all duration-300 ease-in-out"
       >
         <span>resume (pdf)</span>
         <BsNewspaper className="ml-2" />
-      </Link>
+      </a>
     </div>
   </>
 );
