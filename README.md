@@ -8,7 +8,7 @@
 - [x] Newsletter subscription
 - [x] Dark mode
 - [ ] Translations (pl/es)
-- [ ] Web Resume page
+- [x] Web Resume page
 - [ ] Donation page
 - [ ] Blog improvements (pagination, breadcrumbs)
 - [ ] Universal dev resources table search (query,filters,sorting)
