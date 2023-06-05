@@ -10,7 +10,7 @@ import { ThemeProvider } from './theme-provider';
 
 export const revalidate = 60;
 
-const inconsolata = Inconsolata();
+const inconsolata = Inconsolata({ subsets: ['latin'] });
 
 export default function RootLayout({
   children
