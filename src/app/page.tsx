@@ -5,7 +5,7 @@ import { openGraphImage } from './shared-metadata';
 
 export const metadata: Metadata = {
   title: 'Developer Portfolio | Adrian Zinko',
-  description: 'Portfolio with blog section as well as resume page. There is an option to download resume provided in pdf format from the resume subpage.',
+  description: 'Portfolio with blog section. Download resume provided in pdf format from the resume subpage.',
   openGraph: {
     ...openGraphImage,
   },

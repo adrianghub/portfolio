@@ -4,7 +4,7 @@ export default function Head() {
       <title>Developer Portfolio | Adrian Zinko</title>
       <meta
         name="description"
-        content="Portfolio with blog section as well as resume page. There is an option to download resume provided in pdf format from the resume subpage."
+        content="Portfolio with blog section. Download resume provided in pdf format from the resume subpage."
       />
 
       {/* Facebook Meta Tags */}
@@ -13,7 +13,7 @@ export default function Head() {
       <meta property="og:title" content="Developer Portfolio | Adrian Zinko" />
       <meta
         property="og:description"
-        content="Portfolio with blog section as well as resume page. There is an option to download resume provided in pdf format from the resume subpage. "
+        content="Portfolio with blog section. Download resume provided in pdf format from the resume subpage. "
       />
       <meta property="og:image" content="https://adrianzinko.com/api/og" />
 
@@ -24,7 +24,7 @@ export default function Head() {
       <meta name="twitter:title" content="Developer Portfolio | Adrian Zinko" />
       <meta
         name="twitter:description"
-        content="Portfolio with blog section as well as resume page. There is an option to download resume provided in pdf format from the resume subpage. "
+        content="Portfolio with blog section. Download resume provided in pdf format from the resume subpage. "
       />
       <meta
         name="twitter:image"
