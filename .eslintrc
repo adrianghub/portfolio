@@ -1,12 +1,11 @@
 {
   "env": {
     "browser": true,
-    "es2021": true
+    "es2022": true
   },
   "extends": [
     "next",
     "eslint:recommended",
-    "plugin:@next/next/recommended",
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
