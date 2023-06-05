@@ -9,7 +9,7 @@
     "start": "next start",
     "type-check": "tsc --noEmit",
     "lint": "eslint . --ext .ts,.tsx",
-    "lint-fix": "eslint . --ext .ts,.tsx --fix",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
     "prettier": "prettier --config .prettierrc './**/*.{ts,tsx}' --write"
   },
   "dependencies": {
