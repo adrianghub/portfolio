@@ -1,7 +1,7 @@
 import '@/styles/resets.scss';
 import '@/styles/globals.scss';
 
-import { Inconsolata } from '@next/font/google';
+import { Inconsolata } from 'next/font/google';
 import { Layout, ScrollArrow } from '@/core/components';
 import { PostsProvider } from '@/shared/libs/PostsContext';
 import { SearchProvider } from '@/shared/libs/SearchContext';
