@@ -15,10 +15,7 @@ export default function Head() {
         property="og:description"
         content="Portfolio with blog section as well as resume page. There is an option to download resume provided in pdf format from the resume subpage. "
       />
-      <meta
-        property="og:image"
-        content="https://azinko.s3.eu-central-1.amazonaws.com/az-portfolio-design.png"
-      />
+      <meta property="og:image" content="https://adrianzinko.com/api/og" />
 
       {/* Twitter Meta Tags */}
       <meta name="twitter:card" content="summary_large_image" />
