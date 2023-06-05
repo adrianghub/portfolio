@@ -3,6 +3,17 @@ import { OneFourthLayout, Sidebar } from '@/core/components';
 import { Categories, PostCard, PostWidget } from '@/modules/blog/components';
 import { Suspense } from 'react';
 import { Loader } from '@/shared/components';
+import { Metadata } from 'next';
+
+export async function generateMetadata({
+  params
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  return {
+    title: params.slug + ' | Category | Adrian Zinko'
+  };
+}
 
 const CategoryPostsPage = async ({ params }: { params: { slug: string } }) => {
   const posts = await getCategoryPosts(params.slug as string);

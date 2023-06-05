@@ -1,5 +1,10 @@
 import { OneFourthLayout, Sidebar } from '@/core/components';
 import CoffeeForm from '@/modules/buymeacoffee/components/CoffeeForm';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'BuyMeACoffee | Developer Portfolio | Adrian Zinko',
+};
 
 const BuyMeACoffeePage = () => {
   return (

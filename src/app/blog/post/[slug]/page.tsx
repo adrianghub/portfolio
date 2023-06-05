@@ -12,6 +12,17 @@ import {
 import { NodeDTO } from '@/interfaces';
 import { MDXContent } from '@/app/mdx-remote';
 import Link from 'next/link';
+import { Metadata } from 'next';
+
+export async function generateMetadata({
+  params
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
+  return {
+    title: params.slug + ' | Blog | Adrian Zinko'
+  };
+}
 
 const PostDetailsPage = async ({ params }: { params: { slug: string } }) => {
   const post = await getPostDetails(params.slug);

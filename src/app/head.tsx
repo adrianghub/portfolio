@@ -1,12 +1,38 @@
 export default function Head() {
   return (
     <>
-      <title>Portfolio | Adrian Zinko</title>
+      <title>Developer Portfolio | Adrian Zinko</title>
       <meta
         name="description"
-        content="Software Developer Portfolio | Blog | Resume"
+        content="Portfolio with blog section as well as resume page. There is an option to download resume provided in pdf format from the resume subpage."
       />
-      <meta property="og:image" content="https://adrianzinko.com/api/og" />
+
+      {/* Facebook Meta Tags */}
+      <meta property="og:url" content="https://adrianzinko.com" />
+      <meta property="og:type" content="website" />
+      <meta property="og:title" content="Developer Portfolio | Adrian Zinko" />
+      <meta
+        property="og:description"
+        content="Portfolio with blog section as well as resume page. There is an option to download resume provided in pdf format from the resume subpage. "
+      />
+      <meta
+        property="og:image"
+        content="https://azinko.s3.eu-central-1.amazonaws.com/az-portfolio-design.png"
+      />
+
+      {/* Twitter Meta Tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta property="twitter:domain" content="adrianzinko.com" />
+      <meta property="twitter:url" content="https://adrianzinko.com" />
+      <meta name="twitter:title" content="Developer Portfolio | Adrian Zinko" />
+      <meta
+        name="twitter:description"
+        content="Portfolio with blog section as well as resume page. There is an option to download resume provided in pdf format from the resume subpage. "
+      />
+      <meta
+        name="twitter:image"
+        content="https://azinko.s3.eu-central-1.amazonaws.com/az-portfolio-design.png"
+      />
 
       <link
         rel="apple-touch-icon"

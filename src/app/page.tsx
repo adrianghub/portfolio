@@ -1,5 +1,11 @@
 import { NewsletterForm, SocialMediaRow } from '@/shared/components';
+import { Metadata } from 'next';
 import Link from 'next/link';
+
+export const metadata: Metadata = {
+  title: 'Developer Portfolio | Adrian Zinko',
+  description: 'Portfolio with blog section as well as resume page. There is an option to download resume provided in pdf format from the resume subpage.',
+};
 
 const IndexPage = () => {
   return (
