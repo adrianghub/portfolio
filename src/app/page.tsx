@@ -15,7 +15,7 @@ const IndexPage = () => {
   return (
     <div className="grid place-items-center min-h-[calc(100vh-245px)]">
       <h1 className="prose text-center text-2xl sm:text-3xl md:text-5xl mt-8">
-        JS Developer
+        Currently
         <Link
           className="ml-2 animated-link"
           href="https://boldare.com"

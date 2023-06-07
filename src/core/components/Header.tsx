@@ -1,21 +1,15 @@
 'use client';
 
+import { Send_Flowers } from 'next/font/google';
 import { ThemeToggle } from '@/app/theme-toggle';
 import { SearchSpotlight } from '@/modules/blog/components/SearchSpotlight';
-import { Loader } from '@/shared/components';
-import { useMounted } from '@/shared/hooks/useMounted';
-import { useTheme } from 'next-themes';
-import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import logoDark from '../../../public/assets/icons/logo-dark.svg';
-import logoLight from '../../../public/assets/icons/logo-light.svg';
+const sentFlowersFont = Send_Flowers({ weight: '400', subsets: ['latin'] });
 
 export const Header = () => {
   const pathname = usePathname();
-  const mounted = useMounted();
-  const { resolvedTheme } = useTheme();
 
   const stickyHeaderPath = pathname === '/';
 
@@ -26,30 +20,22 @@ export const Header = () => {
       }`}
     >
       <div className="border-b w-full border-gray-300 py-8 sm:pb-0 flex flex-col justify-between items-center sm:flex-row">
-        <div className="flex items-center py-4">
-          {mounted ? (
-            <>
-              <Link href="/" className="site-title mr-2">
-                <Image
-                  priority
-                  src={resolvedTheme === 'light' ? logoDark : logoLight}
-                  alt="Portoflio logo with author name."
-                  width={200}
-                  height={200}
-                />
-              </Link>
-              <ThemeToggle />
-            </>
-          ) : (
-            <div className="flex items-center">
-              <Loader />
-            </div>
-          )}
+        <div className="flex items-center pb-4">
+          <>
+            <Link href="/" className="site-title">
+              <p
+                className={`${sentFlowersFont.className} px-4 text-[22px] lg:text-[36px] xl:text-[46px] site-logo`}
+              >
+                Adrian Zinko - Software Developer
+              </p>
+            </Link>
+          </>
         </div>
         <div className="flex justify-end items-center">
+          <ThemeToggle />
           <Link
             href="/blog"
-            className="prose text-primary font-bold text-xl lg:text-xl mr-5 hover:text-accent duration-200"
+            className="prose text-primary font-bold text-xl lg:text-xl mx-5 hover:text-accent duration-200"
           >
             Blog
           </Link>
@@ -60,9 +46,6 @@ export const Header = () => {
             Resume
           </Link>
           <SearchSpotlight />
-          {/* <Link href="/buymeacoffee" className="ml-4 hover:animate-bounce">
-                <Image src={coffeeCup} alt="Coffee cup" />
-              </Link> */}
         </div>
       </div>
     </div>

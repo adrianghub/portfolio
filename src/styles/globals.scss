@@ -17,7 +17,7 @@
   --color-bg-primary: #130e10;
   --color-bg-secondary: #6a6a6a;
   --color-text-primary: #ede4da;
-  --color-text-secondary: #fafafa;
+  --color-text-secondary: #ede4da;
   --color-text-accent: #fff;
   --color-text-dark: #000;
   --color-text-selection: #130e10;
@@ -130,4 +130,8 @@ button[disabled] {
 
 .search-input {
   font-size: 1.2em;
+}
+
+.site-logo {
+  font-weight: bold !important;
 }
