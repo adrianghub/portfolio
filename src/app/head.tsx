@@ -6,7 +6,6 @@ export default function Head() {
         name="description"
         content="Portfolio with blog section. Download resume provided in pdf format from the resume subpage."
       />
-      <link rel="icon" href="/favicon.ico" />
 
       {/* Facebook Meta Tags */}
       <meta property="og:url" content="https://adrianzinko.com" />
