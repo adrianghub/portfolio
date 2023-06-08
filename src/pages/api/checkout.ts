@@ -1,7 +1,7 @@
 import {
   DONATION_VALUE,
   STRIPE_API_KEY
-} from '@/modules/buymeacoffee/constants';
+} from '@/app/buymeacoffee/constants';
 import { NextApiRequest, NextApiResponse } from 'next';
 import Stripe from 'stripe';
 

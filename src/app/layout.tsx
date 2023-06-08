@@ -2,11 +2,10 @@ import '@/styles/resets.scss';
 import '@/styles/globals.scss';
 
 import { Inconsolata } from 'next/font/google';
-import { Layout, ScrollArrow } from '@/core/components';
-import { PostsProvider } from '@/shared/libs/PostsContext';
-import { SearchProvider } from '@/shared/libs/SearchContext';
-import QueryProvider from './query-client-provider';
+import { ScrollArrow } from '@/components';
 import { ThemeProvider } from './theme-provider';
+import { Providers } from './providers';
+import { Layout } from '@/components/Layout';
 
 export const revalidate = 60;
 
@@ -20,20 +19,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={inconsolata.className} suppressHydrationWarning>
       <head />
-      <QueryProvider>
-        <SearchProvider>
-          <PostsProvider>
-            <body className="bg-primary h-screen max-w-7xl mx-auto">
-              <ThemeProvider attribute="class" enableSystem>
-                <Layout>{children}</Layout>
-                <ScrollArrow />
+      <Providers>
+        <body
+          suppressHydrationWarning={true}
+          className="bg-primary h-screen max-w-7xl mx-auto"
+        >
+          <ThemeProvider attribute="class" enableSystem>
+            <Layout>{children}</Layout>
+            <ScrollArrow />
 
-                <div id="modal-search"></div>
-              </ThemeProvider>
-            </body>
-          </PostsProvider>
-        </SearchProvider>
-      </QueryProvider>
+            <div id="modal-search"></div>
+          </ThemeProvider>
+        </body>
+      </Providers>
     </html>
   );
 }

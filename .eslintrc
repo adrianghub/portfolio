@@ -7,6 +7,7 @@
     "next",
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -19,7 +20,9 @@
     "react/prop-types": 0,
     "linebreak-style": 0,
     "react/state-in-constructor": 0,
-    "import/prefer-default-export": 0
+    "import/prefer-default-export": 0,
+    "import/no-cycle": 2,
+    "import/namespace": 0
   },
   "overrides": [
     {

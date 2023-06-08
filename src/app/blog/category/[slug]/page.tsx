@@ -1,9 +1,10 @@
-import { getCategories, getCategoryPosts } from '@/shared/services';
-import { OneFourthLayout, Sidebar } from '@/core/components';
-import { Categories, PostCard, PostWidget } from '@/modules/blog/components';
+import { getCategories, getCategoryPosts } from '@/lib/graphql-requests';
+import { OneFourthLayout, Sidebar } from '@/components';
 import { Suspense } from 'react';
-import { Loader } from '@/shared/components';
 import { Metadata } from 'next';
+import { Loader } from '@/components/ui';
+import { Categories, PostWidget } from '@/components/blog';
+import { PostCard } from '@/components/blog/PostCard';
 
 export async function generateMetadata({
   params
@@ -29,16 +30,17 @@ const CategoryPostsPage = async ({ params }: { params: { slug: string } }) => {
       childrenLeft={
         <>
           {posts.map((post, index) => (
-            <Suspense key={index} fallback={<Loader />}>
-              <PostCard post={post.node} />
-            </Suspense>
+            <PostCard key={index} post={post.node} />
           ))}
         </>
       }
       childrenRight={
         <Sidebar>
           <Categories categories={categories} current={currentCategory?.name} />
-          <PostWidget />
+          <Suspense fallback={<Loader />}>
+            {/* @ts-expect-error  Promise<JSX.Element> */}
+            <PostWidget />
+          </Suspense>
         </Sidebar>
       }
     />

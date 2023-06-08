@@ -1,10 +1,11 @@
-import { getCategories, getPosts } from '@/shared/services';
-import { Categories, Posts, PostWidget } from '@/modules/blog/components';
-import { OneFourthLayout, Sidebar } from '@/core/components';
 import { Metadata } from 'next';
+import { getCategories, getPosts } from '@/lib/graphql-requests';
+import { OneFourthLayout, Sidebar } from '@/components';
+import { Categories, PostWidget } from '@/components/blog';
+import { Posts } from '@/components/blog/Posts';
 
 export const metadata: Metadata = {
-  title: 'Blog | Developer Portfolio | Adrian Zinko',
+  title: 'Blog | Developer Portfolio | Adrian Zinko'
 };
 
 export const revalidate = 60;
@@ -24,6 +25,7 @@ const BlogPage = async () => {
       childrenRight={
         <Sidebar>
           <Categories categories={categories} />
+          {/* @ts-expect-error  Promise<JSX.Element> */}
           <PostWidget />
         </Sidebar>
       }

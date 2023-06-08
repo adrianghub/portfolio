@@ -1,18 +1,24 @@
+import { Metadata } from 'next';
+import Link from 'next/link';
 import { serialize } from 'next-mdx-remote/serialize';
 import { MdArrowBack } from 'react-icons/md';
-import { getCategories, getPostDetails, getPosts } from '@/shared/services';
-import { OneFourthLayout, Sidebar } from '@/core/components';
+import {
+  getCategories,
+  getPostDetails,
+  getPosts
+} from '@/lib/graphql-requests';
+import { OneFourthLayout, Sidebar } from '@/components';
+import { MDXContent } from '@/app/mdx-remote';
 import {
   PostDetail,
-  Comments,
   CommentsForm,
-  PostWidget,
-  Categories
-} from '@/modules/blog/components';
-import { NodeDTO } from '@/interfaces';
-import { MDXContent } from '@/app/mdx-remote';
-import Link from 'next/link';
-import { Metadata } from 'next';
+  Comments,
+  Categories,
+  PostWidget
+} from '@/components/blog';
+import { NodeDto } from '@/types';
+import { Suspense } from 'react';
+import { Loader } from '@/components/ui';
 
 export async function generateMetadata({
   params
@@ -61,10 +67,15 @@ const PostDetailsPage = async ({ params }: { params: { slug: string } }) => {
               categories={categories}
               current={post.categories.map((category) => category.name)[0]}
             />
-            <PostWidget
-              slug={post.slug}
-              categoriesSlugs={post.categories.map((category) => category.slug)}
-            />
+            <Suspense fallback={<Loader />}>
+              {/* @ts-expect-error  Promise<JSX.Element> */}
+              <PostWidget
+                slug={post.slug}
+                categoriesSlugs={post.categories.map(
+                  (category) => category.slug
+                )}
+              />
+            </Suspense>
           </Sidebar>
         }
       ></OneFourthLayout>
@@ -77,5 +88,5 @@ export default PostDetailsPage;
 export async function generateStaticParams() {
   const posts = await getPosts();
 
-  return posts.map(({ node: { slug } }: NodeDTO) => ({ slug }));
+  return posts.map(({ node: { slug } }: NodeDto) => ({ slug }));
 }

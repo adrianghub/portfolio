@@ -1,7 +1,7 @@
 'use client';
 
 import { useTheme } from 'next-themes';
-import { useMounted } from '@/shared/hooks/useMounted';
+import { useMounted } from '@/hooks/useMounted';
 import { BsFillMoonStarsFill, BsFillSunFill } from 'react-icons/bs';
 
 export const ThemeToggle = () => {

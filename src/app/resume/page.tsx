@@ -1,7 +1,7 @@
-import { OneFourthLayout, Sidebar } from '@/core/components';
-import { ExperienceList } from '@/modules/resume/components/Experience';
 import { Metadata } from 'next';
-import data from '../../data.json';
+import { OneFourthLayout, Sidebar } from '@/components';
+import { ExperienceList } from '@/components/Experience';
+import data from '../../content/data.json';
 
 export const metadata: Metadata = {
   title: 'Resume | Developer Portfolio | Adrian Zinko',
