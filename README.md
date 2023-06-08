@@ -7,6 +7,7 @@
 - [x] Search handling
 - [x] Newsletter subscription
 - [x] Dark mode
+- [x] Improve SEO (OG/Favicon) 
 - [ ] Translations (pl/es)
 - [x] Web Resume page
 - [ ] Donation page
