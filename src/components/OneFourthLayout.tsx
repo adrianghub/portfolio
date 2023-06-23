@@ -25,7 +25,7 @@ export const OneFourthLayout = ({
     )}
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:mt-4">
       <div className="lg:col-span-8 col-span-1 lg:mb-8">{childrenLeft}</div>
-      <div className="col-span-1 lg:col-span-4 relative lg:sticky top-2 lg:h-screen">
+      <div className="col-span-1 lg:col-span-4 relative lg:sticky top-8 lg:h-[95vh]">
         {childrenRight}
       </div>
     </div>

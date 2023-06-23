@@ -20,7 +20,7 @@ export const Posts = ({ posts, postsToLoad }: PostsProps) => {
   } = useLoadMore(posts, postsToLoad);
 
   return (
-    <div className="lg:col-span-8 col-span-1 mt-0 lg:mt-4">
+    <div className="lg:col-span-8 col-span-1 mt-0">
       {postsToLoad ? (
         <>
           {loadedPosts.map(({ node: post }) => (
