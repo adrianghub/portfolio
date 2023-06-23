@@ -5,13 +5,15 @@ interface OneFourthLayoutProps {
   headingClasses?: string;
   childrenLeft: ReactNode;
   childrenRight: ReactNode;
+  childrenRightClasses: string;
 }
 
 export const OneFourthLayout = ({
   title,
   headingClasses,
   childrenLeft,
-  childrenRight
+  childrenRight,
+  childrenRightClasses
 }: OneFourthLayoutProps) => (
   <>
     {title && (
@@ -25,7 +27,11 @@ export const OneFourthLayout = ({
     )}
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 md:mt-4">
       <div className="lg:col-span-8 col-span-1 lg:mb-8">{childrenLeft}</div>
-      <div className="col-span-1 lg:col-span-4 relative lg:sticky lg:top-8 lg:h-[95vh]">
+      <div
+        className={`col-span-1 lg:col-span-4 relative lg:sticky lg:top-8 lg:h-[95vh] ${
+          childrenRightClasses ? childrenRightClasses : ''
+        }`}
+      >
         {childrenRight}
       </div>
     </div>
