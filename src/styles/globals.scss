@@ -3,25 +3,25 @@
 @tailwind utilities;
 
 :root {
-  --color-bg-primary: #ede4da;
+  --color-bg-primary: #fafafa;
   --color-bg-secondary: #6f4c5b;
   --color-text-primary: #2d1f25;
   --color-text-secondary: #6f4c5b;
   --color-text-accent: #6f6f6f;
   --color-active: #db2777;
-  --color-text-selection: #ede4da;
+  --color-text-selection: #fafafa;
   --color-bg-selection: #130e10;
 }
 
 .dark {
   --color-bg-primary: #130e10;
   --color-bg-secondary: #6a6a6a;
-  --color-text-primary: #ede4da;
-  --color-text-secondary: #ede4da;
+  --color-text-primary: #fafafa;
+  --color-text-secondary: #fafafa;
   --color-text-accent: #fff;
   --color-text-dark: #000;
   --color-text-selection: #130e10;
-  --color-bg-selection: #ede4da;
+  --color-bg-selection: #fafafa;
 }
 
 * {
@@ -94,19 +94,23 @@ button[disabled] {
   }
 }
 
-.post-card-wrapper:hover h1 {
-  color: var(--color-active);
-  transition: 0.2s;
+.post-card-wrapper {
+  &:hover h1 {
+    color: var(--color-active);
+    transition: 0.2s;
+  }
 }
 
-.post-card-wrapper:hover {
-  box-shadow: 5px 10px 0px rgb(0 0 0 / 5%);
-  transition: 0.2s;
+.post-card-wrapper {
+  &:hover {
+    box-shadow: 5px 10px 0px rgb(0 0 0 / 5%);
+    transition: 0.2s;
+  }
 }
 
 .social-icon {
-  height: 40px;
-  width: 40px;
+  height: 32px;
+  width: 32px;
 }
 
 .search-icon {
@@ -130,8 +134,4 @@ button[disabled] {
 
 .search-input {
   font-size: 1.2em;
-}
-
-.site-logo {
-  font-weight: bold !important;
 }
