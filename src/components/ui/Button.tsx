@@ -19,7 +19,7 @@ export const Button = ({
   ...otherProps
 }: ButtonProps) => {
   const sharedClasses =
-    'prose transition duration-300 ease hover:bg-button-wenge-600 inline-block bg-button-wenge-700 text-lg rounded-full px-8 py-3 cursor-pointer text-button-wenge-100';
+    'prose transition duration-300 ease hover:bg-button-wenge-600 inline-block bg-button-wenge-700 text-lg rounded-full px-6 py-1 cursor-pointer text-button-wenge-100';
 
   return (
     <button

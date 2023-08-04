@@ -1,12 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { Send_Flowers } from 'next/font/google';
+import { Nunito_Sans } from 'next/font/google';
 import { ThemeToggle } from '@/app/theme-toggle';
 import { usePathname } from 'next/navigation';
 import { SearchSpotlight } from './blog/SearchSpotlight';
 
-const sentFlowersFont = Send_Flowers({ weight: '400', subsets: ['latin'] });
+const sentFlowersFont = Nunito_Sans({ weight: '400', subsets: ['latin'] });
 
 export const Header = () => {
   const pathname = usePathname();
@@ -19,12 +19,12 @@ export const Header = () => {
         stickyHeaderPath ? 'sticky top-0 backdrop-blur-sm' : ''
       }`}
     >
-      <div className="border-b w-full border-gray-300 py-8 sm:pb-0 flex flex-col justify-between items-center sm:flex-row">
-        <div className="flex items-center pb-4">
+      <div className="border-b w-full border-gray-300 py-8 sm:pb-2 flex flex-col justify-between items-center sm:flex-row">
+        <div className="flex items-center">
           <>
             <Link href="/" className="site-title">
               <p
-                className={`${sentFlowersFont.className} px-4 text-[22px] lg:text-[36px] xl:text-[46px] site-logo`}
+                className={`${sentFlowersFont.className} pr-4 text-[22px] lg:text-[26px] site-logo`}
               >
                 Adrian Zinko - Software Developer
               </p>
