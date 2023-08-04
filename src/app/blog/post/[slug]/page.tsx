@@ -53,7 +53,7 @@ const PostDetailsPage = async ({ params }: { params: { slug: string } }) => {
           <>
             <div className="md:border md:border-gray-300 rounded-lg px-0 md:px-8 pt-8 pb-4 mb-8 ">
               <PostDetail post={post} />
-              <article className="prose md:prose-lg lg:prose-xl max-w-none dark:prose-invert">
+              <article className="prose lg:prose-md max-w-none dark:prose-invert">
                 <MDXContent markdown={markdown} />
               </article>
             </div>

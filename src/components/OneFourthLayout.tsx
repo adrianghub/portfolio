@@ -5,7 +5,7 @@ interface OneFourthLayoutProps {
   headingClasses?: string;
   childrenLeft: ReactNode;
   childrenRight: ReactNode;
-  childrenRightClasses: string;
+  childrenRightClasses?: string;
 }
 
 export const OneFourthLayout = ({
