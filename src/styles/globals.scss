@@ -94,14 +94,18 @@ button[disabled] {
   }
 }
 
-.post-card-wrapper:hover h1 {
-  color: var(--color-active);
-  transition: 0.2s;
+.post-card-wrapper {
+  &:hover h1 {
+    color: var(--color-active);
+    transition: 0.2s;
+  }
 }
 
-.post-card-wrapper:hover {
-  box-shadow: 5px 10px 0px rgb(0 0 0 / 5%);
-  transition: 0.2s;
+.post-card-wrapper {
+  &:hover {
+    box-shadow: 5px 10px 0px rgb(0 0 0 / 5%);
+    transition: 0.2s;
+  }
 }
 
 .social-icon {
@@ -130,8 +134,4 @@ button[disabled] {
 
 .search-input {
   font-size: 1.2em;
-}
-
-.site-logo {
-  font-weight: bold !important;
 }

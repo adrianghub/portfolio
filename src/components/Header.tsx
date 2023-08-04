@@ -19,12 +19,12 @@ export const Header = () => {
         stickyHeaderPath ? 'sticky top-0 backdrop-blur-sm' : ''
       }`}
     >
-      <div className="border-b w-full border-gray-300 py-8 sm:pb-2 flex flex-col justify-between items-center sm:flex-row">
+      <div className="border-b w-full border-gray-300 py-8 pb-4 flex flex-col justify-between items-center sm:flex-row">
         <div className="flex items-center">
           <>
             <Link href="/" className="site-title">
               <p
-                className={`${sentFlowersFont.className} pr-4 text-[22px] lg:text-[26px] site-logo`}
+                className={`${sentFlowersFont.className} px-4 sm:pl-0 text-[18px] sm:text-[22px] lg:text-[26px] pb-4 sm:pb-0`}
               >
                 Adrian Zinko - Software Developer
               </p>
